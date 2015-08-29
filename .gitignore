@@ -1,3 +1,6 @@
 node_modules
 public
 themes/updevcamp
+layouts
+static/css
+static/js

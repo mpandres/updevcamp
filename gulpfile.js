@@ -5,7 +5,7 @@ var jeet = require('jeet');
 var webpack = require('webpack-stream');
 var wp = require('webpack');
 
-var theme = 'themes/updevcamp/';
+var theme = './';
 
 gulp.task('styles', function () {
   return gulp.src('themes/src/styles/main.styl')
