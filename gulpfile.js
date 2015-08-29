@@ -96,9 +96,7 @@ gulp.task('build', ['jshint', 'html', 'partials'], function () {
   return gulp.src(theme + '**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
-gulp.task('deploy', ['clean', 'build', 'scripts-deploy'], function(){
-    gulp.src('').pipe($.shell(['hugo --theme=updevcamp']));
-});
+gulp.task('deploy', ['clean', 'build', 'scripts-deploy']);
 
 gulp.task('default', ['clean', 'build'], function () {
   gulp.start('scripts');
