@@ -2,8 +2,6 @@
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 var jeet = require('jeet');
-var pngquant = require('pngquant');
-var jpegtran = require('imagemin-jpegtran');
 var webpack = require('webpack-stream');
 var wp = require('webpack');
 
