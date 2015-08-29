@@ -1,0 +1,47 @@
+@require "jeet"
+
+html
+  position relative
+  min-height 100%
+  
+body
+  margin 0
+  font-family: Montserrat,"Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
+  font-weight 300
+  font-size 15px
+  background-color bg_color
+
+header, .container
+  max-width md_size
+  width 90%
+  margin 0 auto
+
+header
+  a
+    text-decoration none
+
+footer
+  background-color accent_color
+  text-align center
+  margin-top 2em
+  padding 10px
+  p
+    margin 0
+    padding 0
+
+p 
+  color text_color
+
+.container
+  margin 0 auto
+  width 90%
+
+.color-csi
+  color csi_color
+
+.color-pink
+  color pink_color
+  
+//@media (min-width sm_size)
+//@media (min-width md_size)
+//@media (min-width lg_size)
