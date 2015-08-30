@@ -1,5 +1,8 @@
 @require "jeet"
 
+html, body
+  height 100%
+
 html
   position relative
   min-height 100%
@@ -10,6 +13,12 @@ body
   font-weight 300
   font-size 15px
   background-color bg_color
+  display table
+  width 100%
+
+.page-row
+  display table-row
+  height 1px
 
 header, .container
   max-width md_size
@@ -20,14 +29,18 @@ header
   a
     text-decoration none
 
+.main-wrapper
+  @extend .page-row
+  height 100%
+
 footer
+  @extend .page-row
   background-color accent_color
   text-align center
   margin-top 2em
-  padding 10px
   p
+    padding 10px
     margin 0
-    padding 0
 
 p 
   color text_color
