@@ -26,8 +26,25 @@ header, .container
   margin 0 auto
 
 header
-  a
+  margin 20px auto
+  h1
+    display inline-block
+    margin 0
+    a
+      color text_color
+      &:visited
+        color text_color
+  nav
+    display inline-block
+    float right
+    li
+      list-style-type none
+  a, a:visited
+    color csi_color
     text-decoration none
+
+.content
+  padding-bottom 20px
 
 .main-wrapper
   @extend .page-row
@@ -44,6 +61,12 @@ footer
 
 p 
   color text_color
+
+a
+  color csi_color
+  text-decoration none
+  &:visited
+    color visited_color 
 
 .container
   margin 0 auto

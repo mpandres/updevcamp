@@ -1,8 +1,22 @@
 {{ partial "head.html" . }}
+{{ partial "header.html" . }}
 <div class="content container">
   <div class="post">
     <h1>{{ .Title }}</h1>
+    <span class="post-author">
+      {{ $author := index $.Site.Data.authors .Params.author }}
+      {{ if $author }}
+        Authored by:
+        <span class="author-name">
+          {{ $author.name }}
+        </span>
+        <span class="author-bio">
+          {{ $author.bio }}
+        </span>
+      {{ end }}
+     </span>
     {{ .Content }}
   </div>
 </div>
+{{ partial "footer.html" . }}
 {{ partial "foot.html" . }}

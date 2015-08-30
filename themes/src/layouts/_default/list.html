@@ -1,4 +1,5 @@
 {{ partial "head.html" . }}
+{{ partial "header.html" . }}
 <div class="content container">
   <ul class="posts">
   {{ range .Data.Pages }}
@@ -12,4 +13,5 @@
   {{ end }}
   </ul>
 </div>
+{{ partial "footer.html" . }}
 {{ partial "foot.html" . }}
