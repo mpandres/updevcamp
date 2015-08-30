@@ -1,7 +1,7 @@
 +++
 date = "2015-02-08T16:20:02+08:00"
 title = "Linux Installation Guide"
-author = "mireya"
+authors = ["mireya"]
 
 +++
 

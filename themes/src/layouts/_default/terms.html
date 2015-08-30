@@ -1,4 +1,5 @@
 {{ partial "head.html" . }}
+{{ partial "header.html" . }}
 <div class="content container">
   <h1 class="title">{{ .Title }}</h1>
 
@@ -15,7 +16,11 @@
     {{ $page := index $pages 0 }}
     {{ $friendly := index $page.Page.Params $taxname 0 }}
     {{ $pageCount := len $pages }}
-    <a href="{{$base}}/{{$data.Plural}}/{{$name}}"> {{ $friendly }} </a> &nbsp;({{ $pageCount }} {{ if eq $pageCount 1 }}entry{{ else }}entries{{ end }})
+
+    {{ $author := index $.Site.Data.authors $name }}
+    {{ if $author }}
+    <li><a href="{{$base}}/{{$data.Plural}}/{{$name}}">{{ $author.name }}</a> &nbsp;({{ $pageCount }} {{ if eq $pageCount 1 }}entry{{ else }}entries{{ end }})</li>
+    {{ end }}
 
     {{ $descpages := index $desctax $name }}
     {{ if len $descpages }}
@@ -25,4 +30,5 @@
     {{ end }}
   </ul>  
 </div>
+{{ partial "footer.html" . }}
 {{ partial "foot.html" . }}

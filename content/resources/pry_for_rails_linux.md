@@ -1,7 +1,7 @@
 +++
 date = "2015-01-19T08:49:02+08:00"
 title = "Installing pry in Rails 4"
-author = "neil"
+authors = ["neil"]
 
 +++
 This guide aims to install [pry](https://github.com/pry/pry) in your Rails 4 App.

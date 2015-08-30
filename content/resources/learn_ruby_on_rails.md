@@ -1,7 +1,7 @@
 +++
 date = "2015-02-10T02:11:02+08:00"
 title = "Learn Ruby on Rails"
-author = "neil"
+authors = ["neil"]
 
 +++
 
