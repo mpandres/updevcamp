@@ -93,7 +93,7 @@ gulp.task('clearcache', function() {
 });
 
 gulp.task('build', ['jshint', 'html', 'partials'], function () {
-  return gulp.src(theme + '**/*').pipe($.size({title: 'build', gzip: true}));
+    return gulp.src([theme + 'layouts/*', theme + 'static/*']).pipe($.size({title: 'build', gzip: true}));
 });
 
 gulp.task('deploy', ['clean', 'build', 'scripts-deploy']);
@@ -101,5 +101,5 @@ gulp.task('deploy', ['clean', 'build', 'scripts-deploy']);
 gulp.task('default', ['clean', 'build'], function () {
   gulp.start('scripts');
   gulp.start('watch');
-  gulp.src('').pipe($.shell(['hugo server --watch --theme=updevcamp --buildDrafts']));
+  gulp.src('').pipe($.shell(['hugo server --watch --buildDrafts']));
 });
