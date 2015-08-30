@@ -3,3 +3,7 @@ languageCode = "en-us"
 title = "UP CSI Devcamp"
 [taxonomies]
   author = "authors"
+
+[params]
+  defaultDescription = "CSI Devcamp provides a space and network for motivated students to learn and create awesome stuff"
+  defaultKeywords = "Devcamp, UP, CSI, Computer, Science, UP CSI Devcamp, Bootcamp, Mentorship, Mentor, Mentee"
