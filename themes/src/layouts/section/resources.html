@@ -1,0 +1,19 @@
+{{ partial "head.html" . }}
+{{ partial "header.html" . }}
+<div class="content container">
+  <h2 class="section-title">This page serves as the compilation of every development <b>guide</b>, <b>tutorial</b>, <b>tips</b>, and <b>conventions</b> for UP CSI</h2>
+  <a href="https://github.com/Secretmapper/updevcamp/tree/master">Contribute</a>
+  <ul class="resource-list">
+  {{ range .Data.Pages }}
+    <li><a href="{{ .Permalink }}">{{ .Title }}</a>
+    {{ if isset .Params "categories" }}
+    &middot;
+    {{ $BaseURL := .Site.BaseURL }}
+    {{ range .Params.categories }}<a class="label" href="{{ $BaseURL }}/categories/{{ . | urlize }}">{{ . }}</a>{{ end }}
+    {{ end }}</span>
+    &middot; <time>{{ .Date.Format "Jan 2, 2006" }}</time></li>
+  {{ end }}
+  </ul>
+</div>
+{{ partial "footer.html" . }}
+{{ partial "foot.html" . }}
