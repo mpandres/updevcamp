@@ -7,6 +7,7 @@
       {{if ne $taxonomy "Pages"}}
         {{ range (index $page.Params $taxonomy) }}
           {{ if eq ($root.Title | urlize | title) (. | urlize | title) }}
+            <a href="{{ $root.Site.BaseURL }}/{{ $taxonomy | urlize }}">&lt; {{ $taxonomy | title }}</a>
             <h1 class="title">{{ . }}</h1>
             {{ $desc := printf "%s-desc" $taxonomy }}
             {{ $desctax := index $root.Site.Taxonomies $desc }}
@@ -23,7 +24,17 @@
 
     <ul>
     {{ range .Data.Pages }}
-      <li><a href="{{.Permalink}}">{{ .LinkTitle }}</a></li>
+        <li>
+          <a href="{{.Permalink}}">
+            {{ .LinkTitle }}
+          </a>
+          {{ if .Params.tech }}
+            <!--tech for trackposts-->
+            <small class="track-tech">
+              {{ .Params.tech }}
+            </small>
+          {{ end }}
+        </li>
     {{end}}
     </ul>
 

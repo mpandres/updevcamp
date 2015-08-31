@@ -1,8 +1,10 @@
 {{ partial "head.html" . }}
 {{ partial "header.html" . }}
 <div class="content container">
-  <div class="post">
-    <h1>{{ .Title }}</h1>
+  <article class="post">
+    <h1 class="post-title">{{ .Title }}</h1>
+    <h1>Table of Contents</h1>
+    {{ .TableOfContents }}
     <span class="post-author">
       {{ $author := index $.Site.Data.authors .Params.author }}
       {{ if $author }}
@@ -16,7 +18,7 @@
       {{ end }}
      </span>
     {{ .Content }}
-  </div>
+  </article>
 </div>
 {{ partial "footer.html" . }}
 {{ partial "foot.html" . }}

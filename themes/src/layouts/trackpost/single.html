@@ -1,0 +1,27 @@
+{{ partial "head.html" . }}
+{{ partial "header.html" . }}
+{{ $authorkey := (index .Params.authors 0) }}
+{{ $author := index $.Site.Data.authors $authorkey }}
+{{ $baseUrl := .Site.BaseURL }}
+<div class="content container">
+  <article class="post">
+    {{ $track := index .Params.tracks 0 }}
+    <h1 class="post-title">
+        <a href="{{ $baseUrl }}/tracks/{{ $track }}">{{ $track }}</a> Track:
+        {{ .Title }}
+    </h1>
+    <span class="post-by">
+    {{ if $author }}
+      by:
+      <span class="author-name">
+        <a class="label" href="{{ $baseUrl }}/authors/{{ $author.nick | urlize }}">{{ $author.name }}</a>
+      </span>
+    {{ end }}
+    </span>
+    <h1>Table of Contents</h1>
+    {{ .TableOfContents }}
+    {{ .Content }}
+  </article>
+</div>
+{{ partial "footer.html" . }}
+{{ partial "foot.html" . }}
