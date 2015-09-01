@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Web on UP CSI Devcamp</title>
+    <link>http://localhost:1313/tracks/web/</link>
+    <description>Recent content in Web on UP CSI Devcamp</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 31 Aug 2015 11:21:08 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tracks/web/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Week 1</title>
+      <link>http://localhost:1313/trackpost/15a-web1/</link>
+      <pubDate>Mon, 31 Aug 2015 11:21:08 +0800</pubDate>
+      
+      <guid>http://localhost:1313/trackpost/15a-web1/</guid>
+      <description>
+
+&lt;h1 id=&#34;hello-world:16fe1a30e3219ded885bd9a94725ff66&#34;&gt;Hello World&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;This webtrack is designed to get you creating websites.&lt;/li&gt;
+&lt;li&gt;If you&amp;rsquo;re nervous because you have no web dev experience, you&amp;rsquo;re in good company: over 70% of students who signed up for Devcamp listed &amp;lsquo;none&amp;rsquo; as their experience.
+
+&lt;ul&gt;
+&lt;li&gt;If you do have web dev experience, don&amp;rsquo;t get complacent - we&amp;rsquo;ll make sure to challenge you.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Devcamp tracks are relatively practical - don&amp;rsquo;t get too caught up memorizing terms and definitions.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;prerequisites:16fe1a30e3219ded885bd9a94725ff66&#34;&gt;Prerequisites&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Some basic programming experience with any language (or willingness to learn)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;expectations-house-rules:16fe1a30e3219ded885bd9a94725ff66&#34;&gt;Expectations/House Rules&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Attend all sessions&lt;/li&gt;
+&lt;li&gt;You will need to implement four projects by the end of the track&lt;/li&gt;
+&lt;li&gt;You are encouraged to bring your own device&lt;/li&gt;
+&lt;li&gt;If you&amp;rsquo;re having any trouble, just contact any of the staff&lt;/li&gt;
+&lt;li&gt;If you think the track is too easy for you, just contact any of the staff&lt;/li&gt;
+&lt;li&gt;Have fun&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;html:16fe1a30e3219ded885bd9a94725ff66&#34;&gt;HTML&lt;/h1&gt;
+
+&lt;p&gt;Here&amp;rsquo;s a very basic HTML snippet:&lt;/p&gt;
+
+&lt;p&gt;&lt;table class=&#34;highlighttable&#34;&gt;&lt;tr&gt;&lt;td&gt;&lt;div class=&#34;linenodiv&#34; style=&#34;background-color: #f0f0f0; padding-right: 10px&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #557799&#34;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+  &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;Hello World&lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+  &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+  &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+    Hello World
+  &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s a basic webpage that does nothing but display &lt;code&gt;Hello World&lt;/code&gt;. The first line declares this piece of code as HTML, followed by &lt;code&gt;tags&lt;/code&gt;, beginning with &lt;code&gt;&amp;lt;&lt;/code&gt; and &lt;code&gt;&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;It is easy to create an html page yourself. Go in your text editor of choice and create a new file, saving it as &lt;code&gt;index.html&lt;/code&gt;. Put it anywhere easy to find, such as your desktop. Then type this in:&lt;/p&gt;
+
+&lt;p&gt;&lt;table class=&#34;highlighttable&#34;&gt;&lt;tr&gt;&lt;td&gt;&lt;div class=&#34;linenodiv&#34; style=&#34;background-color: #f0f0f0; padding-right: 10px&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;1
+2
+3
+4&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #557799&#34;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+
+&lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/p&gt;
+
+&lt;p&gt;This boilerplate code basically says that our file Document Type is html (&lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/code&gt;). We then have the &lt;code&gt;html&lt;/code&gt; tag, which currently contains nothing. Every HTML page needs a section called a &lt;code&gt;head&lt;/code&gt;, so let&amp;rsquo;s go ahead and add that and a &lt;code&gt;&amp;lt;title&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;table class=&#34;highlighttable&#34;&gt;&lt;tr&gt;&lt;td&gt;&lt;div class=&#34;linenodiv&#34; style=&#34;background-color: #f0f0f0; padding-right: 10px&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;1
+2
+3
+4
+5
+6&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #557799&#34;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+  &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;Devcamp Week 1&lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+  &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/p&gt;
+
+&lt;p&gt;Another section every html page needs is a &lt;code&gt;&amp;lt;body&amp;gt;&lt;/code&gt;. Adding it follows the same structure we&amp;rsquo;ve seen so far:&lt;/p&gt;
+
+&lt;p&gt;&lt;table class=&#34;highlighttable&#34;&gt;&lt;tr&gt;&lt;td&gt;&lt;div class=&#34;linenodiv&#34; style=&#34;background-color: #f0f0f0; padding-right: 10px&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #557799&#34;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+  &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;Devcamp Week 1&lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+  &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+  &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+    Hello World
+  &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/p&gt;
+
+&lt;p&gt;Save it. We can then open our webpage by going to a browser (say Chrome) and pressing &lt;code&gt;Ctrl+O&lt;/code&gt;/&lt;code&gt;Cmd+O&lt;/code&gt; and then navigating to our &lt;code&gt;index.html&lt;/code&gt; file (alternatively, double click/drag to your browser your saved html file)&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;http://localhost:1313/media/tracks/web/chrome-index.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Notice how the tab says &amp;ldquo;Devcamp Week 1&amp;rdquo; - our title tag contents is used as the title for the tab. Meanwhile, the contents of our body tag is what&amp;rsquo;s seen in the actual browser window.&lt;/p&gt;
+
+&lt;p&gt;Those words covered in angle brackets are called &lt;code&gt;tags&lt;/code&gt;. For example, &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; is a tag, as well as &lt;code&gt;&amp;lt;body&amp;gt;&lt;/code&gt;. You might notice the tag with &lt;code&gt;/&lt;/code&gt;s in it, such as &lt;code&gt;&amp;lt;/head&amp;gt;&lt;/code&gt;. In html, there are  &lt;strong&gt;open&lt;/strong&gt; and &lt;strong&gt;close&lt;/strong&gt; tags (or start and end tags) of html &lt;strong&gt;elements&lt;/strong&gt;. For example, the html &lt;em&gt;element&lt;/em&gt; &lt;code&gt;head&lt;/code&gt; has &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; and &lt;code&gt;&amp;lt;/head&amp;gt;&lt;/code&gt; as it&amp;rsquo;s &lt;em&gt;open&lt;/em&gt; and &lt;em&gt;close&lt;/em&gt; tags respectively.&lt;/p&gt;
+
+&lt;p&gt;Web browsers interpret HTMl from top to bottom. When it sees &lt;code&gt;&amp;lt;html&amp;gt;&lt;/code&gt;, that basically tells our browser &amp;ldquo;What&amp;rsquo;s going to come is our html page&amp;rdquo;. &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; says &amp;ldquo;This is the start of the head section&amp;rdquo;, and &lt;code&gt;&amp;lt;/head&amp;gt;&lt;/code&gt; says &amp;ldquo;This is the end of the head section.&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;Indentation and spaces doesn&amp;rsquo;t really matter in html (much like C), and you will notice that we indent and unindent when opening and closing tags, just like &lt;strong&gt;curly braces&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s go back to the html page we saved again:&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;http://localhost:1313/media/tracks/web/chrome-index.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;You will notice that the URL reads &lt;code&gt;file:///Users/Secretmapper/Desktop/index.html&lt;/code&gt;, (or wherever you saved the file). The &lt;code&gt;file&lt;/code&gt; protocol basically indicates that the browser opened the file on the local hard drive. Hence, no one else should be able to see it.&lt;/p&gt;
+
+&lt;h2 id=&#34;servers:16fe1a30e3219ded885bd9a94725ff66&#34;&gt;Servers&lt;/h2&gt;
+
+&lt;p&gt;What we can do is to use what&amp;rsquo;s known as a web server. Python comes with a simple HTTP server, so let&amp;rsquo;s use that.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;First, open your terminal, and navigate to your html file. Recall that you can navigate to directories using &lt;code&gt;cd&lt;/code&gt; (&lt;strong&gt;c&lt;/strong&gt;hange &lt;strong&gt;d&lt;/strong&gt;irectory) and the path you want. &lt;code&gt;ls&lt;/code&gt; lists the file/folders of the current directory you are in (or &lt;code&gt;dir&lt;/code&gt; in windows.)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #996633&#34;&gt;$ &lt;/span&gt;&lt;span style=&#34;color: #007020&#34;&gt;cd&lt;/span&gt; ~/Desktop
+&lt;span style=&#34;color: #996633&#34;&gt;$ &lt;/span&gt;ls
+index.html
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Once you&amp;rsquo;re in the directory that contains your &lt;code&gt;index.html&lt;/code&gt; file, run the command &lt;code&gt;python -m SimpleHTTPServer 8000&lt;/code&gt; (case sensitive!)&lt;/p&gt;
+
+&lt;p&gt;You should see the message &lt;code&gt;Serving HTTP on 0.0.0.0 port 8000 ...&lt;/code&gt;. This means that we have an HTTP server running on port 8000! We can now open a new tab and enter &lt;code&gt;localhost:8000/index.html&lt;/code&gt;, meaning we are accessing our own computer and requesting for the &lt;code&gt;index.html&lt;/code&gt; file we wrote.&lt;/p&gt;
+
+&lt;p&gt;The page looks the same, but the difference now is that HTTP is being used to serve the page (notice that the URL doesn&amp;rsquo;t have the &lt;code&gt;file:///&lt;/code&gt; protocol anymore)&lt;/p&gt;
+
+&lt;h2 id=&#34;tags:16fe1a30e3219ded885bd9a94725ff66&#34;&gt;Tags&lt;/h2&gt;
+
+&lt;h3 id=&#34;links:16fe1a30e3219ded885bd9a94725ff66&#34;&gt;Links&lt;/h3&gt;
+
+&lt;p&gt;Let&amp;rsquo;s try some new things now. Let&amp;rsquo;s say we want to create a link. We would need to write something like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;table class=&#34;highlighttable&#34;&gt;&lt;tr&gt;&lt;td&gt;&lt;div class=&#34;linenodiv&#34; style=&#34;background-color: #f0f0f0; padding-right: 10px&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #557799&#34;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+  &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;Devcamp Week 1&lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+  &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+  &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;a&lt;/span&gt; &lt;span style=&#34;color: #0000CC&#34;&gt;href=&lt;/span&gt;&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;http://www.updevcamp.com/&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #007700&#34;&gt;&amp;gt;&lt;/span&gt;UP Dev Camp&lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+  &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;lt;a&amp;gt;&lt;/code&gt; is our open tag, short for &amp;ldquo;anchor&amp;rdquo;, &lt;code&gt;UP Dev Camp&lt;/code&gt;, is what&amp;rsquo;s shown by the browser, and &lt;code&gt;&amp;lt;/a&amp;gt;&lt;/code&gt; is the close tag for the anchor element. But what is &lt;code&gt;href&lt;/code&gt;, and why is it in the middle of the &lt;code&gt;&amp;lt;a&amp;gt;&lt;/code&gt; tag? &lt;code&gt;href&lt;/code&gt; is what&amp;rsquo;s called an &lt;strong&gt;attribute&lt;/strong&gt;, something that modifies a tag. &lt;code&gt;href&lt;/code&gt; in this case modifies the anchor tag to link to the address that it should redirect to when it&amp;rsquo;s clicked.&lt;/p&gt;
+
+&lt;p&gt;Try previewing it on your browser:&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;http://localhost:1313/media/tracks/web/alink.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Note how the href link can be different from what&amp;rsquo;s shown to the user. As an example, we can be malicious and do something like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;table class=&#34;highlighttable&#34;&gt;&lt;tr&gt;&lt;td&gt;&lt;div class=&#34;linenodiv&#34; style=&#34;background-color: #f0f0f0; padding-right: 10px&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #557799&#34;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+  &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;Devcamp Week 1&lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+  &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+  &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;a&lt;/span&gt; &lt;span style=&#34;color: #0000CC&#34;&gt;href=&lt;/span&gt;&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;http://virus.com&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #007700&#34;&gt;&amp;gt;&lt;/span&gt;http://google.com&lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+  &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/p&gt;
+
+&lt;p&gt;Notice that our &lt;code&gt;href&lt;/code&gt; attribute points to &lt;code&gt;http://virus.com&lt;/code&gt;, but the text inside says &lt;code&gt;http://google.com&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;http://localhost:1313/media/tracks/web/badlink.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;The link in the image seems like an innocent link to google, but actually redirects to &lt;code&gt;virus.com&lt;/code&gt;!&lt;/p&gt;
+
+&lt;h3 id=&#34;lists:16fe1a30e3219ded885bd9a94725ff66&#34;&gt;Lists&lt;/h3&gt;
+
+&lt;p&gt;&lt;table class=&#34;highlighttable&#34;&gt;&lt;tr&gt;&lt;td&gt;&lt;div class=&#34;linenodiv&#34; style=&#34;background-color: #f0f0f0; padding-right: 10px&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #557799&#34;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+  &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;Devcamp Week 1&lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+  &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+  &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;ul&amp;gt;&lt;/span&gt;
+      &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;Cabot&lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+      &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;Currier&lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+      &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;Pforzheimer&lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
+  &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/p&gt;
+
+&lt;p&gt;If you render the html above, it will look something like this:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Cabot&lt;/li&gt;
+&lt;li&gt;Currier&lt;/li&gt;
+&lt;li&gt;Pforzheimer&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The &lt;code&gt;&amp;lt;ul&amp;gt;&lt;/code&gt; tag stands for &lt;strong&gt;unordered list&lt;/strong&gt;, and &lt;code&gt;&amp;lt;li&amp;gt;&lt;/code&gt; as &lt;strong&gt;list item&lt;/strong&gt;, hence it produces a list. We can change the &lt;code&gt;&amp;lt;ul&amp;gt;&lt;/code&gt; to an &lt;code&gt;&amp;lt;ol&amp;gt;&lt;/code&gt; tag for an &lt;strong&gt;ordered list&lt;/strong&gt;, which will look like this:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Cabot&lt;/li&gt;
+&lt;li&gt;Currier&lt;/li&gt;
+&lt;li&gt;Pforzhemier&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;paragraphs:16fe1a30e3219ded885bd9a94725ff66&#34;&gt;Paragraphs&lt;/h3&gt;
+
+&lt;p&gt;We use the &lt;code&gt;&amp;lt;p&amp;gt;&lt;/code&gt; tag for &lt;strong&gt;paragraphs&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #557799&#34;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+  &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;Devcamp Week 1&lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+  &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+  &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sit amet quam varius, ornare neque eget, porttitor lorem. Vivamus rutrum, dui nec varius porta, sem neque tristique dolor, in condimentum dui tortor convallis erat. Quisque non ligula et lorem consectetur ultrices. Praesent eu massa lectus. Duis nec erat vel ante hendrerit scelerisque. Vivamus eu tincidunt libero. Nam feugiat a augue id hendrerit. Sed convallis magna placerat feugiat finibus.&lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Nunc hendrerit porttitor vehicula. Curabitur rutrum orci vel accumsan blandit. Praesent vel semper dolor. Maecenas ac vestibulum ligula. Cras tincidunt velit elit, dignissim pharetra quam suscipit quis. Curabitur et sagittis elit. Nullam ante odio, viverra vel sollicitudin vel, elementum et odio. Aenean varius magna quis turpis dapibus, at mollis dui laoreet. Curabitur ac tristique tortor. Sed viverra tortor metus, in hendrerit lacus sodales sed. Etiam finibus tortor at metus mollis, nec hendrerit mi tempus. Nam consectetur id eros in tristique. Nulla in faucibus elit, sed laoreet nulla. Vestibulum condimentum nibh vel nulla molestie, ut gravida quam maximus.&lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Nulla vehicula ullamcorper tellus vitae semper. Etiam condimentum eros a felis laoreet, vitae fringilla nisl molestie. Etiam fringilla suscipit enim, et commodo nisi suscipit eget. Mauris ac risus a quam sollicitudin tempor. Curabitur vel diam tincidunt mauris euismod efficitur. Vivamus cursus laoreet lacus. Curabitur gravida condimentum leo, tincidunt rhoncus enim.&lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+  &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;http://localhost:1313/media/tracks/web/paragraphs.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;HTML has lots and lots of tags, but as long as you know the concept, and how it can be structured, it&amp;rsquo;s easy to pick it up as you go.&lt;/p&gt;
+
+&lt;h1 id=&#34;further-reading:16fe1a30e3219ded885bd9a94725ff66&#34;&gt;Further Reading&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;More HTML elements/attributes:
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/HTML/Element&#34;&gt;MDN HTML elements reference&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes&#34;&gt;MDN HTML attributes reference&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

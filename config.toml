@@ -2,6 +2,7 @@ baseurl = ""
 languageCode = "en-us"
 title = "UP CSI Devcamp"
 pygmentsstyle = "colorful"
+publishdir = "dist"
 
 [taxonomies]
   tracks = "tracks"
