@@ -43,6 +43,7 @@
   "dependencies": {
     "gulp-webpack": "^1.5.0",
     "jsx-loader": "^0.13.2",
+    "parse": "^1.5.0",
     "url": "^0.11.0",
     "webpack": "^1.8.9"
   }
