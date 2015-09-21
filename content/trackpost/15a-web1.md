@@ -1,8 +1,7 @@
 +++
 date = "2015-08-31T11:21:08+08:00"
 title = "Week 1"
-draft = true
-tech = "TCP/IP. HTTP. HTML. CSS. Git."
+tech = "IP, HTTP, HTML."
 tracks = ["Web"]
 authors = ["arian"]
 
