@@ -1,0 +1,153 @@
++++ date = "2015-10-9T13:40:10+08:00" title = "Python Tutorial" authors = ["dominic"]
+
++++
+
+# Python
+
+## How to Download
+
+For the purposes of this tutorial, we will be using Python 3. To download the installer for Python, visit https://www.python.org/downloads/release/python-343/ and scroll to the bottom of the page.
+
+For Windows and Mac OS users simply identify if your OS is 32 or 64 bit and download the appropriate installer. For Linux users, click on the XZ compressed source tarball, as that is the one that has installation instructions in this document.
+
+## How to Install
+	
+For Windows users, simply run the executable file and just keep on clicking “Next”, then wait for it to finish installing. After installing, we have to set the PATH of your OS to be able to run Python from the command prompt.
+
+### Setting Path on Windows
+Taken from https://java.com/en/download/help/path.xml
+	
+#### Windows 8
+>1. Drag the Mouse pointer to the Right bottom corner of the screen 
+>2. Click on the Search icon and type: Control Panel 
+>3. Click on -> Control Panel -> System -> Advanced 
+>4. Click on Environment Variables, under System Variables, find PATH, and click on it. 
+>5. In the Edit windows, modify PATH by adding the directory of your Python installation, which is C:\Python34 by default. 
+
+#### Windows 7
+>1. Select Computer from the Start menu 
+>2. Choose System Properties from the context menu 
+>3. Click Advanced system settings > Advanced tab 
+>4. Click on Environment Variables, under System Variables, find PATH, and click on it. 
+>5. In the Edit windows, modify PATH by adding the directory of your Python installation, which is C:\Python34 by default. 
+
+#### Windows XP
+>1. Start -> Control Panel -> System -> Advanced 
+>2. Click on Environment Variables, under System Variables, find PATH, and click on it. 
+>3. In the Edit windows, modify PATH by adding the directory of your Python installation, which is C:\Python34 by default. 
+
+#### Windows Vista
+>1. Right click My Computer icon 
+>2. Choose Properties from the context menu 
+>3. Click Advanced tab (Advanced system settings link in Vista) 
+>4. In the Edit windows, modify PATH by adding the directory of your Python installation, which is C:\Python34 by default. 
+	
+For Linux users, simply extract the tarball to a folder, then run the following in the terminal:
+
+>./configure
+
+>make
+
+>make test
+
+>sudo make install
+
+Afterwards, open the command prompt/terminal and type “python”. You should see something like this.
+	
+>Python 3.4.3 (default, Jul 28 2015, 18:20:59) 
+	
+>[GCC 4.8.4] on linux
+  
+>Type "help", "copyright", "credits" or "license" for more information.
+  
+>\>>>
+
+If so, then congratulations. You have successfully installed Python in your computer.
+
+## Basics
+
+Now that we have Python in our computer, we can get started with the actual coding. Let us start off with the most basic of basics, printing to the command prompt. Open up any text editor and type
+
+	print(“Hello World”)
+
+Now save it as sample.py. 
+
+To run python code, we must type “python filename” in the command prompt, where “filename” is the name of the file containing python code, which in this case is “sample.py”. Thus, let us type “python sample.py”. It should display
+
+	Hello World
+
+Congratulations, you have just made your first python program.
+
+Now let us make things a little bit harder.
+
+Let's say I wish to make it so that it will print “Hello World” how many times the user wants. This would involve multiple things: reading input, storing that value in a variable, and looping the print statement that number of times. 
+
+Frist things first, getting input from the user. To do this, we can use the input() function like so.
+
+	iter = input(“How many times to print? “)
+This shall prompt the user to input a number, which would be stored in the iter variable. But wait, there's something wrong here. The input function returns a string, which is different from a number. So we must first convert the string inputted by the user to a number before doing anything else.
+
+	iter = int(input(“How many times to print? “))
+
+Now we are sure that whatever the user inputs, Python will convert it into an integer. You may have noticed that, unlike in C, we have not initialized the iter variable. This is because in Python, variable types are not explicitly determined, meaning the variable will be whatever data it contains be it an integer, string, float, and the like. So something like this in C
+
+	int iter = 0;
+
+Is equal to this in Python
+
+	iter = 0
+
+Now let us do the looping part. We can use the for loop to loop a variable in a certain range, usually specified by the range() function.
+
+>for x in range(0,iter):
+
+>>print(“Hello World”)
+
+As you can see, the range started from 0, and not 1. This is because, in the range function, the lower boundary, in this case 0, is inclusive, while the upper boundary, iter, is exclusive. We can see this by printing the current value of x alongside “Hello World”. 
+
+>for x in range(0,iter):
+
+>>print(“Hello World ”, x)
+
+Note that indentation in Python is not optional. This code will not work if we do not use proper indentations. Here, we can see that in for loops, everything inside the for loop must be indented. In addition to this, for loops also end in “:” to identify that the next line should be indented.
+
+Now, run the program like we did previously and now it should prompt you for an input
+
+	How many times to print?
+
+Let us print “Hello World” five times.
+
+	How many times to print? 5
+
+And it will display this
+
+>Hello World 0
+
+>Hello World 1
+
+>Hello World 2
+
+>Hello World 3
+
+>Hello World 4
+
+Ok. Now let us say that instead of printing “Hello World” each time, I wish to alternately print “Hello” and “Hi”. To do this, we must, at every iteration, check if the current iteration is even or odd, since obviously even and odd numbers alternate.
+>for x in range(0,iter):
+
+>>if(x % 2 == 0): //% is called modulo, which takes the remainder of division of the two numbers
+
+>>>print(“Hello”)
+
+>>elif(x % 2 != 0):
+
+>>>print(“Hi”)
+
+We have encountered a lot of new stuff here, so let us take them one by one.
+
+	if(x % 2 == 0):
+
+This ss called the if statement. This evaluates whatever condition is inside its parentheses and proceeds to do  the lines underneath it if it evaluates True, while skipping all other elifs, which you will see later. If the condition does not evaluate to True, then it simply skips the indented block and finds the next line that matches its indentation.
+
+	elif(x % 2 != 0):
+
+This is also an if statement, but the difference between “elif” and  “if” is that elif requires a previous if statement; the program will not run otherwise. Aside from that, however, it functions identically to if statements as discussed above.
