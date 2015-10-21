@@ -1,4 +1,4 @@
-+++ date = "2015-10-9T13:40:10+08:00" title = "Python Tutorial" authors = ["dominic"]
++++ date = "2015-10-21T16:40:50+08:00" title = "Python Tutorial" authors = ["dominic"]
 
 +++
 
@@ -146,8 +146,98 @@ We have encountered a lot of new stuff here, so let us take them one by one.
 
 	if(x % 2 == 0):
 
-This ss called the if statement. This evaluates whatever condition is inside its parentheses and proceeds to do  the lines underneath it if it evaluates True, while skipping all other elifs, which you will see later. If the condition does not evaluate to True, then it simply skips the indented block and finds the next line that matches its indentation.
+This is called the if statement. This evaluates whatever condition is inside its parentheses and proceeds to do the lines underneath it if it evaluates to True, while skipping all other elifs which you will see later. If the condition does not evaluate to True, then it simply skips the indented block and finds the next line that matches its indentation.
 
 	elif(x % 2 != 0):
 
 This is also an if statement, but the difference between “elif” and  “if” is that elif requires a previous if statement; the program will not run otherwise. Aside from that, however, it functions identically to if statements as discussed above.
+
+Now to start with arrays. In Python we call “arrays” “lists”, which are just basically heterogeneous arrays. These are defined by
+
+	arr = [1, 2, “Hello World”]
+
+Here, we defined a list called arr which contains the integers 1 and 2, and the string “Hello World”. To access an element in the list, we simply use its index, like so.
+
+	arr[0]
+
+Which returns
+
+	1
+
+Do take note that lists in Python use zero-based numbering. This means that the index of the first element in a list is 0, then the index of the second element is 1, and so on. This also works the other way around, with
+
+	arr[-1]
+
+Returning
+
+	“Hello World”
+
+It basically is shorthand for
+
+	arr[len(arr) – 1]
+
+Where len(x) returns the length of x, whether it be a list, string, tuple, etc. One could also return sub-arrays of the list by defining a range of indexes instead. For example
+
+	arr[1:2]
+
+Would result in
+
+	[2, “Hello World”]
+
+As you can see, the range is inclusive, with all indexes between 1 and 2 inclusive being outputted. 
+
+There are numerous built-in functions for list manipulation in Python, but we shall only tackle the basics.
+
+To append to lists
+
+	arr.append(element)
+
+Inserting
+
+	arr.insert(index, element)
+
+Which would move all other elements to the right
+
+Deletion
+
+	del arr[index]
+
+Would remove the element with that index from the list
+
+	arr.pop(index)
+
+Would remove the element with that index and return it. If no index is given, it would automatically remove the last element in the list and returns it.
+
+	arr.remove(element)
+
+Would remove the first element that corresponds to that element
+
+For further information about these, visit https://docs.python.org/3.4/tutorial/datastructures.html
+
+Now let us tackle functions. All Python functions follow the following syntax
+
+>def name(parameters):
+
+>>function code
+
+>>function code
+
+>>function code
+
+>not part of the function
+
+As you can see, similar to if statements and for loops, function declarations need a colon at the end. In addition to this, all lines of code belonging to that function are indented at the same level, with the first line with less than the required indentation marking the end of the function.
+
+To call this function, simply put
+
+	name(parameters)
+
+Which would now call the function, passing the parameters to the function. Note that the parameters are passed by reference. Meaning that any changes made to the parameter passed inside the function would also affect the same variable outside it, even if the variable's value was not explicitly returned.
+
+Lastly, before we move on to actual examples of code, let us briefly tackle how to import in Python. To import other Python files, the following line
+
+	import file.py
+
+Where file.py is whatever file you wish to import. Using this, you can use functionalities that can be found in the provided Python modules to make life easier. One could also import their own files, allowing them the option to neatly package their functions into files for possibly future use.
+
+With these in mind, you can now start coding in Python. Good for you.
