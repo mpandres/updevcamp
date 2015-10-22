@@ -31,7 +31,7 @@ authors = ["arian"]
 
 Here's a very basic HTML snippet:
 
-{{< highlight html "linenos=table" >}}
+~~~html
 <!DOCTYPE html>
 <html>
   <head>
@@ -41,33 +41,33 @@ Here's a very basic HTML snippet:
     Hello World
   </body>
 </html>
-{{< /highlight >}}
+~~~
 
 It's a basic webpage that does nothing but display `Hello World`. The first line declares this piece of code as HTML, followed by `tags`, beginning with `<` and `>`
 
 It is easy to create an html page yourself. Go in your text editor of choice and create a new file, saving it as `index.html`. Put it anywhere easy to find, such as your desktop. Then type this in:
 
-{{< highlight html "linenos=table" >}}
+~~~html
 <!DOCTYPE html>
 <html>
 
 </html>
-{{< /highlight >}}
+~~~
 
 This boilerplate code basically says that our file Document Type is html (`<!DOCTYPE html>`). We then have the `html` tag, which currently contains nothing. Every HTML page needs a section called a `head`, so let's go ahead and add that and a `<title>`.
 
-{{< highlight html "linenos=table" >}}
+~~~html
 <!DOCTYPE html>
 <html>
   <head>
     <title>Devcamp Week 1</title>
   </head>
 </html>
-{{< /highlight >}}
+~~~
 
 Another section every html page needs is a `<body>`. Adding it follows the same structure we've seen so far:
 
-{{< highlight html "linenos=table" >}}
+~~~html
 <!DOCTYPE html>
 <html>
   <head>
@@ -77,7 +77,7 @@ Another section every html page needs is a `<body>`. Adding it follows the same 
     Hello World
   </body>
 </html>
-{{< /highlight >}}
+~~~
 
 Save it. We can then open our webpage by going to a browser (say Chrome) and pressing `Ctrl+O`/`Cmd+O` and then navigating to our `index.html` file (alternatively, double click/drag to your browser your saved html file)
 
@@ -103,11 +103,11 @@ What we can do is to use what's known as a web server. Python comes with a simpl
 
 - First, open your terminal, and navigate to your html file. Recall that you can navigate to directories using `cd` (__c__hange __d__irectory) and the path you want. `ls` lists the file/folders of the current directory you are in (or `dir` in windows.)
 
-{{< highlight bash >}}
+~~~bash
 $ cd ~/Desktop
 $ ls
 index.html
-{{< /highlight >}}
+~~~
 
 Once you're in the directory that contains your `index.html` file, run the command `python -m SimpleHTTPServer 8000` (case sensitive!)
 
@@ -121,7 +121,7 @@ The page looks the same, but the difference now is that HTTP is being used to se
 
 Let's try some new things now. Let's say we want to create a link. We would need to write something like this:
 
-{{< highlight html "linenos=table" >}}
+~~~html
 <!DOCTYPE html>
 <html>
   <head>
@@ -131,7 +131,7 @@ Let's try some new things now. Let's say we want to create a link. We would need
     <a href="http://www.updevcamp.com/">UP Dev Camp</a>
   </body>
 </html>
-{{< /highlight >}}
+~~~
 
 `<a>` is our open tag, short for "anchor", `UP Dev Camp`, is what's shown by the browser, and `</a>` is the close tag for the anchor element. But what is `href`, and why is it in the middle of the `<a>` tag? `href` is what's called an __attribute__, something that modifies a tag. `href` in this case modifies the anchor tag to link to the address that it should redirect to when it's clicked.
 
@@ -141,7 +141,7 @@ Try previewing it on your browser:
 
 Note how the href link can be different from what's shown to the user. As an example, we can be malicious and do something like this:
 
-{{< highlight html "linenos=table" >}}
+~~~html
 <!DOCTYPE html>
 <html>
   <head>
@@ -151,7 +151,7 @@ Note how the href link can be different from what's shown to the user. As an exa
     <a href="http://virus.com">http://google.com</a>
   </body>
 </html>
-{{< /highlight >}}
+~~~
 
 Notice that our `href` attribute points to `http://virus.com`, but the text inside says `http://google.com`.
 
@@ -161,7 +161,7 @@ The link in the image seems like an innocent link to google, but actually redire
 
 ### Lists
 
-{{< highlight html "linenos=table" >}}
+~~~html
 <!DOCTYPE html>
 <html>
   <head>
@@ -169,31 +169,31 @@ The link in the image seems like an innocent link to google, but actually redire
   </head>
   <body>
     <ul>
-      <li>Cabot</li>
-      <li>Currier</li>
-      <li>Pforzheimer</li>
+      <li>CS 11</li>
+      <li>CS 12</li>
+      <li>CS 21</li>
     </ul>
   </body>
 </html>
-{{< /highlight >}}
+~~~
 
 If you render the html above, it will look something like this:
 
-- Cabot
-- Currier
-- Pforzheimer
+- CS 11
+- CS 12
+- CS 21
 
 The `<ul>` tag stands for __unordered list__, and `<li>` as __list item__, hence it produces a list. We can change the `<ul>` to an `<ol>` tag for an __ordered list__, which will look like this:
 
-1. Cabot
-2. Currier
-3. Pforzhemier
+1. CS 11
+2. CS 12
+3. CS 21
 
 ### Paragraphs
 
 We use the `<p>` tag for __paragraphs__:
 
-{{< highlight html >}}
+~~~html
 <!DOCTYPE html>
 <html>
   <head>
@@ -205,7 +205,7 @@ We use the `<p>` tag for __paragraphs__:
     <p>Nulla vehicula ullamcorper tellus vitae semper. Etiam condimentum eros a felis laoreet, vitae fringilla nisl molestie. Etiam fringilla suscipit enim, et commodo nisi suscipit eget. Mauris ac risus a quam sollicitudin tempor. Curabitur vel diam tincidunt mauris euismod efficitur. Vivamus cursus laoreet lacus. Curabitur gravida condimentum leo, tincidunt rhoncus enim.</p>
   </body>
 </html>
-{{< /highlight >}}
+~~~
 
 {{< figure src="/media/tracks/web/paragraphs.png" >}}
 

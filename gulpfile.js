@@ -12,7 +12,10 @@ gulp.task('styles', function () {
     //stylus
     .pipe($.plumber())
     .pipe($.sourcemaps.init())
-      .pipe($.stylus({use: [jeet()]}))
+      .pipe($.stylus({
+        includeCss: true,
+        use: [jeet()]
+      }))
       .pipe($.autoprefixer({browsers: ['last 1 version']}))
       .pipe($.minifyCss())
     .pipe($.sourcemaps.write())
