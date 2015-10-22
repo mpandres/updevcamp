@@ -1,7 +1,7 @@
 +++
 date = "2015-08-31T11:21:08+08:00"
-title = "Week 1"
-tech = "IP, HTTP, HTML."
+title = "HTML"
+tech = "Week 1a"
 tracks = ["Web"]
 authors = ["arian"]
 
@@ -10,7 +10,7 @@ authors = ["arian"]
 # Hello World
 
 - This webtrack is designed to get you creating websites.
-- If you're nervous because you have no web dev experience, you're in good company: over 70% of students who signed up for Devcamp listed 'none' as their experience.
+- If you're nervous because you have no web dev experience, you're in good company: over 90% of students who signed up for Devcamp listed 'none' as their experience.
   - If you do have web dev experience, don't get complacent - we'll make sure to challenge you.
 - Devcamp tracks are relatively practical - don't get too caught up memorizing terms and definitions.
 
@@ -20,12 +20,12 @@ authors = ["arian"]
 
 # Expectations/House Rules
 
-- Attend all sessions
+- Attend sessions
 - You will need to implement four projects by the end of the track
 - You are encouraged to bring your own device
 - If you're having any trouble, just contact any of the staff
 - If you think the track is too easy for you, just contact any of the staff
-- Have fun
+- Have fun!
 
 # HTML
 
