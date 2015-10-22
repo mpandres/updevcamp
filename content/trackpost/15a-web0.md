@@ -18,14 +18,16 @@ We're also [actively solving](http://csibox.updevcamp.com) the problem of 'setti
 A package manager is a management system that automates installing, upgrading, and configuring software packages. Put simply, it makes _installing stuff easy_.
 
 __Windows__: Install [Chocolatey](https://chocolatey.org)
+
 __OS X__: Install [Brew](http://brew.sh). Then type this in your terminal: `brew install caskroom/cask/brew-cask`
+
 __Linux__ If you are using Linux, then you're distribution most likely comes with a package manager. (i.e., _yum_, _apt-get_)
 
 # Atom
 
 [Atom](http://atom.io) is a free and open source programming text-editor developed by Github. While you are welcome to use any text-editor (I use vim myself), most of the examples listed in this site and in presentations will use atom as the editor.
 
-Follow these [https://atom.io/docs/latest/getting-started-installing-atom](instructions) to install Atom.
+Follow these [instructions](https://atom.io/docs/latest/getting-started-installing-atom) to install Atom.
 
 # Git
 
@@ -98,5 +100,5 @@ Register for the service [here](http://github.com)
 
 Wooh, that was quite a lot! If you've made it here and did not face any problems, then to you I say, nicely done!
 
-If you did see a few errors along the way, then don't fret! Simply google the error you faced, and try to work from there. If you are still unable to solve th problem, just drop by our [Slack](http://upcsi-dev.slack.com) Channel.
+If you did see a few errors along the way, then don't fret! Simply google the error you faced, and try to work from there. If you are still unable to solve the problem, just drop by our [Slack](http://upcsi-dev.slack.com) Channel.
 
