@@ -1,4 +1,7 @@
-+++ date = "2015-10-21T16:40:50+08:00" title = "Python Tutorial" authors = ["dominic"]
++++
+date = "2015-10-21T16:40:50+08:00"
+title = "Python Tutorial"
+authors = ["dominic"]
 
 +++
 
