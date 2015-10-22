@@ -217,7 +217,7 @@ Where len(x) returns the length of x, whether it be a list, string, tuple, etc. 
 
 Would result in
 
-{{< highlight bash "lineos=table" >}}
+{{< highlight bash "linenos=table" >}}
   [2, “Hello World”]
 {{< /highlight >}}
 
