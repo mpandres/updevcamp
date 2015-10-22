@@ -7,7 +7,7 @@
   <article class="post">
     {{ $track := index .Params.tracks 0 }}
     <h1 class="post-title">
-        <a href="{{ $baseUrl }}/tracks/{{ $track }}">{{ $track }}</a> Track:
+        <a href="{{ $baseUrl }}/tracks/{{ $track | urlize }}">{{ $track }}</a> Track:
         {{ .Title }}
     </h1>
     <span class="post-by">
