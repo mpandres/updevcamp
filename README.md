@@ -1,5 +1,7 @@
 # UP CSI Devcamp
 
+[![wercker status](https://app.wercker.com/status/03ed7770d56d36667cf22a75c293afb5/m "wercker status")](https://app.wercker.com/project/bykey/03ed7770d56d36667cf22a75c293afb5)
+
 Our mission is to kickstart generations (camps) of talented and ambitious students here in UP.
 
 This website serves as the official UP CSI devcamp website.
