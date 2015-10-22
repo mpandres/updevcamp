@@ -1,16 +1,16 @@
-button(_normal, _hover)
-  color gray
-  background-color _normal
+button(_normal, _hover, text_color)
   border-radius 3px
   padding 10px
   margin 0px
   text-decoration none
+  background-color _normal
+  transition 0.3s all
+  color text_color !important
   &:hover
-    color white
     background-color _hover
   &.disabled
     pointer-events none
     cursor default
 
 .cta-button
-  button(rgba(0,0,0,0.05), rgba(0,0,0,0.25))
+  button(csi_color, darken(csi_color, 20), white)
