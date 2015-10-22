@@ -18,8 +18,12 @@
       </span>
     {{ end }}
     </span>
-    <h1>Table of Contents</h1>
-    {{ .TableOfContents }}
+    {{ if not (isset .Params "notable") }}
+      <h1>Table of Contents</h1>
+      <div class="toc">
+        {{ .TableOfContents }}
+      </div>
+    {{ end }}
     {{ .Content }}
   </article>
 </div>
