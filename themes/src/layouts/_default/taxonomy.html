@@ -23,7 +23,7 @@
     {{end}}
 
     <ul>
-    {{ range .Data.Pages }}
+    {{ range .Data.Pages.ByDate }}
         <li>
           <a href="{{.Permalink}}">
             {{ .LinkTitle }}
