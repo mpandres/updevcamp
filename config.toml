@@ -1,4 +1,4 @@
-baseurl = "//updevcamp.com/"
+baseurl = ""
 languageCode = "en-us"
 title = "UP CSI Devcamp"
 pygmentsstyle = "colorful"
