@@ -11,3 +11,4 @@ pygmentsstyle = "colorful"
 [params]
   defaultDescription = "CSI Devcamp provides a space and network for motivated students to learn and create awesome stuff"
   defaultKeywords = "Devcamp, UP, CSI, Computer, Science, UP CSI Devcamp, Bootcamp, Mentorship, Mentor, Mentee"
+  googleAnalytics = "UA-69207349-1"
