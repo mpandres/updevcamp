@@ -31,6 +31,10 @@ GitHub is an online git repository, where you can upload your git repository onl
 
 `git diff` can be used to view the changes you have made since your last commit.
 
+To get started with Git, feel free to follow this interactive tutorial [here](https://try.github.io/levels/1/challenges/)
+
+You can also follow this much more hands-on [tutorial](https://gitlab.com/braincraft/GitTutorial) developed by [Gian](/authors/gian)
+
 ## Good VCS practices
 
 - Keep your commit messages short, and make them imperative - describing the action you have just done. For example, say "Add index.html file" instead of "Added index.html file"
