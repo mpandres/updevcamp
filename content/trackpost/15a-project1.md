@@ -4,7 +4,6 @@ title = "The Landing Page"
 tech = "Project 1a"
 tracks = ["Web"]
 authors = ["arian"]
-draft = true
 notable = true
 
 +++
