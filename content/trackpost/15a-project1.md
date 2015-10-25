@@ -13,6 +13,8 @@ __Disclaimer:__ One of the main goals of this DevCamp track (apart from making y
 
 # Getting Started
 
+First of all, register at [http://submit.udpevcamp.com](http://submit.updevcamp.com), then come back here.
+
 Let's start the project by setting up our project folder. Create a new folder (on say, your desktop) and name it as set0.
 
 Now that you have a new folder, open a terminal, and navigate to your project folder by _cd_-ing to your project. The command should look something like this (depending on where you put your folder)
@@ -65,9 +67,28 @@ The landing page will only be subject to the following requirements:
 - Your landing page must be responsive (and dare we say look good on mobile).
 - You must commit between versions on your projects. Your project should have at _least_ 4 commits by the end.
 
-It is also acceptable to create a landing page that is not about you - a page that is say, for a 'mock product'/startup landing page, or one that serves as a mockup for an 'app' (i.e., create a 'twitter'/'facebook' _look_ clone), or say, a redesign of a landing page for a site you know (your high school's website, or a webpage you frequent). If you do choose to make a clone though, note that it should not terribly look the same, and please contact us to make sure that it's acceptable.
+It is also acceptable to create a landing page that is not about you - a page that is say, for a 'mock product'/startup landing page, or one that serves as a mockup for an 'app' (i.e., create a 'twitter'/'facebook' _look_ clone), or say, a redesign of a landing page for a site you know (your high school's website, or a webpage you frequent, or maybe say, a tribute website for your org). If you do choose to make a clone though, note that it should not terribly look the same, and please contact us to make sure that it's acceptable.
 
 Feel free to peruse the samples provided for inspiration, but your own page should not be directly similar to any of them. Try to think of a design of your own (grab a pen and paper and get those creative juices flowing!), and then set out to implement it.
+
+If you don't know how to implement a specific design, realize that using Developer Tools (right click inspect element) will allow you to view the css/style used to style a particular section.
+
+The DevCamp staff is also available to help you out if you have questions. Message us on Slack if you're having any trouble, and we'll assign people to help you through the project.
+
+#### Landing Page Examples
+
+- http://andypatrickdesign.com
+- http://christhurman.com
+- http://brandonkylenewman.github.io/index.html
+- http://www.joeyabi.com/projects.html
+- http://hoangnm.com
+
+#### Marketing Page Examples
+- http://set0b.surge.sh
+- http://set0c.surge.sh
+
+#### Animation Example
+- http://set0d.surge.sh
 
 That's it! Make us (and yourself) proud :)
 
@@ -83,7 +104,7 @@ Once you're logged in, create a new repository by clicking on the (+) button on 
 
 You should then be redirected to a screen that asks for a "Repository Name". Name it whatever you want (we recommend, updevcamp-2015a-set0). Add a description if you like, and then click "Create Repository".
 
-Great, you've just created a public git repo! You should now see instructions on how to push an existing repository. Go ahead and follow those commands on your own terminal, then refresh the github page you are in.
+Great, you've just created a public git repo! You should now see instructions on __how to push an existing repository__. Go ahead and follow those commands on your own terminal, then refresh the github page you are in.
 
 You should now see your `index.html` and `index.css` files online! Your project is now public, great!
 
@@ -101,4 +122,4 @@ The first two commands above creates a 'gh-pages' branch, and checks it out so t
 
 Wooh, that was a handful! You can sit back and relax now though, you can now access your webpage online through [http://\<username>.github.io/\<repo-name>`](#)!
 
-Finally, to close this project, visit [](), the submissions bin of DevCamp beautifully created by [Stephen](/authors/stephen). There, you'll find a few questions. Make sure to submit the proper repo url, otherwise we might not be able to view your project! We collect quite a bit of data, but do note that this is used for research purposes anonymously.
+Finally, to close this project, visit and register at [http://submit.udpevcamp.com](http://submit.updevcamp.com), the submissions bin of DevCamp created by [Stephen](/authors/stephen). There, you'll find a few questions. Make sure to submit the proper repo url, otherwise we might not be able to view your project! We collect quite a bit of data, but do note that this is used for research purposes anonymously.

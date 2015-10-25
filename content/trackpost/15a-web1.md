@@ -1,7 +1,6 @@
 +++
 date = "2015-08-31T11:21:08+08:00"
 title = "HTML"
-draft = true
 tech = "Week 1a"
 tracks = ["Web"]
 authors = ["arian"]
@@ -110,7 +109,7 @@ $ ls
 index.html
 ~~~
 
-Once you're in the directory that contains your `index.html` file, run the command `python -m SimpleHTTPServer 8000` (case sensitive!)
+Once you're in the directory that contains your `index.html` file, run the command `python -m http.server 8000` or `python3 -m http.server 8000`.
 
 You should see the message `Serving HTTP on 0.0.0.0 port 8000 ...`. This means that we have an HTTP server running on port 8000! We can now open a new tab and enter `localhost:8000/index.html`, meaning we are accessing our own computer and requesting for the `index.html` file we wrote.
 
