@@ -40,6 +40,12 @@ The command `atom .` opens the text editor atom on the current directory (by pas
 
 Create a new file in your editor, and save it as `index.html`.
 
+Now initialize your repository by typing (on the terminal):
+
+~~~bash
+git init
+~~~
+
 Add it to git by typing (on the terminal):
 
 ~~~bash
