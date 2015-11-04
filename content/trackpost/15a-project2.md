@@ -288,6 +288,20 @@ While the syntax might seem a bit cryptic, note that the first three `create` bl
 
 # What to Do
 
+So it turns out that our schema is just that, a schema - and our actual database is still empty. Thankfully, we can apply the schema to our database through flask. Open up a terminal and run the following command:
+
+~~~bash
+python -m flask -a csitwit initdb
+~~~
+
+This runs our `initdb` command, creating our database tables. We can now run our flask server through the following command:
+
+~~~bash
+python -m flask -a csitwit run
+~~~
+
+Note that we can close it with [Ctrl]+[C] or [Cmd]+[C]. Note that if you face an error in the app, a manual restart of the server is required (so make sure to close and reopen the server if you face an error!
+
 ## register
 
 Any who, now that we have an idea of how the user table is defined, it's time to code! Let's add a basic, but very important feature: the ability to register!
