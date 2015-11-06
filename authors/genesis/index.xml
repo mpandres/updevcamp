@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Genesis on UP CSI Devcamp</title>
+    <link>/authors/genesis/</link>
+    <description>Recent content in Genesis on UP CSI Devcamp</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 22 Oct 2015 11:21:00 +0800</lastBuildDate>
+    <atom:link href="/authors/genesis/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Git</title>
+      <link>/trackpost/15a-web3/</link>
+      <pubDate>Thu, 22 Oct 2015 11:21:00 +0800</pubDate>
+      
+      <guid>/trackpost/15a-web3/</guid>
+      <description>
+
+&lt;h1 id=&#34;background:7ef598e006c8ffee918550380950232f&#34;&gt;Background&lt;/h1&gt;
+
+&lt;h2 id=&#34;what-is-git:7ef598e006c8ffee918550380950232f&#34;&gt;What is Git&lt;/h2&gt;
+
+&lt;p&gt;For a quick background on what is git (and why it&amp;rsquo;s relevant to you), &lt;a href=&#34;http://www.gamedev.net/page/resources/_/technical/game-programming/how-to-reverse-time-introduction-to-git-cloud-computing-and-version-control-r3434&#34;&gt;read this short &lt;strong&gt;article&lt;/strong&gt;&lt;/a&gt; written a while back. Read only until the SVN section.&lt;/p&gt;
+
+&lt;p&gt;Git was originally developed by Linus Torvalds for development of the Linux kernel. It is a distributed version control system, allowing you to save &lt;em&gt;versions&lt;/em&gt; (called &lt;code&gt;commit&lt;/code&gt;s) of your code to your local repository, as well as &lt;code&gt;push&lt;/code&gt;ing it to a remote repository. This allows you to track changes and synchronize with fellow developers easily in a peer-to-peer fashion.&lt;/p&gt;
+
+&lt;h2 id=&#34;what-is-github-com-http-github-com:7ef598e006c8ffee918550380950232f&#34;&gt;What is &lt;a href=&#34;http://github.com&#34;&gt;github.com&lt;/a&gt;?&lt;/h2&gt;
+
+&lt;p&gt;GitHub is an online git repository, where you can upload your git repository online. This allows you to make a &amp;lsquo;remote&amp;rsquo; version of your repository, so that losing your local repository does not hinder your progress (since you have it available online).&lt;/p&gt;
+
+&lt;h1 id=&#34;using-git:7ef598e006c8ffee918550380950232f&#34;&gt;Using Git&lt;/h1&gt;
+
+&lt;p&gt;&lt;code&gt;git add &amp;lt;path&amp;gt;&lt;/code&gt; adds a file or directory to your local repository.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;git commit -m &amp;quot;YOUR MESSAGE&amp;quot;&lt;/code&gt; commits all of the changes you have made to files in your local repository. Take the habit in &lt;strong&gt;commit&lt;/strong&gt;-ing often to save your progress&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;git push&lt;/code&gt; pushes your local commits to the remote repository.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;git pull&lt;/code&gt; pulls changes from the remote repository, to &lt;em&gt;your&lt;/em&gt; local repository.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;git diff&lt;/code&gt; can be used to view the changes you have made since your last commit.&lt;/p&gt;
+
+&lt;p&gt;To get started with Git, feel free to follow this interactive tutorial &lt;a href=&#34;https://try.github.io/levels/1/challenges/&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;You can also follow this much more hands-on &lt;a href=&#34;https://gitlab.com/braincraft/GitTutorial&#34;&gt;tutorial&lt;/a&gt; developed by &lt;a href=&#34;/authors/gian&#34;&gt;Gian&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;good-vcs-practices:7ef598e006c8ffee918550380950232f&#34;&gt;Good VCS practices&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Keep your commit messages short, and make them imperative - describing the action you have just done. For example, say &amp;ldquo;Add index.html file&amp;rdquo; instead of &amp;ldquo;Added index.html file&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;Always, always use good commit messages. Tell everyone what you did with your commit, so they can track your changes. There&amp;rsquo;s nothing more scary than &amp;lsquo;fix bug&amp;rsquo; or &amp;lsquo;updated game&amp;rsquo; so you have no idea what was changed.&lt;/li&gt;
+&lt;li&gt;Note the side effects of your changes. If you edited the GUI, which in turn changed how the levels work, make sure to note it.&lt;/li&gt;
+&lt;li&gt;Branch your code when necessary.&lt;/li&gt;
+&lt;li&gt;Test your code before you commit on the main branch.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

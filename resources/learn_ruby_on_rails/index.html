@@ -1,0 +1,92 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us"><head><link href="http://gmpg.org/xfn/11" rel="profile"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1"><title>Learn Ruby on Rails</title><link rel="stylesheet" href="/css/main.css"> <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png"><link href="/favicon.png" rel="icon"><link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'><link href="http://fonts.googleapis.com/css?family=Roboto+Slab:300" rel="stylesheet" type="text/css"><link href="" rel="alternate" type="application/rss+xml" title="UP CSI Devcamp &middot; "/><meta name="description" content="CSI Devcamp provides a space and network for motivated students to learn and create awesome stuff"><meta name="keywords" content="Devcamp, UP, CSI, Computer, Science, UP CSI Devcamp, Bootcamp, Mentorship, Mentor, Mentee"> </head><body> <header><h1><a href="/"><span class="color-csi">UP CSI</span> Devcamp</a></h1><nav><ul><li> <a href="/resources">Resources</a></li><li> <a href="/tracks">Tracks</a></li></ul></nav></header><div class="main-wrapper">  <div class="content container">  <a href="/resources">&lt; Resources</a><article class="resource-post"><h1 class="post-title">Learn Ruby on Rails</h1> <span class="post-by"> by: <span class="author-name"><a class="label" href="/authors/neil">Neil Calabroso</a></span> </span> 
+
+<p>This guide is for everyone who wants to learn <a href="http://www.rubyonrails.org">Ruby on Rails</a>. sqlite3 is the suggested database management system in this guide. Moreover, this will include our recommended environment and links for the most reliable and best tutorials on web.</p>
+
+<h2 id="linux:239628dc10fde8046da4a69f3f935a4a">Linux</h2>
+
+<p><strong>Supported Distributions</strong>
+1. Ubuntu (Precise Pangolin and Trusty Tahr)
+2. ElementaryOS (Luna)
+3. Linux Mint (Cinnamon)</p>
+
+<h4 id="dependencies:239628dc10fde8046da4a69f3f935a4a">Dependencies</h4>
+
+<p>Install the following dependencies:</p>
+
+<ul>
+<li>git</li>
+<li>sqlite3</li>
+<li>nodeJs</li>
+<li>Rbenv</li>
+<li>Ruby</li>
+<li>Rails</li>
+<li>Bundle</li>
+</ul>
+
+<p>Install <strong>git</strong>, <strong>sqlite3</strong>, <strong>nodeJS</strong>:</p>
+
+<pre><code class="language-bash">sudo add-apt-repository ppa:chris-lea/node.js
+sudo apt-get update &amp;&amp; sudo apt-get upgrade
+sudo apt-get install autoconf bison build-essential libssl-dev libyaml-dev
+sudo apt-get install libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev
+sudo apt-get install libgdbm3 libgdbm-dev
+sudo apt-get install sqlite3 libsqlite3-dev
+sudo apt-get install git nodejs
+</code></pre>
+
+<p>For a recommended <strong>nodeJS</strong> installation, check <a href="https://github.com/creationix/nvm">NVM</a>.</p>
+
+<p>Note: If this is your first time on git, it&rsquo;s advisable to configure your credentials first:</p>
+
+<pre><code class="language-bash">git config --global user.name &quot;Neil Calabroso&quot;
+git config --global user.email &quot;nmcalabroso@up.edu.ph&quot;
+</code></pre>
+
+<p>Also, make sure your git&rsquo;s core.autocrlf setting is set to false to avoid any problems when installing rbenv.</p>
+
+<pre><code class="language-bash">git config --global core.autocrlf false
+</code></pre>
+
+<p>Install <a href="https://github.com/sstephenson/rbenv">Rbenv</a>. Complete the installation instructions including the optional part:<code>ruby-build</code>.</p>
+
+<p>Upon installing <strong>Rbenv</strong>, restart your terminal and install Ruby 2.2.0:</p>
+
+<pre><code class="language-bash">rbenv install 2.2.0
+rbenv global 2.2.0
+</code></pre>
+
+<p>Install <strong>Rails</strong>:</p>
+
+<pre><code class="language-bash">gem install rails
+</code></pre>
+
+<p>Install Bundler:</p>
+
+<pre><code class="language-bash">gem install bundler #restart terminal after the installation
+</code></pre>
+
+<h3 id="tutorials:239628dc10fde8046da4a69f3f935a4a">Tutorials</h3>
+
+<ul>
+<li>If you do not have any experience on ruby, we suggest to complete the challenge by <a href="http://www.tryruby.org">TryRuby</a>.</li>
+<li>With the set-up above, you are now ready for your <a href="http://guides.rubyonrails.org/getting_started.html">first web app tutorial</a>. You can now start at <em>section 3.2</em>.</li>
+<li>Since the <a href="http://www.guides.rubyonrails.org/getting_started.html">Getting Started Tutorial</a> is too high-level (with the use of scaffolding), it is very much suggested to read and finish the book <a href="http://www.rubyonrailstutorial.org/book">Ruby on Rails Tutorial</a>. This book gives a thorough explanation about the workflow of <strong>Rails</strong>, <strong>Unit-testing</strong>, <strong>Git</strong>, and <strong>Deployment</strong>.</li>
+</ul>
+
+<h3 id="further-notes:239628dc10fde8046da4a69f3f935a4a">Further Notes</h3>
+
+<p>For a high quality and readable codebase, please make these conventions as references:</p>
+
+<ol>
+<li><a href="https://github.com/bbatsov/ruby-style-guide">Ruby Style Guide</a></li>
+<li><a href="https://github.com/bbatsov/rails-style-guide">Rails Style Guide</a></li>
+</ol>
+ <div class="line-divider"></div> <section class="post-author-info"><div class="post-author-title">  About <a class="label" href="/authors/neil">Neil Calabroso</a> <div class="color-csi"> CSI Development Commitee Head 14-15</div> </div><div> <div class="post-author-bio"> Likes mireya</div>  </span> <a href="http://twitter.com/NMCalabroso">@NMCalabroso</a></span> </div></section> </article></div> </div><footer><p>Made with <span class="color-pink">Love</span> &copy; UP CSI</p></footer> <script src="/js/vendor.bundle.js"></script><script src="/js/main.bundle.js"></script> <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', "UA-69207349-1", 'auto');
+  ga('send', 'pageview');
+</script> </body></html>

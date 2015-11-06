@@ -1,0 +1,523 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us"><head><link href="http://gmpg.org/xfn/11" rel="profile"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1"><title>The Twitter</title><link rel="stylesheet" href="/css/main.css"> <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png"><link href="/favicon.png" rel="icon"><link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'><link href="http://fonts.googleapis.com/css?family=Roboto+Slab:300" rel="stylesheet" type="text/css"><link href="" rel="alternate" type="application/rss+xml" title="UP CSI Devcamp &middot; "/><meta name="description" content="CSI Devcamp provides a space and network for motivated students to learn and create awesome stuff"><meta name="keywords" content="Devcamp, UP, CSI, Computer, Science, UP CSI Devcamp, Bootcamp, Mentorship, Mentor, Mentee"> </head><body> <header><h1><a href="/"><span class="color-csi">UP CSI</span> Devcamp</a></h1><nav><ul><li> <a href="/resources">Resources</a></li><li> <a href="/tracks">Tracks</a></li></ul></nav></header><div class="main-wrapper">   <div class="content container"><article class="post"> <h1 class="post-title"> <a href="/tracks/web">Web</a> Track: The Twitter</h1> <span class="post-by"> by: <span class="author-name"><a class="label" href="/authors/arian">Arian Allenson M. Valdez</a></span> </span>  
+
+<p><div class="notice notice-"> <h3 id="due-to-time-constraints-we-haven-t-fully-discussed-sql-and-databases-yet-in-our-last-devcamp-session-please-consult-any-of-the-staff-through-slack-facebook-if-you-have-any-questions:6de04598f2fcf1a81442009ea1de4f5a">Due to time constraints, we haven&rsquo;t fully discussed SQL and databases yet in our last DevCamp Session. Please consult any of the Staff through Slack/Facebook if you have any questions.*</h3>
+</div></p>
+
+<p>*<strong>We&rsquo;ve compressed something that was regularly discussed for about 3-4 sessions into one</strong></p>
+
+<h1 id="getting-started:6de04598f2fcf1a81442009ea1de4f5a">Getting Started</h1>
+
+<p>First, let&rsquo;s install flask. If you&rsquo;ve followed the python installation file by dominic <a href="/resources/python">here</a>, you should have <code>Python 3.4+</code> installed. Python 3.4 comes installed with <code>pip</code>, the package manager we can use to install <code>Flask</code>.</p>
+
+<p>Install Flask by doing the following command:</p>
+
+<pre><code class="language-bash">python -m pip install https://github.com/mitsuhiko/flask/tarball/master
+</code></pre>
+
+<p>Note that you might have python aliased as <code>python3</code>. As well, you might have file permission errors that prevent you to install flask. If so, prepend <code>sudo</code> on the above command or run your command prompt as administrator.</p>
+
+<p>Unlike our first project, we&rsquo;re providing distribution code to kickstart development of your project. Navigate to this <a href="/media/tracks/web/project-2.zip">link</a> to download the distribution code.</p>
+
+<p>Extract the archive and navigate to the distribution code by typing <code>cd (dir-name)</code>, where our flask app awaits. Inside you&rsquo;ll see a couple of files, which looks a bit like our <code>mvc</code> examples, but is actually powered by flask.</p>
+
+<h2 id="twitter:6de04598f2fcf1a81442009ea1de4f5a">Twitter</h2>
+
+<p>If you haven&rsquo;t heard of Twitter <em>(seriously?)</em>, twitter is a social media website where users can compose and post &lsquo;tweets&rsquo;, allowing their followers to see their posts on their timeline.</p>
+
+<p>You&rsquo;re about to implement CSITwit, a simple twitter clone where users can register, login, compose and post tweets.</p>
+
+<p>In fact, I want to go ahead and create a tweet. Let&rsquo;s login to csitwit:</p>
+
+<p>
+<figure >
+    
+        <img src="/media/tracks/web/csitwit.png" />
+    
+    
+</figure>
+</p>
+
+<p>And then, after typing out my tweet, I can now see it on my timeline:</p>
+
+<p>
+<figure >
+    
+        <img src="/media/tracks/web/csitwit2.png" />
+    
+    
+</figure>
+</p>
+
+<p>Thankfully, the functionality of Twitter is actually quite small, and even more thankfully, we&rsquo;ve provided boilerplate code for you!</p>
+
+<p>Let&rsquo;s go ahead and take a look at the code you&rsquo;ve cloned.</p>
+
+<h1 id="explanation:6de04598f2fcf1a81442009ea1de4f5a">Explanation</h1>
+
+<p>Navigate over to the distribution code. You&rsquo;ll note that there are a couple of top level files.</p>
+
+<p><div class="notice notice-info"> <h3 id="you-can-see-a-live-demo-of-the-site-here-http-csitwit-herokuapp-com-go-ahead-and-play-around-with-it-so-that-you-ll-have-an-idea-of-what-you-re-about-to-create:6de04598f2fcf1a81442009ea1de4f5a">You can see a live demo of the <a href="http://csitwit.herokuapp.com/">site here</a>. Go ahead and play around with it, so that you&rsquo;ll have an idea of what you&rsquo;re about to create!</h3>
+</div></p>
+
+<h2 id="init-py:6de04598f2fcf1a81442009ea1de4f5a">__init__.py</h2>
+
+<p>Seems to be an empty file. An __init__.py just defines a python folder as a package/module - you can ignore it for now.</p>
+
+<h2 id="csitwit-py:6de04598f2fcf1a81442009ea1de4f5a">csitwit.py</h2>
+
+<p>This file seems more interesting. It&rsquo;s the name of our app and it seems to be setting up calling some initialization functions as well as setting up our <code>router</code>.</p>
+
+<p>Turns out <code>csitwit.py</code> is our app&rsquo;s main entry point, calling everything our app needs to start. Let&rsquo;s go and take a look at <code>router</code> next.</p>
+
+<h2 id="router-py:6de04598f2fcf1a81442009ea1de4f5a">router.py</h2>
+
+<p>Inside router.py is a couple of imports, and one big function named <code>set_router</code>, which we&rsquo;ve seen is being called by <code>csitwit.py</code>. Let&rsquo;s take a look at it closely:</p>
+
+<pre><code class="language-python">    # we're setting g.user as the user in the current session
+    @app.before_request
+    def before_request():
+        g.user = None
+        if 'user_id' in session:
+            # if there is a user_id in session
+            # select it and set g.user to it
+            g.user = functions.query_db('select * from user where user_id = ?',
+                              [session['user_id']], one=True)
+</code></pre>
+
+<p>The first chunk of <code>set_router</code> seems to be just defining a before_request method. We are wrapping that function inside a <code>decorator</code>, allowing our app to know what to do on that particular instance (in this case, we run the function every time we return from a request). Inside, it checks if &lsquo;user_id&rsquo; is in session.</p>
+
+<p>Turns out we&rsquo;re saving the &lsquo;user_id&rsquo; in the current session, which we use to check if the user is logged in. Here we check if the &lsquo;user_id&rsquo; is in session, and if so, we set the <code>g.user</code> variable to the return function of our database query.</p>
+
+<pre><code class="language-python">    ### Our Routes ###
+
+    # timeline routes
+    app.route('/')(timeline.index)
+    app.route('/public')(timeline.public)
+    app.route('/&lt;username&gt;')(timeline.user)
+
+    # follow routes
+    app.route('/&lt;username&gt;/follow')(follow.follow_user)
+    app.route('/&lt;username&gt;/unfollow')(follow.unfollow_user)
+
+    # tweet routes
+    app.route('/add_message', methods=['POST'])(tweet.add_message)
+
+    # user routes
+    app.route('/login', methods=['GET', 'POST'])(user.login)
+    app.route('/register', methods=['GET', 'POST'])(user.register)
+    app.route('/logout')(user.logout)
+</code></pre>
+
+<p>The second half of our <code>set_router</code> code seems to be just a collection of &lsquo;routes&rsquo;. Indeed, these lines of code is setting up the <code>routes</code> of our page, and their specific handlers/controllers.</p>
+
+<p>For example, we define <code>/public</code> to use the <code>timeline.public</code> function to render the page - that is to say, if our user navigates to <code>localhost:5000/public</code>, we should use the <code>timeline.public</code> function.</p>
+
+<p>Some of the routes have additional parameters. For example, <code>/add_message</code> is defined like so:</p>
+
+<pre><code class="language-python">  app.route('/add_message', methods=['POST'])(tweet.add_message)
+</code></pre>
+
+<p>While it might seem a bit more complicated, do note that the only thing it does is say that particular app route should also accept <code>POST</code> methods - indeed, it makes sense for <code>/add_message</code> to accept data through a <code>POST</code> request.</p>
+
+<p>Before we get started, let&rsquo;s take a look first at a handler/controller. It seems that <code>app.route('/logout')(user.logout)</code> is the route that defines our logout handler. We&rsquo;re passing <code>user.logout</code> to it, so we now know that there should be a function <code>logout</code> inside our <code>user</code> controller.</p>
+
+<p>Note that from the third line of <code>router.py</code> we&rsquo;re importing <code>user</code> from our <code>controllers</code>, so we know that we can access the file from the controllers folder:</p>
+
+<pre><code class="language-python">from controllers import follow, timeline, tweet, user
+</code></pre>
+
+<h2 id="user-py:6de04598f2fcf1a81442009ea1de4f5a">user.py</h2>
+
+<p>Let&rsquo;s go ahead and navigate to <code>controllers/user.py</code>. Like our file name suggests, this file is the controller responsible for user functions - <code>login, logout, and register</code>. Inside the file, you&rsquo;ll see a couple of functions, but let&rsquo;s skim over those parts first and take a look at our <code>logout</code> function.</p>
+
+<pre><code class="language-python">def logout():
+    &quot;&quot;&quot;Logs the user out.&quot;&quot;&quot;
+    flash('You were logged out')
+    session.pop('user_id', None)
+    return redirect(functions.url_for('/public'))
+</code></pre>
+
+<p>Our <code>logout</code> function calls <code>flash</code> which shows a flash message on our page (more on that in a moment). What&rsquo;s interesting though is the last two lines. It seems that we&rsquo;re calling <code>session.pop</code> on the user_id, removing (popping) the session away, effectively logging the user out. And then, we redirect away from the page, by passing the return value of <code>functions.url_for('/public')</code>, which, as you might have guessed, navigates the user to <code>/public</code>.</p>
+
+<p>Note that <code>functions</code> is again, another python file that we&rsquo;ve defined (imported from helpers). You can take a look at it from <code>helpers/functions.py</code> - it defines a couple of helper functions (like <code>url_for</code>) as well as opens the connection to our database.</p>
+
+<p>Let&rsquo;s now take a look at the <code>login</code> function of our controller:</p>
+
+<pre><code class="language-python">def login():
+    &quot;&quot;&quot;Logs the user in.&quot;&quot;&quot;
+    if g.user:
+        return redirect(functions.url_for('/'))
+    error = None
+    if request.method == 'POST':
+        user = functions.query_db('''select * from user where
+            username = ?''', [request.form['username']], one=True)
+        if user is None:
+            error = 'Invalid username'
+        elif not check_password_hash(user['pw_hash'],
+                                     request.form['password']):
+            error = 'Invalid password'
+        else:
+            flash('You were logged in')
+            session['user_id'] = user['user_id']
+            return redirect(functions.url_for('/'))
+    return render_template('login.html', error=error)
+</code></pre>
+
+<p>Eek, this is scary! Bare with me for a moment though, as we walk through the code.</p>
+
+<p>The first 2 lines just checks if <code>g.user</code> is defined (if the user is already logged in). If so, we don&rsquo;t need to log in anymore, and indeed, we just redirect the user to his/her timeline in the homepage.</p>
+
+<p>Then, we do a <code>request.method</code> check to see if it&rsquo;s a POST request, not unlike our <code>mvc</code> example. That is to say, if our method is a <code>POST</code> method, we know that the user is indeed trying to login (and has submitted a form)</p>
+
+<p>The next line is a bit more involved. It&rsquo;s calling the <code>query_db</code> function we have defined we&rsquo;ve defined in our <code>functions</code> helper, calling an SQL statement. Basically, it asks to <code>select</code> every attribute <code>*</code> <code>from</code> our <code>user</code> table <code>where</code> the <code>username</code> is equal to <code>?</code>. The <code>?</code> is then interpolated (replaced) by our parameter, which, in this case, is the username from our request form (<code>request.form['username']</code>). Note that we&rsquo;re passing it inside an array, as we might want to have multiple items we want to interpolate (like say, searching for multiple fields). Note also that the last parameter is <code>one=True</code>, which tells our query statement to just search for one value (since we only need one user).</p>
+
+<p>The next line checks <code>if user is None</code>, and just returns an <code>invalid username</code> error. If not, it calls <code>check_password_hash</code> to check if the password inputted and the password in the database is equal. If not, it returns an error.</p>
+
+<p>When it is <em>indeed</em> equal, note that we&rsquo;re setting the session of the user <code>session['user_id']</code> to the <code>user_id</code> in our database, effectively logging in the user. We then redirect the user to the homepage.</p>
+
+<p>Now, we got out of our if statement. Note that the next line just renders our <code>login</code> template - this makes sense - we should just show our <code>login</code> template if our request is not a <code>POST</code> method (since the user hasn&rsquo;t logged in yet) or also return it if there&rsquo;s an <code>error</code> (note that the code falls through to the render_template call if it doesn&rsquo;t redirect sucessfully)</p>
+
+<p>Our <code>render_template</code> function just renders our <code>login.html</code> file, so let&rsquo;s take a look at that:</p>
+
+<h2 id="login-html:6de04598f2fcf1a81442009ea1de4f5a">login.html</h2>
+
+<p>Our <code>login.html</code> file is just a jinja template, that extends from our <code>layout.html</code> file. It&rsquo;s the standard page, and note that our form&rsquo;s action is empty, which just means that the action should go to the same route/page (since our handler is also in login, this makes sense).</p>
+
+<pre><code class="language-html">{% extends &quot;layout.html&quot; %}
+{% block title %}Sign In{% endblock %}
+{% block body %}
+  &lt;h2&gt;Sign In&lt;/h2&gt;
+  {% if error %}&lt;div class=&quot;error&quot;&gt;&lt;strong&gt;Error:&lt;/strong&gt; {{ error }}&lt;/div&gt;{% endif %}
+  &lt;form action=&quot;&quot; method=&quot;post&quot;&gt;
+    &lt;dl&gt;
+      &lt;dt&gt;Username:
+      &lt;dd&gt;&lt;input type=&quot;text&quot; name=&quot;username&quot; size=&quot;30&quot; value=&quot;{{ request.form.username }}&quot;&gt;
+      &lt;dt&gt;Password:
+      &lt;dd&gt;&lt;input type=&quot;password&quot; name=&quot;password&quot; size=&quot;30&quot;&gt;
+    &lt;/dl&gt;
+    &lt;div class=&quot;actions&quot;&gt;&lt;input type=&quot;submit&quot; value=&quot;Sign In&quot;&gt;&lt;/div&gt;
+  &lt;/form&gt;
+{% endblock %}
+</code></pre>
+
+<p>Note how we set a value to our username field - we set it to our <code>request.form.username</code> (the username set last request) so as to enable our app to &lsquo;remember&rsquo; the username. Note how we check errors with <code>if error</code> - remember that we&rsquo;re passing an <code>error</code> variable if the login fails for any reason. Let&rsquo;s take a look at our layout.html file next.</p>
+
+<h2 id="layout-html:6de04598f2fcf1a81442009ea1de4f5a">layout.html</h2>
+
+<pre><code class="language-html">&lt;!doctype html&gt;
+&lt;title&gt;{% block title %}Welcome{% endblock %} | CSITwit&lt;/title&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;{{ url_for('static', filename='style.css') }}&quot;&gt;
+&lt;div class=&quot;page&quot;&gt;
+  &lt;h1&gt;CSITwit&lt;/h1&gt;
+  &lt;div class=&quot;navigation&quot;&gt;
+  {% if g.user %}
+    &lt;a href=&quot;/&quot;&gt;my timeline&lt;/a&gt; |
+    &lt;a href=&quot;/public&quot;&gt;public timeline&lt;/a&gt; |
+    &lt;a href=&quot;/logout&quot;&gt;sign out [{{ g.user.username }}]&lt;/a&gt;
+  {% else %}
+    &lt;a href=&quot;/public&quot;&gt;public timeline&lt;/a&gt; |
+    &lt;a href=&quot;/register&quot;&gt;sign up&lt;/a&gt; |
+    &lt;a href=&quot;/login&quot;&gt;sign in&lt;/a&gt;
+  {% endif %}
+  &lt;/div&gt;
+  {% with flashes = get_flashed_messages() %}
+    {% if flashes %}
+      &lt;ul class=&quot;flashes&quot;&gt;
+      {% for message in flashes %}
+        &lt;li&gt;{{ message }}
+      {% endfor %}
+      &lt;/ul&gt;
+    {% endif %}
+  {% endwith %}
+  &lt;div class=&quot;body&quot;&gt;
+  {% block body %}{% endblock %}
+  &lt;/div&gt;
+  &lt;div class=&quot;footer&quot;&gt;
+    CSITwit &amp;mdash; Flask Application, DevCamp 2nd Project
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>It seems a bit long, but it&rsquo;s actually just our standard html page.</p>
+
+<ul>
+<li>In line 3, we&rsquo;re importing our css file <code>style.css</code>. You can take a look at it at <code>static/style.css</code>, and you&rsquo;ll see that a few selectors have already been defined.</li>
+<li>From line 7 to 15 is an <code>if</code> block - we&rsquo;re checking the user is logged in, and we change the url links. If the user is logged in, we turn it to his homepage and logout links, but if not, we turn the links to register and login links.</li>
+<li>The next <code>jinja</code> block just iterates over our <code>flash</code> messages. Remember how we called <code>flash</code> messages back in logout? Well, it seems that if we want to show a &lsquo;flash&rsquo; message (a short notification), we can do so by adding it here.</li>
+<li>We&rsquo;re then using <code>block body</code> to inject the template that we have.</li>
+</ul>
+
+<p>Phew, that was a lot. Help yourself to a cute dog image.</p>
+
+<p>
+<figure >
+    
+        <img src="/media/tracks/web/cutedog.jpg" />
+    
+    
+</figure>
+</p>
+
+<h2 id="user-py-schema-sql:6de04598f2fcf1a81442009ea1de4f5a">user.py/schema.sql</h2>
+
+<p>Alright, what you&rsquo;ve noticed is that we have a <code>login</code> and <code>logout</code> function in our page, but no <code>register</code> function! Well it turns out that our <code>database schema</code> is defined through <code>schema.sql</code> so let&rsquo;s take a look at that.</p>
+
+<pre><code class="language-sql">drop table if exists user;
+create table user (
+  user_id integer primary key autoincrement,
+  username text not null,
+  email text not null,
+  pw_hash text not null
+);
+
+drop table if exists follower;
+create table follower (
+  who_id integer,
+  whom_id integer
+);
+
+drop table if exists message;
+create table message (
+  message_id integer primary key autoincrement,
+  author_id integer not null,
+  text text not null,
+  pub_date integer
+);
+
+INSERT INTO user (username, email, pw_hash) VALUES ('person', 'person@gmail.com', 'pbkdf2:sha1:1000$L1UfsRgW$d780bf74e8432301bbdd361ee5ade12e842820e3')
+</code></pre>
+
+<p>While the syntax might seem a bit cryptic, note that the first three <code>create</code> blocks just create particular <code>tables</code> where we can insert our data. Indeed, the <code>create table user</code> command creates a <code>database table</code> named <code>user</code>, with the columns defined inside its parenthesis.</p>
+
+<ul>
+<li><code>user_id integer primary key autoincrement</code> - user_id will be our column key, and it&rsquo;s of type integer. Basically, it&rsquo;s a unique id that we can use to tell a unique user from.</li>
+<li><code>username text not null</code> - username, again will be our column key, this time of type text (which makes sense, as our username would be a text/string. Note that we&rsquo;re using a <code>not_null</code> constraint - we don&rsquo;t want to add users without a username!</li>
+<li>the next two lines are self explanatory - it&rsquo;s creating <code>email</code> and <code>pw_hash</code> columns in our user table. Note that <code>pw_hash</code> is the hashed password of our user.</li>
+</ul>
+
+<h1 id="what-to-do:6de04598f2fcf1a81442009ea1de4f5a">What to Do</h1>
+
+<p><em>Make sure to use git (just like last time) to save and commit your files</em></p>
+
+<p>So it turns out that our schema is just that, a schema - and our actual database is still empty. Thankfully, we can apply the schema to our database through flask. Open up a terminal and run the following command:</p>
+
+<pre><code class="language-bash">python -m flask -a csitwit initdb
+</code></pre>
+
+<p>This runs our <code>initdb</code> command, creating our database tables. We can now run our flask server through the following command:</p>
+
+<pre><code class="language-bash">python -m flask -a csitwit run
+</code></pre>
+
+<p>Note that we can close it with [Ctrl]+[C] or [Cmd]+[C]. Note that if you face an error in the app, a manual restart of the server is required (so make sure to close and reopen the server if you face an error!</p>
+
+<h2 id="register:6de04598f2fcf1a81442009ea1de4f5a">register</h2>
+
+<p>Any who, now that we have an idea of how the user table is defined, it&rsquo;s time to code! Let&rsquo;s add a basic, but very important feature: the ability to register!</p>
+
+<p>Go ahead and copy our <code>templates/login.html</code> file, to <code>templates/register.html</code></p>
+
+<p>Then open up <code>register.html</code> with <code>atom</code> and add two new fields, <code>E-mail</code> and another <code>Password</code> field. We will use the additional <code>password</code> field type so that we can prompt users to type in their password twice and discourage mistakes. Finally, change the buttons and flavor text to say &ldquo;Sign Up&rdquo; instead of &ldquo;Sign In&rdquo;.</p>
+
+<p>Make sure to change the <code>name</code> attribute of your input, as that is how we can distinguish it from our code.</p>
+
+<pre><code class="language-html">      &lt;dt&gt;E-Mail:
+      &lt;dd&gt;&lt;input type=&quot;text&quot; name=&quot;email&quot; size=&quot;30&quot; value=&quot;{{ request.form.email }}&quot;&gt;
+</code></pre>
+
+<p>Then, again using <code>atom</code>, navigate to <code>controllers/user.py</code> and define a new function <code>register</code>. Create it anywhere after our import statements, taking care not to edit our <code>login</code> and <code>logout</code> functions! Go ahead and peruse the template we have here:</p>
+
+<pre><code class="language-python">def register():
+    &quot;&quot;&quot;Registers the user.&quot;&quot;&quot;
+    if g.user:
+        return redirect(functions.url_for('/'))
+    error = None
+    if request.method == 'POST':
+        if not request.form['username']:
+            error = 'You have to enter a username'
+        elif not request.form['email'] or \
+                '@' not in request.form['email']:
+            error = 'You have to enter a valid email address'
+        elif #TODO:
+            error = 'You have to enter a password'
+        elif #TODO:
+            error = 'The two passwords do not match'
+        elif functions.get_user_id(request.form['username']) is not None:
+            error = 'The username is already taken'
+        else:
+            db = functions.get_db()
+            db.execute(#TODO)
+            db.commit()
+            flash('You were successfully registered and can login now')
+            return redirect(functions.url_for('login'))
+    return render_template('register.html', error=error)
+</code></pre>
+
+<p>It&rsquo;s now time to tackle those <code>TODO</code>s! To give you some hints:</p>
+
+<ul>
+<li>You&rsquo;ll want to inform the user if he/she has not entered a password. Note that is our first #TODO</li>
+<li>If the two passwords of the user doesn&rsquo;t match, we need to inform them too.</li>
+<li>Note that we&rsquo;ve taken care of checking if the email and username is defined, as well as checking if the email is valid (by checking if there is an <code>@</code> symbol in it)</li>
+<li>Once all of the condition/input validation is done, we now want to register the user. We do this by executing an SQL statement. To insert a new user, you might find this SQL statement useful:</li>
+</ul>
+
+<pre><code class="language-sql">'''insert into user (username, email, pw_hash) values (?, ?, ?)''',
+[request.form['username'], request.form['email'],
+ generate_password_hash(request.form['password'])]
+</code></pre>
+
+<p>which is to say, <code>insert</code>s into our <code>user</code> table the following values <code>username</code>, <code>email</code>, and the generated password hash.</p>
+
+<p>Once the user is logged in, we set a flash message, and redirect him/her to the login page where he can now login!</p>
+
+<p>All done? How about you test it out! Navigate to <code>//localhost:5000/register</code> and try to register for a new username! If you are redirected to the login page, then congrats, you&rsquo;ve probably done right! Confirm that you are really registered by logging in with your credentials.</p>
+
+<h2 id="tweet:6de04598f2fcf1a81442009ea1de4f5a">tweet</h2>
+
+<p>Now it&rsquo;s time to allow our users to post tweets! Thankfully, we&rsquo;ve provided some boilerplate code for you as well.</p>
+
+<p>Navigate over to <code>templates/timeline.html</code> and you&rsquo;ll see our html timeline page. Skim over the first parts, and take a look at line 27, which has a &ldquo;What&rsquo;s on your mind?&rdquo; prompt. I bet that&rsquo;s where we can put our tweet box!</p>
+
+<p>What data exactly do we need to store for a tweet? First thing that comes to mind probably is a text field where which holds the actual tweet message itself. Apart from that, we probably want a field for the user ID so that we know which user tweeted what tweet. We probably also want to add a timestamp to our tweets, so that we can know what tweets to show first in our timeline. That is to say, we need three fields, <code>user_id</code>, <code>message</code>, <code>timestamp</code>. That sounds pretty good, and if you take a look at the schema over at <code>schema.sql</code>, note that our <code>message</code>/<code>tweet</code> table is defined the same way (though not with the same names).</p>
+
+<p>Alright, let&rsquo;s put this conceptual knowledge to practical use and enable our users to compose some tweets!</p>
+
+<ul>
+<li>Create a form that sends a text (<code>&lt;input type=&quot;text&quot;</code>) to our <code>/add_message</code> route. Note that we&rsquo;ve defined our <code>/add_message</code> route already in our <code>router.py</code> file.</li>
+<li>Now that you&rsquo;ve created a form, we now need to handle it on our backend. Check which handler is being used by our router to handle the message, and go to that file.</li>
+<li>You should see an <code>add_message</code> function in it, which supposedly allows the user to create a tweet, but still has an empty <code>db.execute</code> statement. Take a look then at the statement below, which is which inserts the tweet to our message table, and inject the necessary parts needed by our backend:</li>
+</ul>
+
+<pre><code class="language-python">db.execute('''insert into message (author_id, text, pub_date)
+  values (?, ?, ?)''', (session['user_id'], request.form['text'],
+                        int(time.time())))
+</code></pre>
+
+<p>After you&rsquo;ve done this, you should now be able to compose a tweet over at the tweet box!</p>
+
+<h2 id="timeline:6de04598f2fcf1a81442009ea1de4f5a">timeline</h2>
+
+<p>What you&rsquo;ll notice is that we can now compose tweets, but we can&rsquo;t actually see them! Doh!</p>
+
+<p>We know that our timeline page&rsquo;s view is <code>timeline.html</code>, so let&rsquo;s take a quick look at that. Indeed, skimming over this file, there is not yet any feature that allows us to view the messages.</p>
+
+<p>However, note the <code>ul</code> tag with class <code>messages</code> near the end. I bet that&rsquo;s where we can put our tweets! If you take a look at our page&rsquo;s handler <code>controllers/timeline.py</code>, you&rsquo;ll note that our messages/ tweets are already being sent to the template as a <code>message</code> variable.</p>
+
+<pre><code class="language-python">def index():
+    &quot;&quot;&quot;Shows a users timeline or if no user is logged in it will
+    redirect to the public timeline.  This timeline shows the user's
+    messages as well as all the messages of followed users.
+    &quot;&quot;&quot;
+    if not g.user:
+        return redirect(functions.url_for('/public'))
+    query_messages = functions.query_db('''
+        select message.*, user.* from message, user
+        where message.author_id = user.user_id and (
+            user.user_id = ? or
+            user.user_id in (select whom_id from follower
+                                    where who_id = ?))
+        order by message.pub_date desc limit ?''',
+        [session['user_id'], session['user_id'], PER_PAGE])
+    return render_template('timeline.html', messages=query_messages)
+</code></pre>
+
+<p>Note that <code>query_messages</code> is just set as the return value of our database query, where we select our tweets. We then send the messages/tweets to our <code>timeline.html</code> template. That means our data is already there, but it&rsquo;s not just presented yet!</p>
+
+<p>Navigate now to <code>timelines.html</code> again (for the last time), and create a view for our timeline:</p>
+
+<ul>
+<li>In our div with class messages (near the end) create a for loop construct that will loop over our <code>messages</code> variable. Note that <code>jinja</code>&rsquo;s <code>for loop</code> is defined like so:</li>
+</ul>
+
+<pre><code class="language-python">{% for message in messages %}
+
+{% endfor %}
+</code></pre>
+
+<p>Inside our for loop block, let&rsquo;s insert the user&rsquo;s profile image (via gravatar). We can do so by using filters:</p>
+
+<pre><code class="language-python">{% for message in messages %}
+    &lt;li&gt;&lt;img src=&quot;{{ message.email|gravatar(size=48) }}&quot;&gt;&lt;p&gt;
+{% endfor %}
+</code></pre>
+
+<p>Note how we&rsquo;re passing the poster&rsquo;s email to our gravatar function (defined in <code>functions.helpers</code>)</p>
+
+<p>Let&rsquo;s now insert the user&rsquo;s username like so:</p>
+
+<pre><code class="language-python">{% for message in messages %}
+    &lt;li&gt;&lt;img src=&quot;{{ message.email|gravatar(size=48) }}&quot;&gt;&lt;p&gt;
+    &lt;strong&gt;{{ message.username }}&lt;/strong&gt;
+{% endfor %}
+</code></pre>
+
+<p>Note that we&rsquo;re accessing the poster&rsquo;s username through <code>message.username</code>, since we&rsquo;re composing the author and message data (and hence we can access the poster&rsquo;s attributes directly)</p>
+
+<p>Let&rsquo;s make it a little bit more fancy by actually linking to the user&rsquo;s profile:</p>
+
+<pre><code class="language-python">{% for message in messages %}
+    &lt;li&gt;&lt;img src=&quot;{{ message.email|gravatar(size=48) }}&quot;&gt;&lt;p&gt;
+    &lt;strong&gt;&lt;a href=&quot;{{ url_for('user', username=message.username)}}&quot;&gt;{{ message.username }}&lt;/a&gt;&lt;/strong&gt;
+{% endfor %}
+</code></pre>
+
+<p>Note how we&rsquo;ve just used <code>url_for</code> to generate the url, and then use a classic <code>href</code> link to link to that profile.</p>
+
+<p>We should also handle the case if there are no messages yet. Quite handily, Jinja allows us to do that quite easily with an else construct from our for loop:</p>
+
+<pre><code class="language-python">{% for message in messages %}
+    &lt;li&gt;&lt;img src=&quot;{{ message.email|gravatar(size=48) }}&quot;&gt;&lt;p&gt;
+    &lt;strong&gt;&lt;a href=&quot;{{ url_for('user', username=message.username)}}&quot;&gt;{{ message.username }}&lt;/a&gt;&lt;/strong&gt;
+{% else %}
+  &lt;li&gt;&lt;em&gt;There's no message so far.&lt;/em&gt;
+{% endfor %}
+</code></pre>
+
+<p>Then let&rsquo;s insert the <code>pub date</code> on the tweet, so that we can see when it was published:</p>
+
+<pre><code class="language-python">{% for message in messages %}
+    &lt;li&gt;&lt;img src=&quot;{{ message.email|gravatar(size=48) }}&quot;&gt;&lt;p&gt;
+    &lt;strong&gt;&lt;a href=&quot;{{ url_for('user', username=message.username)}}&quot;&gt;{{ message.username }}&lt;/a&gt;&lt;/strong&gt;
+    &lt;small&gt;&amp;mdash; {{ message.pub_date|datetimeformat }}&lt;/small&gt;
+{% else %}
+  &lt;li&gt;&lt;em&gt;There's no message so far.&lt;/em&gt;
+{% endfor %}
+</code></pre>
+
+<p><em>Finally</em>, and this time it&rsquo;s on you, add the actual tweet&rsquo;s message inside. Remember that you can access the message with <code>{{message.text}}</code>, so just insert that in the proper place in our for loop there.</p>
+
+<p>Congratulations! You&rsquo;ve now created a basic clone of twitter!</p>
+
+<h2 id="extra-feature:6de04598f2fcf1a81442009ea1de4f5a">extra feature</h2>
+
+<p>and now, for those particularly adventurous. (optional). You&rsquo;ll note that our twitter site also has a followers feature. Modify the site so that:</p>
+
+<ul>
+<li>Users can see how many followers a user has.</li>
+</ul>
+
+<h1 id="check-out:6de04598f2fcf1a81442009ea1de4f5a">Check out</h1>
+
+<p>To consider it done, check your app for a bit:</p>
+
+<ul>
+<li>Can I register on the site?</li>
+<li>Does it handle corner cases/invalid input properly?</li>
+<li>Are my tweets showing up on the page?</li>
+</ul>
+
+<h1 id="how-to-submit:6de04598f2fcf1a81442009ea1de4f5a">How to Submit</h1>
+
+<p>Once you have the site done, it&rsquo;s time to submit it! This time, push it to github (just like project 1) but without the need to create a <code>gh-pages</code> branch.</p>
+
+<p>Finally, head over again to <a href="http://submit.updevcamp.com">http://submit.updevcamp.com</a> where a short form awaits. Once you&rsquo;ve submitted the form and the source code, you are done!</p>
+</article></div> </div><footer><p>Made with <span class="color-pink">Love</span> &copy; UP CSI</p></footer> <script src="/js/vendor.bundle.js"></script><script src="/js/main.bundle.js"></script> <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', "UA-69207349-1", 'auto');
+  ga('send', 'pageview');
+</script> </body></html>

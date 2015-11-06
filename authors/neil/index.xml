@@ -1,0 +1,614 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Neil on UP CSI Devcamp</title>
+    <link>/authors/neil/</link>
+    <description>Recent content in Neil on UP CSI Devcamp</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 10 Feb 2015 02:11:02 +0800</lastBuildDate>
+    <atom:link href="/authors/neil/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Learn Ruby on Rails</title>
+      <link>/resources/learn_ruby_on_rails/</link>
+      <pubDate>Tue, 10 Feb 2015 02:11:02 +0800</pubDate>
+      
+      <guid>/resources/learn_ruby_on_rails/</guid>
+      <description>
+
+&lt;p&gt;This guide is for everyone who wants to learn &lt;a href=&#34;http://www.rubyonrails.org&#34;&gt;Ruby on Rails&lt;/a&gt;. sqlite3 is the suggested database management system in this guide. Moreover, this will include our recommended environment and links for the most reliable and best tutorials on web.&lt;/p&gt;
+
+&lt;h2 id=&#34;linux:239628dc10fde8046da4a69f3f935a4a&#34;&gt;Linux&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Supported Distributions&lt;/strong&gt;
+1. Ubuntu (Precise Pangolin and Trusty Tahr)
+2. ElementaryOS (Luna)
+3. Linux Mint (Cinnamon)&lt;/p&gt;
+
+&lt;h4 id=&#34;dependencies:239628dc10fde8046da4a69f3f935a4a&#34;&gt;Dependencies&lt;/h4&gt;
+
+&lt;p&gt;Install the following dependencies:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;git&lt;/li&gt;
+&lt;li&gt;sqlite3&lt;/li&gt;
+&lt;li&gt;nodeJs&lt;/li&gt;
+&lt;li&gt;Rbenv&lt;/li&gt;
+&lt;li&gt;Ruby&lt;/li&gt;
+&lt;li&gt;Rails&lt;/li&gt;
+&lt;li&gt;Bundle&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Install &lt;strong&gt;git&lt;/strong&gt;, &lt;strong&gt;sqlite3&lt;/strong&gt;, &lt;strong&gt;nodeJS&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo add-apt-repository ppa:chris-lea/node.js
+sudo apt-get update &amp;amp;&amp;amp; sudo apt-get upgrade
+sudo apt-get install autoconf bison build-essential libssl-dev libyaml-dev
+sudo apt-get install libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev
+sudo apt-get install libgdbm3 libgdbm-dev
+sudo apt-get install sqlite3 libsqlite3-dev
+sudo apt-get install git nodejs
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For a recommended &lt;strong&gt;nodeJS&lt;/strong&gt; installation, check &lt;a href=&#34;https://github.com/creationix/nvm&#34;&gt;NVM&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Note: If this is your first time on git, it&amp;rsquo;s advisable to configure your credentials first:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;git config --global user.name &amp;quot;Neil Calabroso&amp;quot;
+git config --global user.email &amp;quot;nmcalabroso@up.edu.ph&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Also, make sure your git&amp;rsquo;s core.autocrlf setting is set to false to avoid any problems when installing rbenv.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;git config --global core.autocrlf false
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Install &lt;a href=&#34;https://github.com/sstephenson/rbenv&#34;&gt;Rbenv&lt;/a&gt;. Complete the installation instructions including the optional part:&lt;code&gt;ruby-build&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Upon installing &lt;strong&gt;Rbenv&lt;/strong&gt;, restart your terminal and install Ruby 2.2.0:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;rbenv install 2.2.0
+rbenv global 2.2.0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Install &lt;strong&gt;Rails&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;gem install rails
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Install Bundler:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;gem install bundler #restart terminal after the installation
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;tutorials:239628dc10fde8046da4a69f3f935a4a&#34;&gt;Tutorials&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;If you do not have any experience on ruby, we suggest to complete the challenge by &lt;a href=&#34;http://www.tryruby.org&#34;&gt;TryRuby&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;With the set-up above, you are now ready for your &lt;a href=&#34;http://guides.rubyonrails.org/getting_started.html&#34;&gt;first web app tutorial&lt;/a&gt;. You can now start at &lt;em&gt;section 3.2&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Since the &lt;a href=&#34;http://www.guides.rubyonrails.org/getting_started.html&#34;&gt;Getting Started Tutorial&lt;/a&gt; is too high-level (with the use of scaffolding), it is very much suggested to read and finish the book &lt;a href=&#34;http://www.rubyonrailstutorial.org/book&#34;&gt;Ruby on Rails Tutorial&lt;/a&gt;. This book gives a thorough explanation about the workflow of &lt;strong&gt;Rails&lt;/strong&gt;, &lt;strong&gt;Unit-testing&lt;/strong&gt;, &lt;strong&gt;Git&lt;/strong&gt;, and &lt;strong&gt;Deployment&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;further-notes:239628dc10fde8046da4a69f3f935a4a&#34;&gt;Further Notes&lt;/h3&gt;
+
+&lt;p&gt;For a high quality and readable codebase, please make these conventions as references:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/bbatsov/ruby-style-guide&#34;&gt;Ruby Style Guide&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/bbatsov/rails-style-guide&#34;&gt;Rails Style Guide&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Installing pry in Rails 4</title>
+      <link>/resources/pry_for_rails_linux/</link>
+      <pubDate>Mon, 19 Jan 2015 08:49:02 +0800</pubDate>
+      
+      <guid>/resources/pry_for_rails_linux/</guid>
+      <description>
+
+&lt;p&gt;This guide aims to install &lt;a href=&#34;https://github.com/pry/pry&#34;&gt;pry&lt;/a&gt; in your Rails 4 App.
+This tutorial also fixes the &lt;em&gt;&amp;ldquo;no such file to load &amp;ndash; readline&amp;rdquo;&lt;/em&gt; error when
+running &lt;strong&gt;binding.pry&lt;/strong&gt; or even &lt;strong&gt;rails console&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;First, add the following gems to your Gemfile:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;group :development, :test do
+  gem &#39;rb-readline&#39;
+  gem &#39;pry&#39;
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Next, run &lt;code&gt;bundle install&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;example:e83c339c047e4d38b7a0a649ff234c18&#34;&gt;Example&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;class UsersController &amp;lt; ApplicationController
+  def index
+    @users = User.all
+    binding.pry
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;further-notes:e83c339c047e4d38b7a0a649ff234c18&#34;&gt;Further Notes&lt;/h3&gt;
+
+&lt;p&gt;See &lt;a href=&#34;https://github.com/pry/pry&#34;&gt;pry&lt;/a&gt;&amp;rsquo;s main repository for more details.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Development Tools</title>
+      <link>/resources/development_tools/</link>
+      <pubDate>Mon, 19 Jan 2015 08:34:02 +0800</pubDate>
+      
+      <guid>/resources/development_tools/</guid>
+      <description>
+
+&lt;p&gt;Here are the recommended development tools of the Development Committee.&lt;/p&gt;
+
+&lt;h2 id=&#34;linux:025ccdd47de7f4bb3ef3ca638ca3be0e&#34;&gt;Linux&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Supported Distributions&lt;/strong&gt;
+1. Ubuntu (Precise Pangolin)
+2. ElementaryOS (Luna)
+3. Linux Mint (Cinnamon)&lt;/p&gt;
+
+&lt;p&gt;Before installing, please make sure to update and upgrade your system.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo apt-get update
+sudo apt-get upgrade
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;firefox:025ccdd47de7f4bb3ef3ca638ca3be0e&#34;&gt;Firefox&lt;/h3&gt;
+
+&lt;p&gt;To install Firefox, input the following via terminal:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo apt-get install firefox
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;google-chrome:025ccdd47de7f4bb3ef3ca638ca3be0e&#34;&gt;Google Chrome&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Installation&lt;/strong&gt;
+1. Download the &lt;a href=&#34;https://www.google.com/chrome/browser/desktop&#34;&gt;package&lt;/a&gt;.
+2. Open the downloaded package using the Software Center app.
+3. Within the app, you can now install Google Chrome.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Plug-ins&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;For testing your own API service, you can check &lt;a href=&#34;https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm?hl=en&#34;&gt;Postman&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;For picking colors from websites, you can check &lt;a href=&#34;https://chrome.google.com/webstore/detail/colorpick-eyedropper/ohcpnigalekghcmgcdcenkpelffpdolg?hl=en&#34;&gt;ColorPick Eyedropper&lt;/a&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;sublime-text-3:025ccdd47de7f4bb3ef3ca638ca3be0e&#34;&gt;Sublime Text 3&lt;/h3&gt;
+
+&lt;p&gt;To install Sublime Text 3, input the following via terminal:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo add-apt-repository ppa:webupd8team/sublime-text-3
+sudo apt-get update
+sudo apt-get install sublime-text-installer
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Congrats! Now you have Sublime Text 3 installed in your machine.&lt;/p&gt;
+
+&lt;p&gt;Customize your editor for more uniform environment:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Install Sublime&amp;rsquo;s package manager. Instructions can be found here: &lt;code&gt;https://sublime.wbond.net/installation&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Open SublimeText 3, select &lt;code&gt;Package Control:Install Package&lt;/code&gt; (shortcut: CTRL+SHIFT+P)&lt;/li&gt;
+&lt;li&gt;Search and install &lt;code&gt;Theme - Soda SolarizedDark&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Open Preferences &amp;gt; Settings - User and activate the theme, color scheme, and indent using spaces with this configuration:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;{
+  &amp;quot;tab_size&amp;quot;: 2,
+  &amp;quot;translate_tabs_to_spaces&amp;quot;: true,
+  &amp;quot;detect_indentation&amp;quot;: false,
+  &amp;quot;color_scheme&amp;quot;: &amp;quot;Packages/Color Scheme - Default/Solarized (Dark).tmTheme&amp;quot;,
+  &amp;quot;theme&amp;quot;: &amp;quot;Soda SolarizedDark.sublime-theme&amp;quot;,
+  &amp;quot;ignored_packages&amp;quot;:
+  [
+    &amp;quot;Vintage&amp;quot;
+  ]
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Finally, restart Sublime Text.&lt;/p&gt;
+
+&lt;h3 id=&#34;atom:025ccdd47de7f4bb3ef3ca638ca3be0e&#34;&gt;Atom&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Installation&lt;/strong&gt;
+1. Download the &lt;a href=&#34;https://atom.io&#34;&gt;package&lt;/a&gt;.
+2. Open the downloaded package using the Software Center app.
+3. Within the app, you can now install Atom.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Configuration&lt;/strong&gt;
+1. Run Atom.
+2. Go to &lt;code&gt;Settings&lt;/code&gt;. (shortcut: Ctrl + ,)
+3. Go to &lt;code&gt;Themes&lt;/code&gt; tab. Search and install &lt;code&gt;Solarized Dark UI&lt;/code&gt;.
+4. Set your theme and syntax to &lt;code&gt;Solarized Dark&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;git:025ccdd47de7f4bb3ef3ca638ca3be0e&#34;&gt;Git&lt;/h3&gt;
+
+&lt;p&gt;To install git, input the following via terminal:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo apt-get install git
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Learn Mezzanine</title>
+      <link>/resources/learn_mezzanine/</link>
+      <pubDate>Tue, 16 Sep 2014 15:33:20 +0800</pubDate>
+      
+      <guid>/resources/learn_mezzanine/</guid>
+      <description>
+
+&lt;p&gt;This guide is for everyone who wants to learn &lt;a href=&#34;http://mezzanine.jupo.org/&#34;&gt;Mezzanine&lt;/a&gt;, a CMS &lt;a href=&#34;https://www.djangoproject.com&#34;&gt;Django&lt;/a&gt;-based framework. PostgreSQL is the suggested database management system in this guide. Moreover, this will include our recommended environment and links for the most reliable and best tutorials on web.&lt;/p&gt;
+
+&lt;h2 id=&#34;linux:c58c5d450c1c816023b6fad9d466079c&#34;&gt;Linux&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Supported Distributions&lt;/strong&gt;
+1. Ubuntu (Precise Pangolin)
+2. ElementaryOS (Luna)
+3. Linux Mint (Cinnamon)&lt;/p&gt;
+
+&lt;h3 id=&#34;dependencies:c58c5d450c1c816023b6fad9d466079c&#34;&gt;Dependencies&lt;/h3&gt;
+
+&lt;p&gt;First, install all required dependencies:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo apt-get update &amp;amp;&amp;amp; sudo apt-get upgrade
+sudo apt-get install build-essential
+sudo apt-get install python-pip python-dev python-setuptools
+sudo apt-get install postgresql libpq-dev
+sudo pip install virtualenv virtualenvwrapper
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Open your &lt;code&gt;.bashrc&lt;/code&gt; file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ nano ~/.bashrc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and append the following lines at the end:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# Virtualenv
+export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Projects
+source /usr/local/bin/virtualenvwrapper.sh
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Second, restart the terminal and create your virtual environment:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ mkvirtualenv sample
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Your prompt should now look similar to this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;(sample)neil@andromeda:~$
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;setting-up-the-database:c58c5d450c1c816023b6fad9d466079c&#34;&gt;Setting up the database&lt;/h3&gt;
+
+&lt;p&gt;First, create a custom user for your database:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ sudo -u postgres createuser --superuser $USER
+$ sudo -u postgres psql
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Once you have entered the PostgreSQL REPL, setup the password for the database:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;postgres=# \password [enter your username here] #e.g. neil
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Exit the REPL by typing &lt;code&gt;\q&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Congratulations, your machine [and you] is now ready to proceed to our suggested tutorials!&lt;/p&gt;
+
+&lt;h3 id=&#34;tutorials:c58c5d450c1c816023b6fad9d466079c&#34;&gt;Tutorials&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;If you do not have any experience on python, we suggest to complete the curriculum in &lt;a href=&#34;http://www.codecademy.com/en/tracks/python&#34;&gt;Codecademy&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Since &lt;strong&gt;Mezzanine&lt;/strong&gt; is based in &lt;strong&gt;Django&lt;/strong&gt;, it is strongly recommended for you to complete the &lt;a href=&#34;https://docs.djangoproject.com/en/1.7/intro/tutorial01&#34;&gt;first django web tutorial&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Being someone familiar with &lt;strong&gt;Django&lt;/strong&gt;, you can now check this &lt;strong&gt;Mezzanine&lt;/strong&gt; &lt;a href=&#34;http://rodmtech.net/docs/mezzanine/a-mezzanine-tutorial-take-2&#34;&gt;tutorial&lt;/a&gt;. Note that this is an outdated tutorial so it is inevitable for you to encounter errors. Still, this guide can help you grasp the power of this CMS Framework.&lt;/li&gt;
+&lt;li&gt;Assuming that you have completed the above tutorial in spite of all the errors, we are now sure that the documentation of &lt;strong&gt;Mezzanine&lt;/strong&gt; will finally have some sense to you. Congrats!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;further-notes:c58c5d450c1c816023b6fad9d466079c&#34;&gt;Further Notes&lt;/h3&gt;
+
+&lt;p&gt;For a high quality and readable codebase, please make these conventions as references:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;http://legacy.python.org/dev/peps/pep-0008&#34;&gt;Python Style Guide&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.djangoproject.com/en/dev/internals/contributing/writing-code/coding-style&#34;&gt;Django Style Guide&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Android Development Environment</title>
+      <link>/resources/android_dev/</link>
+      <pubDate>Tue, 12 Aug 2014 16:55:20 +0800</pubDate>
+      
+      <guid>/resources/android_dev/</guid>
+      <description>
+
+&lt;p&gt;Set-up your android development environment&lt;/p&gt;
+
+&lt;h2 id=&#34;linux:9f5df4195855c3793cf9110b129c124e&#34;&gt;Linux&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Supported Distributions&lt;/strong&gt;
+1. Ubuntu (Precise Pangolin)
+2. ElementaryOS (Luna)
+3. Linux Mint (Cinnamon)&lt;/p&gt;
+
+&lt;h3 id=&#34;android-studio:9f5df4195855c3793cf9110b129c124e&#34;&gt;Android Studio&lt;/h3&gt;
+
+&lt;p&gt;First, add a new PPA in order for us to install Oracle&amp;rsquo;s official SDK.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo apt-get install python-software-properties
+sudo add-apt-repository ppa:webupd8team/java
+sudo apt-get update &amp;amp;&amp;amp; sudo apt-get upgrade
+sudo apt-get install oracle-java7-installer
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Second, download &lt;a href=&#34;http://developer.android.com/sdk/installing/studio.html&#34;&gt;Android Studio&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Then, unpack the downloaded file and move it to your desired directory. In our case, we will put it in the &lt;code&gt;/opt/&lt;/code&gt; directory.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo mv android-studio /opt/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Open your &lt;code&gt;.bashrc&lt;/code&gt; and add the line below so we can run Android Studio from any directory:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;nano ~/.bashrc #open .bashrc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# Android Studio
+## Add this line at the end of .bashrc
+export PATH=&amp;quot;/opt/android-studio/bin:$PATH&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Save the changed file.&lt;/p&gt;
+
+&lt;p&gt;Restart your terminal.&lt;/p&gt;
+
+&lt;p&gt;You can now run Android Studio via this command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;studio.sh
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Click the &lt;code&gt;check for updates&lt;/code&gt; link from the window. Congratulations, you have finished installing Android Studio!&lt;/p&gt;
+
+&lt;h3 id=&#34;proxy-settings:9f5df4195855c3793cf9110b129c124e&#34;&gt;Proxy Settings&lt;/h3&gt;
+
+&lt;p&gt;If you are experiencing some connection issue and you are behind a proxy, do the following:&lt;/p&gt;
+
+&lt;p&gt;Open &lt;strong&gt;Android Studio&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Go to &lt;em&gt;Configure &amp;gt; Settings&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Search for &lt;strong&gt;Gradle&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Enter the following as &lt;em&gt;Gradle VM Options&lt;/em&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;-Dhttp.proxyHost=proxy.domain.com -Dhttp.proxyPort=8080 -Dhttps.proxyHost=proxy.domain.com -Dhttps.proxyPort=8080
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If the proxy needs authentication, just add this line:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;-Dhttp.proxyUser=&amp;lt;username&amp;gt; -Dhttp.proxyPassword=&amp;lt;password&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note: Change the proxy host, port, user, and password according to your own proxy settings.&lt;/p&gt;
+
+&lt;p&gt;Apply and save the changes.&lt;/p&gt;
+
+&lt;p&gt;Next, Go to &lt;em&gt;Configure &amp;gt; Plugins&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Click &lt;em&gt;Browse Repositories&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;In the new window, click &lt;em&gt;Http Proxy Settings&lt;/em&gt; and configure it.&lt;/p&gt;
+
+&lt;p&gt;Finally, you should be able to update your &lt;strong&gt;Android Studio&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;genymotion:9f5df4195855c3793cf9110b129c124e&#34;&gt;Genymotion&lt;/h3&gt;
+
+&lt;p&gt;Install &lt;strong&gt;Oracle&amp;rsquo;s Virtualbox&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo apt-get install virtualbox-qt
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Next, go to &lt;a href=&#34;http://www.genymotion.com&#34;&gt;Genymotion&lt;/a&gt; website.&lt;/p&gt;
+
+&lt;p&gt;Then, sign up for an account.&lt;/p&gt;
+
+&lt;p&gt;After that, download Genymotion &lt;a href=&#34;https://cloud.genymotion.com/page/launchpad/download/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Move the downloaded file to &lt;code&gt;/opt/&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cd ~/Downloads/
+sudo mv genymotion-2.2.2_x64.bin /opt/ #version may vary from time to time
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Go to &lt;code&gt;/opt/&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cd /opt/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Make the file executable.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo chmod +x genymotion-2.2.2_x64.bin
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Execute the installer.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo ./genymotion-2.2.2_x64.bin
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;At the same page, install the Genymotion plug-in into our Android Studio. Check the &lt;strong&gt;Download IntelliJ IDEA Plugin&lt;/strong&gt; section.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Build your own LNPP Stack</title>
+      <link>/resources/build_lnpp_stack/</link>
+      <pubDate>Wed, 16 Jul 2014 20:08:20 +0800</pubDate>
+      
+      <guid>/resources/build_lnpp_stack/</guid>
+      <description>
+
+&lt;p&gt;Set-up an &lt;strong&gt;nginx&lt;/strong&gt;, &lt;strong&gt;php&lt;/strong&gt;, &lt;strong&gt;PostgreSQL&lt;/strong&gt;, and &lt;strong&gt;phppgadmin&lt;/strong&gt; development environment in your Linux machine.&lt;/p&gt;
+
+&lt;h2 id=&#34;linux:e015295be2249bad12948027ea58e47d&#34;&gt;Linux&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Supported Distributions&lt;/strong&gt;
+1. Ubuntu (Precise Pangolin)
+2. ElementaryOS (Luna)
+3. Linux Mint (Cinnamon)&lt;/p&gt;
+
+&lt;h3 id=&#34;update-your-system:e015295be2249bad12948027ea58e47d&#34;&gt;Update your system&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo apt-get update
+sudo apt-get upgrade
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;installing-nginx:e015295be2249bad12948027ea58e47d&#34;&gt;Installing nginx&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo apt-get install nginx
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;installing-php:e015295be2249bad12948027ea58e47d&#34;&gt;Installing php&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo apt-get install php5 php5-common php5-fpm php5-cli php5-mcrypt php5-pgsql
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: You might encounter a bug in Ubuntu 14.10 about the icedtea-7-plugin. If you receive such an error, you can use this workaround:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo ln -sv /usr/lib/jvm/java-7-openjdk-amd64 /usr/lib/jvm/java-8-openjdk-amd64
+sudo apt-get install -f
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;installing-postgres:e015295be2249bad12948027ea58e47d&#34;&gt;Installing postgres&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo apt-get install python-software-properties
+sudo apt-get install postgresql
+sudo apt-get install libpq-dev
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;set-up-postgres:e015295be2249bad12948027ea58e47d&#34;&gt;Set-up postgres&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo -u postgres createuser --superuser $USER
+sudo -u postgres psql
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Once you entered the &lt;code&gt;postgresql REPL&lt;/code&gt;, setup the password for the user:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;postgres=# \password [enter your username here] #e.g. neil
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Once you exit the REPL, create a database for the created user:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;createdb $USER
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Finally, you can now create a database using this command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;createdb my_database #change &#39;my_database&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;installing-phppgadmin:e015295be2249bad12948027ea58e47d&#34;&gt;Installing phppgadmin&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo apt-get install phppgadmin
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: Version 5.1-1 is dependent on libapache2-mod-php5 and apache2. To install phppgadmin without installing the apache dependencies, you would have to manually download the compressed folder from &lt;a href=&#34;phppgadmin.sourceforge.net/doku.php?id=download&#34;&gt;sourceforge&lt;/a&gt; and extract to &lt;code&gt;/usr/share&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;creating-a-virtual-host-for-phppgadmin:e015295be2249bad12948027ea58e47d&#34;&gt;Creating a virtual host for phppgadmin&lt;/h3&gt;
+
+&lt;p&gt;Create &lt;code&gt;/etc/nginx/sites-available/app.phppgadmin.dev&lt;/code&gt; which should look like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;server {
+  listen 80;
+
+  root /usr/share/phppgadmin; # if you downloaded phppgadmin manually, rename this to the name of the extracted folder
+
+  index index.php;
+
+  #You can change this depending on your wanted url
+  #In case you change this one, rename this file also.
+  server_name app.phppgadmin.dev;
+
+  access_log  /var/log/app.phppgadmin.dev.access.log;
+
+  error_log   /var/log/app.phppgadmin.dev.error.log;
+
+  location / {
+    allow all;
+  }
+
+  location ~ \.php$ {
+    include phpfpm_params;
+    allow all;
+  }
+
+  location ~ /\.ht {
+    deny all;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Next, create &lt;code&gt;/etc/nginx/phpfpm_params&lt;/code&gt; which should contain these configurations:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;fastcgi_split_path_info      ^(.+\.php)(.*)$;
+fastcgi_pass                 unix:/var/run/php5-fpm.sock;
+fastcgi_index                index.php;
+fastcgi_param                SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+include fastcgi_params;
+fastcgi_param                QUERY_STRING $query_string;
+fastcgi_param                REQUEST_METHOD $request_method;
+fastcgi_param                CONTENT_TYPE $content_type;
+fastcgi_param                CONTENT_LENGTH $content_length;
+fastcgi_intercept_errors     on;
+fastcgi_ignore_client_abort  off;
+fastcgi_connect_timeout      60;
+fastcgi_send_timeout         180;
+fastcgi_read_timeout         180;
+fastcgi_buffer_size          128k;
+fastcgi_buffers              4  256k;
+fastcgi_busy_buffers_size    256k;
+fastcgi_temp_file_write_size 256k;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then create a symlink to the &lt;code&gt;sites-enabled&lt;/code&gt; directory to activate the new virtual host.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo ln -s /etc/nginx/sites-available/app.phppgadmin.dev /etc/nginx/sites-enabled/app.phppgadmin.dev
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Lastly, edit &lt;code&gt;/etc/hosts&lt;/code&gt; and add your newly created virtual host.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;127.0.0.1 localhost
+127.0.0.1 app.phppgadmin.dev #this is the added line
+
+# The following lines are desirable for IPv6 capable hosts
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;further-notes:e015295be2249bad12948027ea58e47d&#34;&gt;Further Notes&lt;/h3&gt;
+
+&lt;p&gt;For more info about creating a virtual host for nginx, see &lt;a href=&#34;https://www.digitalocean.com/community/tutorials/how-to-install-laravel-with-nginx-on-an-ubuntu-12-04-lts-vps&#34;&gt;Digital Ocean&amp;rsquo;s guide&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;We used this &lt;a href=&#34;https://xdev.me/article/Install_phpPgAdmin_on_Ubuntu&#34;&gt;resource&lt;/a&gt; for the installation and set-up of phppgadmin. We added more modifications as a fix for some encountered errors.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

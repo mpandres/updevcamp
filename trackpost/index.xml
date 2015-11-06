@@ -1,0 +1,2493 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Trackposts on UP CSI Devcamp</title>
+    <link>/trackpost/</link>
+    <description>Recent content in Trackposts on UP CSI Devcamp</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 03 Nov 2015 11:23:08 +0800</lastBuildDate>
+    <atom:link href="/trackpost/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>The Twitter</title>
+      <link>/trackpost/15a-project2/</link>
+      <pubDate>Tue, 03 Nov 2015 11:23:08 +0800</pubDate>
+      
+      <guid>/trackpost/15a-project2/</guid>
+      <description>
+
+&lt;p&gt;&lt;div class=&#34;notice notice-&#34;&gt; &lt;h3 id=&#34;due-to-time-constraints-we-haven-t-fully-discussed-sql-and-databases-yet-in-our-last-devcamp-session-please-consult-any-of-the-staff-through-slack-facebook-if-you-have-any-questions:6de04598f2fcf1a81442009ea1de4f5a&#34;&gt;Due to time constraints, we haven&amp;rsquo;t fully discussed SQL and databases yet in our last DevCamp Session. Please consult any of the Staff through Slack/Facebook if you have any questions.*&lt;/h3&gt;
+&lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;*&lt;strong&gt;We&amp;rsquo;ve compressed something that was regularly discussed for about 3-4 sessions into one&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;getting-started:6de04598f2fcf1a81442009ea1de4f5a&#34;&gt;Getting Started&lt;/h1&gt;
+
+&lt;p&gt;First, let&amp;rsquo;s install flask. If you&amp;rsquo;ve followed the python installation file by dominic &lt;a href=&#34;/resources/python&#34;&gt;here&lt;/a&gt;, you should have &lt;code&gt;Python 3.4+&lt;/code&gt; installed. Python 3.4 comes installed with &lt;code&gt;pip&lt;/code&gt;, the package manager we can use to install &lt;code&gt;Flask&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Install Flask by doing the following command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;python -m pip install https://github.com/mitsuhiko/flask/tarball/master
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note that you might have python aliased as &lt;code&gt;python3&lt;/code&gt;. As well, you might have file permission errors that prevent you to install flask. If so, prepend &lt;code&gt;sudo&lt;/code&gt; on the above command or run your command prompt as administrator.&lt;/p&gt;
+
+&lt;p&gt;Unlike our first project, we&amp;rsquo;re providing distribution code to kickstart development of your project. Navigate to this &lt;a href=&#34;/media/tracks/web/project-2.zip&#34;&gt;link&lt;/a&gt; to download the distribution code.&lt;/p&gt;
+
+&lt;p&gt;Extract the archive and navigate to the distribution code by typing &lt;code&gt;cd (dir-name)&lt;/code&gt;, where our flask app awaits. Inside you&amp;rsquo;ll see a couple of files, which looks a bit like our &lt;code&gt;mvc&lt;/code&gt; examples, but is actually powered by flask.&lt;/p&gt;
+
+&lt;h2 id=&#34;twitter:6de04598f2fcf1a81442009ea1de4f5a&#34;&gt;Twitter&lt;/h2&gt;
+
+&lt;p&gt;If you haven&amp;rsquo;t heard of Twitter &lt;em&gt;(seriously?)&lt;/em&gt;, twitter is a social media website where users can compose and post &amp;lsquo;tweets&amp;rsquo;, allowing their followers to see their posts on their timeline.&lt;/p&gt;
+
+&lt;p&gt;You&amp;rsquo;re about to implement CSITwit, a simple twitter clone where users can register, login, compose and post tweets.&lt;/p&gt;
+
+&lt;p&gt;In fact, I want to go ahead and create a tweet. Let&amp;rsquo;s login to csitwit:&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;/media/tracks/web/csitwit.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;And then, after typing out my tweet, I can now see it on my timeline:&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;/media/tracks/web/csitwit2.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Thankfully, the functionality of Twitter is actually quite small, and even more thankfully, we&amp;rsquo;ve provided boilerplate code for you!&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s go ahead and take a look at the code you&amp;rsquo;ve cloned.&lt;/p&gt;
+
+&lt;h1 id=&#34;explanation:6de04598f2fcf1a81442009ea1de4f5a&#34;&gt;Explanation&lt;/h1&gt;
+
+&lt;p&gt;Navigate over to the distribution code. You&amp;rsquo;ll note that there are a couple of top level files.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;notice notice-info&#34;&gt; &lt;h3 id=&#34;you-can-see-a-live-demo-of-the-site-here-http-csitwit-herokuapp-com-go-ahead-and-play-around-with-it-so-that-you-ll-have-an-idea-of-what-you-re-about-to-create:6de04598f2fcf1a81442009ea1de4f5a&#34;&gt;You can see a live demo of the &lt;a href=&#34;http://csitwit.herokuapp.com/&#34;&gt;site here&lt;/a&gt;. Go ahead and play around with it, so that you&amp;rsquo;ll have an idea of what you&amp;rsquo;re about to create!&lt;/h3&gt;
+&lt;/div&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;init-py:6de04598f2fcf1a81442009ea1de4f5a&#34;&gt;__init__.py&lt;/h2&gt;
+
+&lt;p&gt;Seems to be an empty file. An __init__.py just defines a python folder as a package/module - you can ignore it for now.&lt;/p&gt;
+
+&lt;h2 id=&#34;csitwit-py:6de04598f2fcf1a81442009ea1de4f5a&#34;&gt;csitwit.py&lt;/h2&gt;
+
+&lt;p&gt;This file seems more interesting. It&amp;rsquo;s the name of our app and it seems to be setting up calling some initialization functions as well as setting up our &lt;code&gt;router&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Turns out &lt;code&gt;csitwit.py&lt;/code&gt; is our app&amp;rsquo;s main entry point, calling everything our app needs to start. Let&amp;rsquo;s go and take a look at &lt;code&gt;router&lt;/code&gt; next.&lt;/p&gt;
+
+&lt;h2 id=&#34;router-py:6de04598f2fcf1a81442009ea1de4f5a&#34;&gt;router.py&lt;/h2&gt;
+
+&lt;p&gt;Inside router.py is a couple of imports, and one big function named &lt;code&gt;set_router&lt;/code&gt;, which we&amp;rsquo;ve seen is being called by &lt;code&gt;csitwit.py&lt;/code&gt;. Let&amp;rsquo;s take a look at it closely:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;    # we&#39;re setting g.user as the user in the current session
+    @app.before_request
+    def before_request():
+        g.user = None
+        if &#39;user_id&#39; in session:
+            # if there is a user_id in session
+            # select it and set g.user to it
+            g.user = functions.query_db(&#39;select * from user where user_id = ?&#39;,
+                              [session[&#39;user_id&#39;]], one=True)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The first chunk of &lt;code&gt;set_router&lt;/code&gt; seems to be just defining a before_request method. We are wrapping that function inside a &lt;code&gt;decorator&lt;/code&gt;, allowing our app to know what to do on that particular instance (in this case, we run the function every time we return from a request). Inside, it checks if &amp;lsquo;user_id&amp;rsquo; is in session.&lt;/p&gt;
+
+&lt;p&gt;Turns out we&amp;rsquo;re saving the &amp;lsquo;user_id&amp;rsquo; in the current session, which we use to check if the user is logged in. Here we check if the &amp;lsquo;user_id&amp;rsquo; is in session, and if so, we set the &lt;code&gt;g.user&lt;/code&gt; variable to the return function of our database query.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;    ### Our Routes ###
+
+    # timeline routes
+    app.route(&#39;/&#39;)(timeline.index)
+    app.route(&#39;/public&#39;)(timeline.public)
+    app.route(&#39;/&amp;lt;username&amp;gt;&#39;)(timeline.user)
+
+    # follow routes
+    app.route(&#39;/&amp;lt;username&amp;gt;/follow&#39;)(follow.follow_user)
+    app.route(&#39;/&amp;lt;username&amp;gt;/unfollow&#39;)(follow.unfollow_user)
+
+    # tweet routes
+    app.route(&#39;/add_message&#39;, methods=[&#39;POST&#39;])(tweet.add_message)
+
+    # user routes
+    app.route(&#39;/login&#39;, methods=[&#39;GET&#39;, &#39;POST&#39;])(user.login)
+    app.route(&#39;/register&#39;, methods=[&#39;GET&#39;, &#39;POST&#39;])(user.register)
+    app.route(&#39;/logout&#39;)(user.logout)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The second half of our &lt;code&gt;set_router&lt;/code&gt; code seems to be just a collection of &amp;lsquo;routes&amp;rsquo;. Indeed, these lines of code is setting up the &lt;code&gt;routes&lt;/code&gt; of our page, and their specific handlers/controllers.&lt;/p&gt;
+
+&lt;p&gt;For example, we define &lt;code&gt;/public&lt;/code&gt; to use the &lt;code&gt;timeline.public&lt;/code&gt; function to render the page - that is to say, if our user navigates to &lt;code&gt;localhost:5000/public&lt;/code&gt;, we should use the &lt;code&gt;timeline.public&lt;/code&gt; function.&lt;/p&gt;
+
+&lt;p&gt;Some of the routes have additional parameters. For example, &lt;code&gt;/add_message&lt;/code&gt; is defined like so:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;  app.route(&#39;/add_message&#39;, methods=[&#39;POST&#39;])(tweet.add_message)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;While it might seem a bit more complicated, do note that the only thing it does is say that particular app route should also accept &lt;code&gt;POST&lt;/code&gt; methods - indeed, it makes sense for &lt;code&gt;/add_message&lt;/code&gt; to accept data through a &lt;code&gt;POST&lt;/code&gt; request.&lt;/p&gt;
+
+&lt;p&gt;Before we get started, let&amp;rsquo;s take a look first at a handler/controller. It seems that &lt;code&gt;app.route(&#39;/logout&#39;)(user.logout)&lt;/code&gt; is the route that defines our logout handler. We&amp;rsquo;re passing &lt;code&gt;user.logout&lt;/code&gt; to it, so we now know that there should be a function &lt;code&gt;logout&lt;/code&gt; inside our &lt;code&gt;user&lt;/code&gt; controller.&lt;/p&gt;
+
+&lt;p&gt;Note that from the third line of &lt;code&gt;router.py&lt;/code&gt; we&amp;rsquo;re importing &lt;code&gt;user&lt;/code&gt; from our &lt;code&gt;controllers&lt;/code&gt;, so we know that we can access the file from the controllers folder:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from controllers import follow, timeline, tweet, user
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;user-py:6de04598f2fcf1a81442009ea1de4f5a&#34;&gt;user.py&lt;/h2&gt;
+
+&lt;p&gt;Let&amp;rsquo;s go ahead and navigate to &lt;code&gt;controllers/user.py&lt;/code&gt;. Like our file name suggests, this file is the controller responsible for user functions - &lt;code&gt;login, logout, and register&lt;/code&gt;. Inside the file, you&amp;rsquo;ll see a couple of functions, but let&amp;rsquo;s skim over those parts first and take a look at our &lt;code&gt;logout&lt;/code&gt; function.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def logout():
+    &amp;quot;&amp;quot;&amp;quot;Logs the user out.&amp;quot;&amp;quot;&amp;quot;
+    flash(&#39;You were logged out&#39;)
+    session.pop(&#39;user_id&#39;, None)
+    return redirect(functions.url_for(&#39;/public&#39;))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Our &lt;code&gt;logout&lt;/code&gt; function calls &lt;code&gt;flash&lt;/code&gt; which shows a flash message on our page (more on that in a moment). What&amp;rsquo;s interesting though is the last two lines. It seems that we&amp;rsquo;re calling &lt;code&gt;session.pop&lt;/code&gt; on the user_id, removing (popping) the session away, effectively logging the user out. And then, we redirect away from the page, by passing the return value of &lt;code&gt;functions.url_for(&#39;/public&#39;)&lt;/code&gt;, which, as you might have guessed, navigates the user to &lt;code&gt;/public&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Note that &lt;code&gt;functions&lt;/code&gt; is again, another python file that we&amp;rsquo;ve defined (imported from helpers). You can take a look at it from &lt;code&gt;helpers/functions.py&lt;/code&gt; - it defines a couple of helper functions (like &lt;code&gt;url_for&lt;/code&gt;) as well as opens the connection to our database.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s now take a look at the &lt;code&gt;login&lt;/code&gt; function of our controller:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def login():
+    &amp;quot;&amp;quot;&amp;quot;Logs the user in.&amp;quot;&amp;quot;&amp;quot;
+    if g.user:
+        return redirect(functions.url_for(&#39;/&#39;))
+    error = None
+    if request.method == &#39;POST&#39;:
+        user = functions.query_db(&#39;&#39;&#39;select * from user where
+            username = ?&#39;&#39;&#39;, [request.form[&#39;username&#39;]], one=True)
+        if user is None:
+            error = &#39;Invalid username&#39;
+        elif not check_password_hash(user[&#39;pw_hash&#39;],
+                                     request.form[&#39;password&#39;]):
+            error = &#39;Invalid password&#39;
+        else:
+            flash(&#39;You were logged in&#39;)
+            session[&#39;user_id&#39;] = user[&#39;user_id&#39;]
+            return redirect(functions.url_for(&#39;/&#39;))
+    return render_template(&#39;login.html&#39;, error=error)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Eek, this is scary! Bare with me for a moment though, as we walk through the code.&lt;/p&gt;
+
+&lt;p&gt;The first 2 lines just checks if &lt;code&gt;g.user&lt;/code&gt; is defined (if the user is already logged in). If so, we don&amp;rsquo;t need to log in anymore, and indeed, we just redirect the user to his/her timeline in the homepage.&lt;/p&gt;
+
+&lt;p&gt;Then, we do a &lt;code&gt;request.method&lt;/code&gt; check to see if it&amp;rsquo;s a POST request, not unlike our &lt;code&gt;mvc&lt;/code&gt; example. That is to say, if our method is a &lt;code&gt;POST&lt;/code&gt; method, we know that the user is indeed trying to login (and has submitted a form)&lt;/p&gt;
+
+&lt;p&gt;The next line is a bit more involved. It&amp;rsquo;s calling the &lt;code&gt;query_db&lt;/code&gt; function we have defined we&amp;rsquo;ve defined in our &lt;code&gt;functions&lt;/code&gt; helper, calling an SQL statement. Basically, it asks to &lt;code&gt;select&lt;/code&gt; every attribute &lt;code&gt;*&lt;/code&gt; &lt;code&gt;from&lt;/code&gt; our &lt;code&gt;user&lt;/code&gt; table &lt;code&gt;where&lt;/code&gt; the &lt;code&gt;username&lt;/code&gt; is equal to &lt;code&gt;?&lt;/code&gt;. The &lt;code&gt;?&lt;/code&gt; is then interpolated (replaced) by our parameter, which, in this case, is the username from our request form (&lt;code&gt;request.form[&#39;username&#39;]&lt;/code&gt;). Note that we&amp;rsquo;re passing it inside an array, as we might want to have multiple items we want to interpolate (like say, searching for multiple fields). Note also that the last parameter is &lt;code&gt;one=True&lt;/code&gt;, which tells our query statement to just search for one value (since we only need one user).&lt;/p&gt;
+
+&lt;p&gt;The next line checks &lt;code&gt;if user is None&lt;/code&gt;, and just returns an &lt;code&gt;invalid username&lt;/code&gt; error. If not, it calls &lt;code&gt;check_password_hash&lt;/code&gt; to check if the password inputted and the password in the database is equal. If not, it returns an error.&lt;/p&gt;
+
+&lt;p&gt;When it is &lt;em&gt;indeed&lt;/em&gt; equal, note that we&amp;rsquo;re setting the session of the user &lt;code&gt;session[&#39;user_id&#39;]&lt;/code&gt; to the &lt;code&gt;user_id&lt;/code&gt; in our database, effectively logging in the user. We then redirect the user to the homepage.&lt;/p&gt;
+
+&lt;p&gt;Now, we got out of our if statement. Note that the next line just renders our &lt;code&gt;login&lt;/code&gt; template - this makes sense - we should just show our &lt;code&gt;login&lt;/code&gt; template if our request is not a &lt;code&gt;POST&lt;/code&gt; method (since the user hasn&amp;rsquo;t logged in yet) or also return it if there&amp;rsquo;s an &lt;code&gt;error&lt;/code&gt; (note that the code falls through to the render_template call if it doesn&amp;rsquo;t redirect sucessfully)&lt;/p&gt;
+
+&lt;p&gt;Our &lt;code&gt;render_template&lt;/code&gt; function just renders our &lt;code&gt;login.html&lt;/code&gt; file, so let&amp;rsquo;s take a look at that:&lt;/p&gt;
+
+&lt;h2 id=&#34;login-html:6de04598f2fcf1a81442009ea1de4f5a&#34;&gt;login.html&lt;/h2&gt;
+
+&lt;p&gt;Our &lt;code&gt;login.html&lt;/code&gt; file is just a jinja template, that extends from our &lt;code&gt;layout.html&lt;/code&gt; file. It&amp;rsquo;s the standard page, and note that our form&amp;rsquo;s action is empty, which just means that the action should go to the same route/page (since our handler is also in login, this makes sense).&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;{% extends &amp;quot;layout.html&amp;quot; %}
+{% block title %}Sign In{% endblock %}
+{% block body %}
+  &amp;lt;h2&amp;gt;Sign In&amp;lt;/h2&amp;gt;
+  {% if error %}&amp;lt;div class=&amp;quot;error&amp;quot;&amp;gt;&amp;lt;strong&amp;gt;Error:&amp;lt;/strong&amp;gt; {{ error }}&amp;lt;/div&amp;gt;{% endif %}
+  &amp;lt;form action=&amp;quot;&amp;quot; method=&amp;quot;post&amp;quot;&amp;gt;
+    &amp;lt;dl&amp;gt;
+      &amp;lt;dt&amp;gt;Username:
+      &amp;lt;dd&amp;gt;&amp;lt;input type=&amp;quot;text&amp;quot; name=&amp;quot;username&amp;quot; size=&amp;quot;30&amp;quot; value=&amp;quot;{{ request.form.username }}&amp;quot;&amp;gt;
+      &amp;lt;dt&amp;gt;Password:
+      &amp;lt;dd&amp;gt;&amp;lt;input type=&amp;quot;password&amp;quot; name=&amp;quot;password&amp;quot; size=&amp;quot;30&amp;quot;&amp;gt;
+    &amp;lt;/dl&amp;gt;
+    &amp;lt;div class=&amp;quot;actions&amp;quot;&amp;gt;&amp;lt;input type=&amp;quot;submit&amp;quot; value=&amp;quot;Sign In&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+  &amp;lt;/form&amp;gt;
+{% endblock %}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note how we set a value to our username field - we set it to our &lt;code&gt;request.form.username&lt;/code&gt; (the username set last request) so as to enable our app to &amp;lsquo;remember&amp;rsquo; the username. Note how we check errors with &lt;code&gt;if error&lt;/code&gt; - remember that we&amp;rsquo;re passing an &lt;code&gt;error&lt;/code&gt; variable if the login fails for any reason. Let&amp;rsquo;s take a look at our layout.html file next.&lt;/p&gt;
+
+&lt;h2 id=&#34;layout-html:6de04598f2fcf1a81442009ea1de4f5a&#34;&gt;layout.html&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;!doctype html&amp;gt;
+&amp;lt;title&amp;gt;{% block title %}Welcome{% endblock %} | CSITwit&amp;lt;/title&amp;gt;
+&amp;lt;link rel=&amp;quot;stylesheet&amp;quot; type=&amp;quot;text/css&amp;quot; href=&amp;quot;{{ url_for(&#39;static&#39;, filename=&#39;style.css&#39;) }}&amp;quot;&amp;gt;
+&amp;lt;div class=&amp;quot;page&amp;quot;&amp;gt;
+  &amp;lt;h1&amp;gt;CSITwit&amp;lt;/h1&amp;gt;
+  &amp;lt;div class=&amp;quot;navigation&amp;quot;&amp;gt;
+  {% if g.user %}
+    &amp;lt;a href=&amp;quot;/&amp;quot;&amp;gt;my timeline&amp;lt;/a&amp;gt; |
+    &amp;lt;a href=&amp;quot;/public&amp;quot;&amp;gt;public timeline&amp;lt;/a&amp;gt; |
+    &amp;lt;a href=&amp;quot;/logout&amp;quot;&amp;gt;sign out [{{ g.user.username }}]&amp;lt;/a&amp;gt;
+  {% else %}
+    &amp;lt;a href=&amp;quot;/public&amp;quot;&amp;gt;public timeline&amp;lt;/a&amp;gt; |
+    &amp;lt;a href=&amp;quot;/register&amp;quot;&amp;gt;sign up&amp;lt;/a&amp;gt; |
+    &amp;lt;a href=&amp;quot;/login&amp;quot;&amp;gt;sign in&amp;lt;/a&amp;gt;
+  {% endif %}
+  &amp;lt;/div&amp;gt;
+  {% with flashes = get_flashed_messages() %}
+    {% if flashes %}
+      &amp;lt;ul class=&amp;quot;flashes&amp;quot;&amp;gt;
+      {% for message in flashes %}
+        &amp;lt;li&amp;gt;{{ message }}
+      {% endfor %}
+      &amp;lt;/ul&amp;gt;
+    {% endif %}
+  {% endwith %}
+  &amp;lt;div class=&amp;quot;body&amp;quot;&amp;gt;
+  {% block body %}{% endblock %}
+  &amp;lt;/div&amp;gt;
+  &amp;lt;div class=&amp;quot;footer&amp;quot;&amp;gt;
+    CSITwit &amp;amp;mdash; Flask Application, DevCamp 2nd Project
+  &amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It seems a bit long, but it&amp;rsquo;s actually just our standard html page.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;In line 3, we&amp;rsquo;re importing our css file &lt;code&gt;style.css&lt;/code&gt;. You can take a look at it at &lt;code&gt;static/style.css&lt;/code&gt;, and you&amp;rsquo;ll see that a few selectors have already been defined.&lt;/li&gt;
+&lt;li&gt;From line 7 to 15 is an &lt;code&gt;if&lt;/code&gt; block - we&amp;rsquo;re checking the user is logged in, and we change the url links. If the user is logged in, we turn it to his homepage and logout links, but if not, we turn the links to register and login links.&lt;/li&gt;
+&lt;li&gt;The next &lt;code&gt;jinja&lt;/code&gt; block just iterates over our &lt;code&gt;flash&lt;/code&gt; messages. Remember how we called &lt;code&gt;flash&lt;/code&gt; messages back in logout? Well, it seems that if we want to show a &amp;lsquo;flash&amp;rsquo; message (a short notification), we can do so by adding it here.&lt;/li&gt;
+&lt;li&gt;We&amp;rsquo;re then using &lt;code&gt;block body&lt;/code&gt; to inject the template that we have.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Phew, that was a lot. Help yourself to a cute dog image.&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;/media/tracks/web/cutedog.jpg&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;h2 id=&#34;user-py-schema-sql:6de04598f2fcf1a81442009ea1de4f5a&#34;&gt;user.py/schema.sql&lt;/h2&gt;
+
+&lt;p&gt;Alright, what you&amp;rsquo;ve noticed is that we have a &lt;code&gt;login&lt;/code&gt; and &lt;code&gt;logout&lt;/code&gt; function in our page, but no &lt;code&gt;register&lt;/code&gt; function! Well it turns out that our &lt;code&gt;database schema&lt;/code&gt; is defined through &lt;code&gt;schema.sql&lt;/code&gt; so let&amp;rsquo;s take a look at that.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;drop table if exists user;
+create table user (
+  user_id integer primary key autoincrement,
+  username text not null,
+  email text not null,
+  pw_hash text not null
+);
+
+drop table if exists follower;
+create table follower (
+  who_id integer,
+  whom_id integer
+);
+
+drop table if exists message;
+create table message (
+  message_id integer primary key autoincrement,
+  author_id integer not null,
+  text text not null,
+  pub_date integer
+);
+
+INSERT INTO user (username, email, pw_hash) VALUES (&#39;person&#39;, &#39;person@gmail.com&#39;, &#39;pbkdf2:sha1:1000$L1UfsRgW$d780bf74e8432301bbdd361ee5ade12e842820e3&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;While the syntax might seem a bit cryptic, note that the first three &lt;code&gt;create&lt;/code&gt; blocks just create particular &lt;code&gt;tables&lt;/code&gt; where we can insert our data. Indeed, the &lt;code&gt;create table user&lt;/code&gt; command creates a &lt;code&gt;database table&lt;/code&gt; named &lt;code&gt;user&lt;/code&gt;, with the columns defined inside its parenthesis.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;user_id integer primary key autoincrement&lt;/code&gt; - user_id will be our column key, and it&amp;rsquo;s of type integer. Basically, it&amp;rsquo;s a unique id that we can use to tell a unique user from.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;username text not null&lt;/code&gt; - username, again will be our column key, this time of type text (which makes sense, as our username would be a text/string. Note that we&amp;rsquo;re using a &lt;code&gt;not_null&lt;/code&gt; constraint - we don&amp;rsquo;t want to add users without a username!&lt;/li&gt;
+&lt;li&gt;the next two lines are self explanatory - it&amp;rsquo;s creating &lt;code&gt;email&lt;/code&gt; and &lt;code&gt;pw_hash&lt;/code&gt; columns in our user table. Note that &lt;code&gt;pw_hash&lt;/code&gt; is the hashed password of our user.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;what-to-do:6de04598f2fcf1a81442009ea1de4f5a&#34;&gt;What to Do&lt;/h1&gt;
+
+&lt;p&gt;&lt;em&gt;Make sure to use git (just like last time) to save and commit your files&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;So it turns out that our schema is just that, a schema - and our actual database is still empty. Thankfully, we can apply the schema to our database through flask. Open up a terminal and run the following command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;python -m flask -a csitwit initdb
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This runs our &lt;code&gt;initdb&lt;/code&gt; command, creating our database tables. We can now run our flask server through the following command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;python -m flask -a csitwit run
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note that we can close it with [Ctrl]+[C] or [Cmd]+[C]. Note that if you face an error in the app, a manual restart of the server is required (so make sure to close and reopen the server if you face an error!&lt;/p&gt;
+
+&lt;h2 id=&#34;register:6de04598f2fcf1a81442009ea1de4f5a&#34;&gt;register&lt;/h2&gt;
+
+&lt;p&gt;Any who, now that we have an idea of how the user table is defined, it&amp;rsquo;s time to code! Let&amp;rsquo;s add a basic, but very important feature: the ability to register!&lt;/p&gt;
+
+&lt;p&gt;Go ahead and copy our &lt;code&gt;templates/login.html&lt;/code&gt; file, to &lt;code&gt;templates/register.html&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Then open up &lt;code&gt;register.html&lt;/code&gt; with &lt;code&gt;atom&lt;/code&gt; and add two new fields, &lt;code&gt;E-mail&lt;/code&gt; and another &lt;code&gt;Password&lt;/code&gt; field. We will use the additional &lt;code&gt;password&lt;/code&gt; field type so that we can prompt users to type in their password twice and discourage mistakes. Finally, change the buttons and flavor text to say &amp;ldquo;Sign Up&amp;rdquo; instead of &amp;ldquo;Sign In&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;Make sure to change the &lt;code&gt;name&lt;/code&gt; attribute of your input, as that is how we can distinguish it from our code.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;      &amp;lt;dt&amp;gt;E-Mail:
+      &amp;lt;dd&amp;gt;&amp;lt;input type=&amp;quot;text&amp;quot; name=&amp;quot;email&amp;quot; size=&amp;quot;30&amp;quot; value=&amp;quot;{{ request.form.email }}&amp;quot;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then, again using &lt;code&gt;atom&lt;/code&gt;, navigate to &lt;code&gt;controllers/user.py&lt;/code&gt; and define a new function &lt;code&gt;register&lt;/code&gt;. Create it anywhere after our import statements, taking care not to edit our &lt;code&gt;login&lt;/code&gt; and &lt;code&gt;logout&lt;/code&gt; functions! Go ahead and peruse the template we have here:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def register():
+    &amp;quot;&amp;quot;&amp;quot;Registers the user.&amp;quot;&amp;quot;&amp;quot;
+    if g.user:
+        return redirect(functions.url_for(&#39;/&#39;))
+    error = None
+    if request.method == &#39;POST&#39;:
+        if not request.form[&#39;username&#39;]:
+            error = &#39;You have to enter a username&#39;
+        elif not request.form[&#39;email&#39;] or \
+                &#39;@&#39; not in request.form[&#39;email&#39;]:
+            error = &#39;You have to enter a valid email address&#39;
+        elif #TODO:
+            error = &#39;You have to enter a password&#39;
+        elif #TODO:
+            error = &#39;The two passwords do not match&#39;
+        elif functions.get_user_id(request.form[&#39;username&#39;]) is not None:
+            error = &#39;The username is already taken&#39;
+        else:
+            db = functions.get_db()
+            db.execute(#TODO)
+            db.commit()
+            flash(&#39;You were successfully registered and can login now&#39;)
+            return redirect(functions.url_for(&#39;login&#39;))
+    return render_template(&#39;register.html&#39;, error=error)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It&amp;rsquo;s now time to tackle those &lt;code&gt;TODO&lt;/code&gt;s! To give you some hints:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;You&amp;rsquo;ll want to inform the user if he/she has not entered a password. Note that is our first #TODO&lt;/li&gt;
+&lt;li&gt;If the two passwords of the user doesn&amp;rsquo;t match, we need to inform them too.&lt;/li&gt;
+&lt;li&gt;Note that we&amp;rsquo;ve taken care of checking if the email and username is defined, as well as checking if the email is valid (by checking if there is an &lt;code&gt;@&lt;/code&gt; symbol in it)&lt;/li&gt;
+&lt;li&gt;Once all of the condition/input validation is done, we now want to register the user. We do this by executing an SQL statement. To insert a new user, you might find this SQL statement useful:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;&#39;&#39;&#39;insert into user (username, email, pw_hash) values (?, ?, ?)&#39;&#39;&#39;,
+[request.form[&#39;username&#39;], request.form[&#39;email&#39;],
+ generate_password_hash(request.form[&#39;password&#39;])]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;which is to say, &lt;code&gt;insert&lt;/code&gt;s into our &lt;code&gt;user&lt;/code&gt; table the following values &lt;code&gt;username&lt;/code&gt;, &lt;code&gt;email&lt;/code&gt;, and the generated password hash.&lt;/p&gt;
+
+&lt;p&gt;Once the user is logged in, we set a flash message, and redirect him/her to the login page where he can now login!&lt;/p&gt;
+
+&lt;p&gt;All done? How about you test it out! Navigate to &lt;code&gt;//localhost:5000/register&lt;/code&gt; and try to register for a new username! If you are redirected to the login page, then congrats, you&amp;rsquo;ve probably done right! Confirm that you are really registered by logging in with your credentials.&lt;/p&gt;
+
+&lt;h2 id=&#34;tweet:6de04598f2fcf1a81442009ea1de4f5a&#34;&gt;tweet&lt;/h2&gt;
+
+&lt;p&gt;Now it&amp;rsquo;s time to allow our users to post tweets! Thankfully, we&amp;rsquo;ve provided some boilerplate code for you as well.&lt;/p&gt;
+
+&lt;p&gt;Navigate over to &lt;code&gt;templates/timeline.html&lt;/code&gt; and you&amp;rsquo;ll see our html timeline page. Skim over the first parts, and take a look at line 27, which has a &amp;ldquo;What&amp;rsquo;s on your mind?&amp;rdquo; prompt. I bet that&amp;rsquo;s where we can put our tweet box!&lt;/p&gt;
+
+&lt;p&gt;What data exactly do we need to store for a tweet? First thing that comes to mind probably is a text field where which holds the actual tweet message itself. Apart from that, we probably want a field for the user ID so that we know which user tweeted what tweet. We probably also want to add a timestamp to our tweets, so that we can know what tweets to show first in our timeline. That is to say, we need three fields, &lt;code&gt;user_id&lt;/code&gt;, &lt;code&gt;message&lt;/code&gt;, &lt;code&gt;timestamp&lt;/code&gt;. That sounds pretty good, and if you take a look at the schema over at &lt;code&gt;schema.sql&lt;/code&gt;, note that our &lt;code&gt;message&lt;/code&gt;/&lt;code&gt;tweet&lt;/code&gt; table is defined the same way (though not with the same names).&lt;/p&gt;
+
+&lt;p&gt;Alright, let&amp;rsquo;s put this conceptual knowledge to practical use and enable our users to compose some tweets!&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Create a form that sends a text (&lt;code&gt;&amp;lt;input type=&amp;quot;text&amp;quot;&lt;/code&gt;) to our &lt;code&gt;/add_message&lt;/code&gt; route. Note that we&amp;rsquo;ve defined our &lt;code&gt;/add_message&lt;/code&gt; route already in our &lt;code&gt;router.py&lt;/code&gt; file.&lt;/li&gt;
+&lt;li&gt;Now that you&amp;rsquo;ve created a form, we now need to handle it on our backend. Check which handler is being used by our router to handle the message, and go to that file.&lt;/li&gt;
+&lt;li&gt;You should see an &lt;code&gt;add_message&lt;/code&gt; function in it, which supposedly allows the user to create a tweet, but still has an empty &lt;code&gt;db.execute&lt;/code&gt; statement. Take a look then at the statement below, which is which inserts the tweet to our message table, and inject the necessary parts needed by our backend:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;db.execute(&#39;&#39;&#39;insert into message (author_id, text, pub_date)
+  values (?, ?, ?)&#39;&#39;&#39;, (session[&#39;user_id&#39;], request.form[&#39;text&#39;],
+                        int(time.time())))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;After you&amp;rsquo;ve done this, you should now be able to compose a tweet over at the tweet box!&lt;/p&gt;
+
+&lt;h2 id=&#34;timeline:6de04598f2fcf1a81442009ea1de4f5a&#34;&gt;timeline&lt;/h2&gt;
+
+&lt;p&gt;What you&amp;rsquo;ll notice is that we can now compose tweets, but we can&amp;rsquo;t actually see them! Doh!&lt;/p&gt;
+
+&lt;p&gt;We know that our timeline page&amp;rsquo;s view is &lt;code&gt;timeline.html&lt;/code&gt;, so let&amp;rsquo;s take a quick look at that. Indeed, skimming over this file, there is not yet any feature that allows us to view the messages.&lt;/p&gt;
+
+&lt;p&gt;However, note the &lt;code&gt;ul&lt;/code&gt; tag with class &lt;code&gt;messages&lt;/code&gt; near the end. I bet that&amp;rsquo;s where we can put our tweets! If you take a look at our page&amp;rsquo;s handler &lt;code&gt;controllers/timeline.py&lt;/code&gt;, you&amp;rsquo;ll note that our messages/ tweets are already being sent to the template as a &lt;code&gt;message&lt;/code&gt; variable.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def index():
+    &amp;quot;&amp;quot;&amp;quot;Shows a users timeline or if no user is logged in it will
+    redirect to the public timeline.  This timeline shows the user&#39;s
+    messages as well as all the messages of followed users.
+    &amp;quot;&amp;quot;&amp;quot;
+    if not g.user:
+        return redirect(functions.url_for(&#39;/public&#39;))
+    query_messages = functions.query_db(&#39;&#39;&#39;
+        select message.*, user.* from message, user
+        where message.author_id = user.user_id and (
+            user.user_id = ? or
+            user.user_id in (select whom_id from follower
+                                    where who_id = ?))
+        order by message.pub_date desc limit ?&#39;&#39;&#39;,
+        [session[&#39;user_id&#39;], session[&#39;user_id&#39;], PER_PAGE])
+    return render_template(&#39;timeline.html&#39;, messages=query_messages)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note that &lt;code&gt;query_messages&lt;/code&gt; is just set as the return value of our database query, where we select our tweets. We then send the messages/tweets to our &lt;code&gt;timeline.html&lt;/code&gt; template. That means our data is already there, but it&amp;rsquo;s not just presented yet!&lt;/p&gt;
+
+&lt;p&gt;Navigate now to &lt;code&gt;timelines.html&lt;/code&gt; again (for the last time), and create a view for our timeline:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;In our div with class messages (near the end) create a for loop construct that will loop over our &lt;code&gt;messages&lt;/code&gt; variable. Note that &lt;code&gt;jinja&lt;/code&gt;&amp;rsquo;s &lt;code&gt;for loop&lt;/code&gt; is defined like so:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;{% for message in messages %}
+
+{% endfor %}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Inside our for loop block, let&amp;rsquo;s insert the user&amp;rsquo;s profile image (via gravatar). We can do so by using filters:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;{% for message in messages %}
+    &amp;lt;li&amp;gt;&amp;lt;img src=&amp;quot;{{ message.email|gravatar(size=48) }}&amp;quot;&amp;gt;&amp;lt;p&amp;gt;
+{% endfor %}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note how we&amp;rsquo;re passing the poster&amp;rsquo;s email to our gravatar function (defined in &lt;code&gt;functions.helpers&lt;/code&gt;)&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s now insert the user&amp;rsquo;s username like so:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;{% for message in messages %}
+    &amp;lt;li&amp;gt;&amp;lt;img src=&amp;quot;{{ message.email|gravatar(size=48) }}&amp;quot;&amp;gt;&amp;lt;p&amp;gt;
+    &amp;lt;strong&amp;gt;{{ message.username }}&amp;lt;/strong&amp;gt;
+{% endfor %}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note that we&amp;rsquo;re accessing the poster&amp;rsquo;s username through &lt;code&gt;message.username&lt;/code&gt;, since we&amp;rsquo;re composing the author and message data (and hence we can access the poster&amp;rsquo;s attributes directly)&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s make it a little bit more fancy by actually linking to the user&amp;rsquo;s profile:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;{% for message in messages %}
+    &amp;lt;li&amp;gt;&amp;lt;img src=&amp;quot;{{ message.email|gravatar(size=48) }}&amp;quot;&amp;gt;&amp;lt;p&amp;gt;
+    &amp;lt;strong&amp;gt;&amp;lt;a href=&amp;quot;{{ url_for(&#39;user&#39;, username=message.username)}}&amp;quot;&amp;gt;{{ message.username }}&amp;lt;/a&amp;gt;&amp;lt;/strong&amp;gt;
+{% endfor %}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note how we&amp;rsquo;ve just used &lt;code&gt;url_for&lt;/code&gt; to generate the url, and then use a classic &lt;code&gt;href&lt;/code&gt; link to link to that profile.&lt;/p&gt;
+
+&lt;p&gt;We should also handle the case if there are no messages yet. Quite handily, Jinja allows us to do that quite easily with an else construct from our for loop:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;{% for message in messages %}
+    &amp;lt;li&amp;gt;&amp;lt;img src=&amp;quot;{{ message.email|gravatar(size=48) }}&amp;quot;&amp;gt;&amp;lt;p&amp;gt;
+    &amp;lt;strong&amp;gt;&amp;lt;a href=&amp;quot;{{ url_for(&#39;user&#39;, username=message.username)}}&amp;quot;&amp;gt;{{ message.username }}&amp;lt;/a&amp;gt;&amp;lt;/strong&amp;gt;
+{% else %}
+  &amp;lt;li&amp;gt;&amp;lt;em&amp;gt;There&#39;s no message so far.&amp;lt;/em&amp;gt;
+{% endfor %}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then let&amp;rsquo;s insert the &lt;code&gt;pub date&lt;/code&gt; on the tweet, so that we can see when it was published:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;{% for message in messages %}
+    &amp;lt;li&amp;gt;&amp;lt;img src=&amp;quot;{{ message.email|gravatar(size=48) }}&amp;quot;&amp;gt;&amp;lt;p&amp;gt;
+    &amp;lt;strong&amp;gt;&amp;lt;a href=&amp;quot;{{ url_for(&#39;user&#39;, username=message.username)}}&amp;quot;&amp;gt;{{ message.username }}&amp;lt;/a&amp;gt;&amp;lt;/strong&amp;gt;
+    &amp;lt;small&amp;gt;&amp;amp;mdash; {{ message.pub_date|datetimeformat }}&amp;lt;/small&amp;gt;
+{% else %}
+  &amp;lt;li&amp;gt;&amp;lt;em&amp;gt;There&#39;s no message so far.&amp;lt;/em&amp;gt;
+{% endfor %}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;em&gt;Finally&lt;/em&gt;, and this time it&amp;rsquo;s on you, add the actual tweet&amp;rsquo;s message inside. Remember that you can access the message with &lt;code&gt;{{message.text}}&lt;/code&gt;, so just insert that in the proper place in our for loop there.&lt;/p&gt;
+
+&lt;p&gt;Congratulations! You&amp;rsquo;ve now created a basic clone of twitter!&lt;/p&gt;
+
+&lt;h2 id=&#34;extra-feature:6de04598f2fcf1a81442009ea1de4f5a&#34;&gt;extra feature&lt;/h2&gt;
+
+&lt;p&gt;and now, for those particularly adventurous. (optional). You&amp;rsquo;ll note that our twitter site also has a followers feature. Modify the site so that:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Users can see how many followers a user has.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;check-out:6de04598f2fcf1a81442009ea1de4f5a&#34;&gt;Check out&lt;/h1&gt;
+
+&lt;p&gt;To consider it done, check your app for a bit:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Can I register on the site?&lt;/li&gt;
+&lt;li&gt;Does it handle corner cases/invalid input properly?&lt;/li&gt;
+&lt;li&gt;Are my tweets showing up on the page?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;how-to-submit:6de04598f2fcf1a81442009ea1de4f5a&#34;&gt;How to Submit&lt;/h1&gt;
+
+&lt;p&gt;Once you have the site done, it&amp;rsquo;s time to submit it! This time, push it to github (just like project 1) but without the need to create a &lt;code&gt;gh-pages&lt;/code&gt; branch.&lt;/p&gt;
+
+&lt;p&gt;Finally, head over again to &lt;a href=&#34;http://submit.updevcamp.com&#34;&gt;http://submit.updevcamp.com&lt;/a&gt; where a short form awaits. Once you&amp;rsquo;ve submitted the form and the source code, you are done!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Flask</title>
+      <link>/trackpost/15a-web6/</link>
+      <pubDate>Tue, 03 Nov 2015 11:22:30 +0800</pubDate>
+      
+      <guid>/trackpost/15a-web6/</guid>
+      <description>
+
+&lt;h1 id=&#34;getting-started-with-flask:d69f702fbb99284690529847e709cd13&#34;&gt;Getting Started with Flask&lt;/h1&gt;
+
+&lt;p&gt;In this guide, we’ll cover installing Flask and using it for the first time. Flask is a back-end framework that we will be using alongside HTML and CSS. Contrary to to the front end, which is basically what the client sees, the back end consists of the internal mechanisms of a website, which handles stuff like input from the client.&lt;/p&gt;
+
+&lt;p&gt;After completing this tutorial, you will be able to:
+* Set-up Flask in your machines
+* Create a backend for your web app
+* Implement CRUD operations in Flask&lt;/p&gt;
+
+&lt;p&gt;This guide is based directly from the awesome and concise guides provided by &lt;a href=&#34;http://flask.pocoo.org/docs/0.10/&#34;&gt;Flask Documentation&lt;/a&gt; and &lt;a href=&#34;http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world&#34;&gt;Miguel Grinberg&lt;/a&gt;. These guides have been merged and modified for UP CSI Devcamp 2015.&lt;/p&gt;
+
+&lt;h2 id=&#34;foreword-why-flask:d69f702fbb99284690529847e709cd13&#34;&gt;Foreword: Why Flask?&lt;/h2&gt;
+
+&lt;p&gt;Why flask? Why study a microframework if I could just study real &lt;code&gt;frameworks&lt;/code&gt; such as Django? Why should I waste my time learning Flask?&lt;/p&gt;
+
+&lt;p&gt;A short, simple answer is that many developers use frameworks such as RoR and Django to develop sites whose functionalities doesn&amp;rsquo;t really need to use such sophisticated, complicated frameworks. Why not simplify things o&amp;rsquo;rayt? Also, the learning curve for complete frameworks are way-way steeper than microframeworks. Surely, Flask is a suitable stepping stone for first-time non-framework developers.&lt;/p&gt;
+
+&lt;p&gt;Please read this 2-minute article before starting with Flask. &lt;a href=&#34;http://flask.pocoo.org/docs/0.10/foreword/#what-does-micro-mean&#34;&gt;Check out this link.&lt;/a&gt;:&lt;/p&gt;
+
+&lt;h1 id=&#34;i-installing-flask:d69f702fbb99284690529847e709cd13&#34;&gt;I. Installing Flask&lt;/h1&gt;
+
+&lt;p&gt;To install Flask, we would be needing to 3 things:
+1. Python 3 - a widely used general-purpose, high-level programming language.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;pip - a tool that&amp;rsquo;s used to manage packages written in Python&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Virtual Environment (Virtualenv)- allows us to create Python environments that are isolated from one another. We will now create our own virtual environment for a simple web app and install Flask in it.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;To learn more about one of the best programming language, check out &lt;a href=&#34;https://www.python.org/&#34;&gt;Python&amp;rsquo;s Website&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;For a  thorough beginner-level explanation for pip and Virtualenv, you could check out this awesome &lt;a href=&#34;http://www.dabapps.com/blog/introduction-to-pip-and-virtualenv-python/&#34;&gt;article&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;for-unix-based-operating-systems:d69f702fbb99284690529847e709cd13&#34;&gt;For Unix-based Operating Systems&lt;/h2&gt;
+
+&lt;p&gt;On Ubuntu, Linux Mint, or other distributions that have &lt;code&gt;apt-get&lt;/code&gt;, run the command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo apt-get install python3.4-venv
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This will allow us to create Python environments that are isolated from one another.&lt;/p&gt;
+
+&lt;p&gt;Type these on the command line in order to make the virtual environment:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;mkdir microblog
+cd microblog
+python3 -m venv flask
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;(note: the name microblog can be substituted with anything)&lt;/p&gt;
+
+&lt;p&gt;To install Flask and other stuff, copy this to the command line:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;flask/bin/pip install flask
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;THE FOLLOWING IS JUST OPTIONAL IN THE CURRENT SCOPE OF THIS TUTORIAL&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;flask/bin/pip install flask-login
+flask/bin/pip install flask-openid
+flask/bin/pip install flask-mail
+flask/bin/pip install flask-sqlalchemy
+flask/bin/pip install sqlalchemy-migrate
+flask/bin/pip install flask-whooshalchemy
+flask/bin/pip install flask-wtf
+flask/bin/pip install flask-babel
+flask/bin/pip install guess_language
+flask/bin/pip install flipflop
+flask/bin/pip install coverage
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And we&amp;rsquo;re done! Let&amp;rsquo;s proceed to our First Web App in Flask!&lt;/p&gt;
+
+&lt;h2 id=&#34;for-windows:d69f702fbb99284690529847e709cd13&#34;&gt;For Windows&lt;/h2&gt;
+
+&lt;p&gt;One main difference between Windows from Unix-based OS is that you need to edit your system environment variables in order to run python in the command prompt.&lt;/p&gt;
+
+&lt;p&gt;Luckily, both the (1) system environment variables can already be updated and (2) pip can already be installed during the Python 3.4 installation. In order to accomplish that, you can do the following:&lt;/p&gt;
+
+&lt;p&gt;A. Quick-Guide: Python 3.4 Installation&lt;/p&gt;
+
+&lt;p&gt;1.1. Download python 3.4 &lt;a href=&#34;https://www.python.org/downloads/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;1.2. Run (as administator) the downloaded exe file.&lt;/p&gt;
+
+&lt;p&gt;1.3. Select &lt;code&gt;Customize Installation&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;1.4. In Optional Feature, tick the checkbox &lt;code&gt;pip&lt;/code&gt;. Click &lt;code&gt;next&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;1.5. In Advanced Options, tick the checkbox &lt;code&gt;Add Python to environment variables&lt;/code&gt;. Click &lt;code&gt;Install&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;B. Pip Installation&lt;/p&gt;
+
+&lt;p&gt;2.1 If you did Step 1, then you don&amp;rsquo;t need to do this.&lt;/p&gt;
+
+&lt;p&gt;2.2 Else if you have installed Python before but didn&amp;rsquo;t decide to install pip, then do the following:&lt;/p&gt;
+
+&lt;p&gt;2.3 Enter the following in our command line:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;python -m easy_install pip
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The command above makes use of easy_install, a primitive package manager (same as pip) that is installed automatically when you install python.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Note: If you renamed &amp;lsquo;python&amp;rsquo; to &amp;lsquo;python3&amp;rsquo; in your &amp;lsquo;Python3&amp;rsquo; folder in order to accommodate to versions of Python, then you must rename all the commands with the keyword &amp;lsquo;python&amp;rsquo; to &amp;lsquo;python3&amp;rsquo;. Example: &lt;code&gt;python3 -m easy install pip&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;3.) Installing Virtualenv&lt;/p&gt;
+
+&lt;p&gt;In your command line, enter:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;python -m pip install virtualenv
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;4.) Setup application folder&lt;/p&gt;
+
+&lt;p&gt;Type these on the command line in order to make the virtual environment:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;mkdir microblog
+cd microblog
+virtualenv venv
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;(note: the name microblog can be substituted with anything)&lt;/p&gt;
+
+&lt;p&gt;Now, whenever you want to work on a project, you only have to activate the corresponding environment.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ venv\scripts\activate
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Either way, you should now be using your virtualenv (notice how the prompt of your shell has changed to show the active environment).
+  Now you can just enter the following command to get Flask activated in your virtualenv:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;(venv) C:\Users\Cheverloo\my_app&amp;gt; pip install Flask
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;THE FOLLOWING IS JUST OPTIONAL IN THE CURRENT SCOPE OF THIS TUTORIAL&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Next, do this&amp;hellip;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;(venv) C:\Users\Cheverloo\my_app&amp;gt; pip install flask-login
+(venv) C:\Users\Cheverloo\my_app&amp;gt; $ venv\Scripts\pip install flask-openid
+(venv) C:\Users\Cheverloo\my_app&amp;gt; $ venv\Scripts\pip install flask-mail
+(venv) C:\Users\Cheverloo\my_app&amp;gt; $ venv\Scripts\pip install flask-sqlalchemy
+(venv) C:\Users\Cheverloo\my_app&amp;gt; $ venv\Scripts\pip install sqlalchemy-migrate
+(venv) C:\Users\Cheverloo\my_app&amp;gt; $ venv\Scripts\pip install flask-whooshalchemy
+(venv) C:\Users\Cheverloo\my_app&amp;gt; $ venv\Scripts\pip install flask-wtf
+(venv) C:\Users\Cheverloo\my_app&amp;gt; $ venv\Scripts\pip install flask-babel
+(venv) C:\Users\Cheverloo\my_app&amp;gt; $ venv\Scripts\pip install guess_language
+(venv) C:\Users\Cheverloo\my_app&amp;gt; $ venv\Scripts\pip install flipflop
+(venv) C:\Users\Cheverloo\my_app&amp;gt; $ venv\Scripts\pip install coverage
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you are having error message &lt;code&gt;Fatal error in launcher: Unable to create process using &#39;&amp;quot;&#39;&lt;/code&gt;, try this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;(venv) C:\Users\Cheverloo\my_app&amp;gt; python -m pip install Flask
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Next, do this&amp;hellip;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;(venv) C:\Users\Cheverloo\my_app&amp;gt; python -m pip install flask-login
+(venv) C:\Users\Cheverloo\my_app&amp;gt; python -m pip install flask-openid
+(venv) C:\Users\Cheverloo\my_app&amp;gt; python -m pip install flask-mail
+(venv) C:\Users\Cheverloo\my_app&amp;gt; python -m pip install flask-sqlalchemy
+(venv) C:\Users\Cheverloo\my_app&amp;gt; python -m pip install sqlalchemy-migrate
+(venv) C:\Users\Cheverloo\my_app&amp;gt; python -m pip install flask-whooshalchemy
+(venv) C:\Users\Cheverloo\my_app&amp;gt; python -m pip install flask-wtf
+(venv) C:\Users\Cheverloo\my_app&amp;gt; python -m pip install flask-babel
+(venv) C:\Users\Cheverloo\my_app&amp;gt; python -m pip install guess_language
+(venv) C:\Users\Cheverloo\my_app&amp;gt; python -m pip install flipflop
+(venv) C:\Users\Cheverloo\my_app&amp;gt; python -m pip install coverage
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;These commands will download and install all the packages that we will use for our application.&lt;/p&gt;
+
+&lt;p&gt;And we&amp;rsquo;re done! Let&amp;rsquo;s proceed to our First Web App in Flask!&lt;/p&gt;
+
+&lt;h1 id=&#34;ii-hello-world-in-flask:d69f702fbb99284690529847e709cd13&#34;&gt;II. &amp;ldquo;Hello World&amp;rdquo; in Flask!&lt;/h1&gt;
+
+&lt;p&gt;We now have a venv sub-folder inside your microblog folder that is populated with a Python interpreter and the Flask framework and extensions that we will use for this application.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;cd&lt;/code&gt; to the &lt;code&gt;microblog&lt;/code&gt; folder. We will create the basic folder structure for our application:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ mkdir app
+$ mkdir app/static
+$ mkdir app/templates
+$ mkdir tmp
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;WHAT ARE THESE FOLDERS&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;app&lt;/code&gt; folder will be where we will put our application package.
+The &lt;code&gt;static&lt;/code&gt; sub-folder is where we will store static files like images, javascripts, and cascading style sheets.
+The &lt;code&gt;templates&lt;/code&gt; sub-folder is obviously where our templates will go.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s start by creating a simple init script for our &lt;code&gt;app&lt;/code&gt; package (&lt;code&gt;file app/__init__.py&lt;/code&gt;):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from flask import Flask
+
+app = Flask(__name__)
+from app import views
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The script above simply creates the application object (of class Flask) and then imports the &lt;code&gt;views&lt;/code&gt; module, which we haven&amp;rsquo;t written yet. Do not confuse &lt;code&gt;app&lt;/code&gt; the variable (which gets assigned the &lt;code&gt;Flask&lt;/code&gt; instance) with &lt;code&gt;app&lt;/code&gt; the package (from which we import the &lt;code&gt;views&lt;/code&gt; module).&lt;/p&gt;
+
+&lt;p&gt;If you are wondering why the import statement is at the end and not at the beginning of the script as it is always done, the reason is to avoid circular references, because you are going to see that the views module needs to import the app variable defined in this script. Putting the import at the end avoids the circular import error.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;WHAT ARE VIEWS?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The views are the handlers that respond to requests from web browsers or other clients. In Flask handlers are written as Python functions. Each view function is mapped to one or more request URLs.&lt;/p&gt;
+
+&lt;p&gt;Now let&amp;rsquo;s write our first view function (file &lt;code&gt;app/views.py&lt;/code&gt;):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from app import app
+
+@app.route(&#39;/&#39;)
+@app.route(&#39;/index&#39;)
+def index():
+    return &amp;quot;Hello, World!&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This &lt;code&gt;view&lt;/code&gt; is actually pretty simple, it just returns a string, to be displayed on the client&amp;rsquo;s web browser. The two &lt;code&gt;route&lt;/code&gt; decorators above the function create the mappings from URLs &lt;code&gt;/&lt;/code&gt; and &lt;code&gt;/index&lt;/code&gt; to this function.&lt;/p&gt;
+
+&lt;p&gt;You might want to check out this &lt;a href=&#34;https://realpython.com/blog/python/primer-on-python-decorators/&#34;&gt;site to learn more about Python Decorators&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The final step to have a fully working web application is to create a script that starts up the development web server with our application. Let&amp;rsquo;s call this script &lt;code&gt;run.py&lt;/code&gt;, and put it in the root folder:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;#!flask/bin/python
+from app import app
+app.run(debug=True)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The script simply imports the app variable from our app package and invokes its run method to start the server. Remember that the app variable holds the Flask instance that we created it above.&lt;/p&gt;
+
+&lt;p&gt;Before we start the app, let&amp;rsquo;s verify if our directory is correct. It must look like this (except instead of my_app it would be microblog):&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-xlf1/v/t34.0-12/12177706_1213462125337486_431659876_n.jpg?oh=b28483a4a964e826dd2043a24ae9ccec&amp;amp;oe=562F6F82&amp;amp;__gda__=1446031431_1b570c98a7ae22341ffe082c80def9c0&#34; alt=&#34;Directory Image&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Mistake in the picture: That must be &lt;code&gt;templates&lt;/code&gt; not template :)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Starting the App&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;To start the app you just run this script. On OS X, Linux and Cygwin you have to indicate that this is an executable file before you can run it:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ chmod a+x run.py
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then the script can simply be executed as follows:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;./run.py
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;On Windows the process is a bit different. There is no need to indicate the file is executable. Instead you have to run the script as an argument to the Python interpreter from the virtual environment:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ venv\Scripts\python run.py
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;After the server initializes it will listen on port 5000 waiting for connections. Now open up your web browser and enter the following URL in the address field:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;http://localhost:5000
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Alternatively you can use the following URL:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;http://localhost:5000/index
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Do you see the route mappings in action? The first URL maps to /, while the second maps to /index. Both routes are associated with our view function, so they produce the same result. If you enter any other URL you will get an error, since only these two have been defined.&lt;/p&gt;
+
+&lt;p&gt;When you are done playing with the server you can just hit Ctrl-C to stop it.&lt;/p&gt;
+
+&lt;h1 id=&#34;iii-templates:d69f702fbb99284690529847e709cd13&#34;&gt;III. Templates&lt;/h1&gt;
+
+&lt;p&gt;We have made our webApp running. Now let&amp;rsquo;s try to expand it!&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s try to combine what we&amp;rsquo;ve learned in our previous DevCamp session/s: HTML and Python.&lt;/p&gt;
+
+&lt;p&gt;Copy the following in your &lt;code&gt;views.py&lt;/code&gt; file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from app import app
+
+@app.route(&#39;/&#39;)
+@app.route(&#39;/index&#39;)
+def index():
+    user = {&#39;nickname&#39;: &#39;Toph&#39;}
+    return &#39;&#39;&#39;
+&amp;lt;html&amp;gt;
+    &amp;lt;head&amp;gt;
+        &amp;lt;title&amp;gt;Home Page&amp;lt;/title&amp;gt;
+    &amp;lt;/head&amp;gt;
+    &amp;lt;body&amp;gt;
+        &amp;lt;h1&amp;gt;Hello, &#39;&#39;&#39; + user[&#39;nickname&#39;] + &#39;&#39;&#39;! Why you so pogi?&amp;lt;h1&amp;gt;
+    &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;So what&amp;rsquo;s happening?&lt;/p&gt;
+
+&lt;p&gt;First, look at the line &lt;code&gt;user = {&#39;nickname&#39;: &#39;Toph&#39;}&lt;/code&gt;. Here we are creating a variable &lt;code&gt;user&lt;/code&gt; which is a data structure in Python called a dictionary. Using the key &lt;code&gt;nickname&lt;/code&gt;, we can access the value &lt;code&gt;Toph&lt;/code&gt;. We can clearly see that in this line:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;`&amp;lt;h1&amp;gt;Hello, &#39;&#39;&#39; + user[&#39;nickname&#39;] + &#39;&#39;&#39;! Why you so pogi?&amp;lt;h1&amp;gt;`
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;So what are the &lt;code&gt;&#39;&#39;&#39;&lt;/code&gt;s for? Well, it&amp;rsquo;s an opening and closing tag for our string (this is in Python). So what&amp;rsquo;s happening is that we are returning an html code represented in the concatenation of the three strings.&lt;/p&gt;
+
+&lt;p&gt;You should see something like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://scontent-hkg3-1.xx.fbcdn.net/hphotos-xpa1/v/t34.0-12/12179844_1214551965228502_1186999711_n.jpg?oh=1a8ea1c91c74a332edd886450dce86da&amp;amp;oe=56331D34&#34; alt=&#34;SomethinLikeThis&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;But. But. But. This is HIDEOUS! It works but this is just fugly. Imagine if you have a more complex HTML code. Just&amp;hellip; NO!&lt;/p&gt;
+
+&lt;p&gt;Consider how complex the code will become if you have to return a large and complex HTML page with lots of dynamic content. And what if you need to change the layout of your web site in a large app that has dozens of views, each returning HTML directly? This is clearly not a scalable option. - Grinberg&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;TEMPLATES TO THE RESCUE SWOOOOOOSH&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;To solve this, let&amp;rsquo;s try to separate the logic of our application from its layout. This separation is actually common among frameworks. (If you have time, you might want to read about the design pattern &lt;a href=&#34;http://c2.com/cgi/wiki?ModelViewController&#34;&gt;Model-View-Controller&lt;/a&gt;. This is widely implemented in the industry) Templates help implement this separation.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s create our first template (file: app/templates/index.html):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    &amp;lt;title&amp;gt;{{ title }} - microblog&amp;lt;/title&amp;gt;
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+      &amp;lt;h1&amp;gt;Hello, {{ user.nickname }}!&amp;lt;/h1&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;As you see above, we just wrote a mostly standard HTML page, with the only difference that there are some placeholders for the dynamic content enclosed in {{ &amp;hellip; }} sections.&lt;/p&gt;
+
+&lt;p&gt;Now let&amp;rsquo;s see how we use this template from our view function (file app/views.py):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from flask import render_template
+from app import app
+
+@app.route(&#39;/&#39;)
+@app.route(&#39;/index&#39;)
+def index():
+    user = {&#39;nickname&#39;: &#39;Toph&#39;}  # Awesome Guy
+    return render_template(&#39;index.html&#39;,
+                           title=&#39;Home&#39;,
+                           user=user)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Try the application at this point to see how the template works. Once you have the rendered page in your browser you may want to view the source HTML and compare it against the original template.&lt;/p&gt;
+
+&lt;p&gt;To render the template we had to import a new function from the Flask framework called &lt;code&gt;render_template&lt;/code&gt;. This function takes a template filename and a variable list of template arguments and returns the rendered template, with all the arguments replaced.&lt;/p&gt;
+
+&lt;p&gt;Under the covers, the &lt;code&gt;render_template&lt;/code&gt; function invokes the Jinja2 templating engine that is part of the Flask framework. Jinja2 substitutes &lt;code&gt;{{...}}&lt;/code&gt; blocks with the corresponding values provided as template arguments.&lt;/p&gt;
+
+&lt;p&gt;You might want to check out &lt;a href=&#34;http://jinja.pocoo.org/&#34;&gt;Jinja&lt;/a&gt;, a full featured template engine for Python.&lt;/p&gt;
+
+&lt;h2 id=&#34;control-statements-in-templates:d69f702fbb99284690529847e709cd13&#34;&gt;Control Statements in Templates&lt;/h2&gt;
+
+&lt;p&gt;Remember control structures? Let&amp;rsquo;s try to apply those &lt;code&gt;if&lt;/code&gt;s and &lt;code&gt;else&lt;/code&gt;s!
+The Jinja2 templates support control statements, given inside {%&amp;hellip;%} blocks. Let&amp;rsquo;s add an if statement to our template (file app/templates/index.html):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    {% if title %}
+    &amp;lt;title&amp;gt;{{ title }} - microblog&amp;lt;/title&amp;gt;
+    {% else %}
+    &amp;lt;title&amp;gt;Welcome to microblog&amp;lt;/title&amp;gt;
+    {% endif %}
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+      &amp;lt;h1&amp;gt;Hello, {{ user.nickname }}!&amp;lt;/h1&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Here our template is a little smarter. If the variable title has been defined (there&amp;rsquo;s an assigned value), then we print it. If not, we just display &lt;code&gt;Welcome to microblog&lt;/code&gt;. Try to remove the title argument in the render_template call of our view function to see how the conditional statement works.&lt;/p&gt;
+
+&lt;h2 id=&#34;loops-in-templates:d69f702fbb99284690529847e709cd13&#34;&gt;Loops in Templates&lt;/h2&gt;
+
+&lt;p&gt;We can also have loops in our template. Let&amp;rsquo;s make an array of &amp;ldquo;messages&amp;rdquo; in &lt;code&gt;views.py&lt;/code&gt; and then using a for loop in our template to show them one by one.&lt;/p&gt;
+
+&lt;p&gt;(file app/views.py)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from flask import render_template
+from app import app
+
+@app.route(&#39;/&#39;)
+@app.route(&#39;/index&#39;)
+def index():
+    user = {&#39;nickname&#39;: &#39;Carl&#39;}
+    posts = [
+                {
+                    &#39;author&#39;: {&#39;nickname&#39;: &#39;John&#39;},
+                    &#39;body&#39;: &#39;Lorem ipsum dolor sit amet&#39;
+                },
+                {
+                    &#39;author&#39;: {&#39;nickname&#39;: &#39;Carl&#39;},
+                    &#39;body&#39;: &#39;insert random message here&#39;
+                },
+                {
+                    &#39;author&#39;: {&#39;nickname&#39;: &#39;Person1&#39;},
+                    &#39;body&#39;: &#39;I like turtles&#39;
+                },
+                {
+                    &#39;author&#39;: {&#39;nickname&#39;: &#39;John&#39;},
+                    &#39;body&#39;: &#39;lksadjflknldkjetojeaisldklfbsbnllaksj&#39;
+                }
+            ]
+    return render_template(&#39;index.html&#39;, title=&#39;&#39;, user=user, posts=posts)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;(file app/templates/index.html)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    {% if title %}
+      &amp;lt;title&amp;gt;{{ title }} - microblog&amp;lt;/title&amp;gt;
+    {% else %}
+      &amp;lt;title&amp;gt;Welcome to microblog&amp;lt;/title&amp;gt;
+    {% endif %}
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;h1&amp;gt;Hello, {{ user.nickname }}&amp;lt;/h1&amp;gt;
+
+    {% for post in posts %}
+    &amp;lt;div&amp;gt;
+      &amp;lt;p&amp;gt;{{ post.author.nickname }} says: &amp;lt;b&amp;gt;{{ post.body }}&amp;lt;/b&amp;gt;&amp;lt;/p&amp;gt;
+    &amp;lt;/div&amp;gt;
+    {% endfor %}
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This is pretty similar to for loops in python, but keep in mind the &lt;code&gt;{% endfor %}&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;template-inheritance:d69f702fbb99284690529847e709cd13&#34;&gt;Template Inheritance&lt;/h2&gt;
+
+&lt;p&gt;As we add more and more templates to our web app, there will be some parts of the page layout that are common to all files. Instead of copy-pasting them to every html file, let&amp;rsquo;s use Jinja2&amp;rsquo;s template inheritance feature to make a base template that will be added to all our html files. (file app/templates/base.html)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    {% if title %}
+    &amp;lt;title&amp;gt;{{ title }} - microblog&amp;lt;/title&amp;gt;
+    {% else %}
+    &amp;lt;title&amp;gt;Welcome to microblog&amp;lt;/title&amp;gt;
+    {% endif %}
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;div&amp;gt;Microblog: &amp;lt;a href=&amp;quot;/index&amp;quot;&amp;gt;Home&amp;lt;/a&amp;gt;&amp;lt;/div&amp;gt;
+    &amp;lt;hr&amp;gt;
+    {% block content %}{% endblock %}
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note the new syntax. We will change &lt;code&gt;index.html&lt;/code&gt; so that it will &amp;ldquo;inherit&amp;rdquo; the html code from &lt;code&gt;base.html&lt;/code&gt;. (file app/templates/index.html)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;{% extends &amp;quot;base.html&amp;quot; %}
+{% block content %}
+    &amp;lt;h1&amp;gt;Hi, {{ user.nickname }}!&amp;lt;/h1&amp;gt;
+    {% for post in posts %}
+    &amp;lt;div&amp;gt;&amp;lt;p&amp;gt;{{ post.author.nickname }} says: &amp;lt;b&amp;gt;{{ post.body }}&amp;lt;/b&amp;gt;&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;
+    {% endfor %}
+{% endblock %}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;So far, we&amp;rsquo;ve learned templates and how they interact with Flask. Also, we can now use variables, control statements and loops in html files. Next, we will make a form so users can login to our web app.&lt;/p&gt;
+
+&lt;h1 id=&#34;web-forms:d69f702fbb99284690529847e709cd13&#34;&gt;Web Forms&lt;/h1&gt;
+
+&lt;p&gt;We will be using the extension Flask-WTF to handle web forms. Before we can use it, we&amp;rsquo;ll have to make a configuration file in the root folder (file config.py):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;WTF_CSRF_ENABLED = True
+SECRET_KEY = &#39;you-will-never-guess&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now we need the app to read and use the config file, by adding one line within app/&lt;strong&gt;init&lt;/strong&gt;.py:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from flask import Flask
+
+app = Flask(__name__)
+app.config.from_object(&#39;config&#39;)
+
+from app import views
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;user-login-form:d69f702fbb99284690529847e709cd13&#34;&gt;User Login Form&lt;/h2&gt;
+
+&lt;p&gt;To create a form, we will make a class LoginForm which will contain the input fields (username and password). Here is the code for the form (file app/forms.py):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from flask.ext.wtf import Form
+from wtforms import StringField, PasswordField, validators
+
+class LoginForm(Form):
+    username = StringField(u&#39;Username&#39;, [validators.required(), validators.length(max=32, min=6)])
+    password = PasswordField(u&#39;Password&#39;, [validators.required(), validators.length(max=32, min=6)])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Notice that &lt;code&gt;username&lt;/code&gt; is a &lt;code&gt;StringField&lt;/code&gt; but &lt;code&gt;password&lt;/code&gt; is a &lt;code&gt;PasswordField&lt;/code&gt; since we want the password to be displayed as black circles while it&amp;rsquo;s being typed.&lt;/p&gt;
+
+&lt;h2 id=&#34;form-template:d69f702fbb99284690529847e709cd13&#34;&gt;Form template&lt;/h2&gt;
+
+&lt;p&gt;We will now create a standard-looking template which will have a username, password, and submit field. (file app/templates/login.html)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;{% extends &amp;quot;base.html&amp;quot; %}
+{% block content %}
+    &amp;lt;h1&amp;gt;Sign In&amp;lt;/h1&amp;gt;
+    &amp;lt;form action=&amp;quot;&amp;quot; method=&amp;quot;post&amp;quot; name=&amp;quot;login&amp;quot;&amp;gt;
+        {{ form.hidden_tag() }}
+        &amp;lt;p&amp;gt;
+            Username&amp;lt;br&amp;gt;
+            {{ form.username(size=32) }}&amp;lt;br&amp;gt;
+            {% for error in form.username.errors %}
+                &amp;lt;span style=&amp;quot;color: red;&amp;quot;&amp;gt;[{{ error }}]&amp;lt;/span&amp;gt;
+            {% endfor %}&amp;lt;br&amp;gt;
+        &amp;lt;/p&amp;gt;
+        &amp;lt;p&amp;gt;
+            Password&amp;lt;br&amp;gt;
+            {{ form.password(size=32) }}&amp;lt;br&amp;gt;
+            {% for error in form.password.errors %}
+                &amp;lt;span style=&amp;quot;color: red;&amp;quot;&amp;gt;[{{ error }}]&amp;lt;/span&amp;gt;
+            {% endfor %}&amp;lt;br&amp;gt;
+        &amp;lt;/p&amp;gt;
+        &amp;lt;p&amp;gt;&amp;lt;input type=&amp;quot;submit&amp;quot; value=&amp;quot;Sign In&amp;quot;&amp;gt;&amp;lt;/p&amp;gt;
+    &amp;lt;/form&amp;gt;
+{% endblock %}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note that we can also catch and print input errors using a for loop.&lt;/p&gt;
+
+&lt;h3 id=&#34;form-views:d69f702fbb99284690529847e709cd13&#34;&gt;Form Views&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from flask import render_template, flash, redirect
+from app import app
+from .forms import LoginForm
+
+@app.route(&#39;/&#39;)
+@app.route(&#39;/index&#39;)
+def index():
+    user = {&#39;nickname&#39;: &#39;Juan Dela Cruz&#39;}
+    posts = [
+                {
+                    &#39;author&#39;: {&#39;nickname&#39;: &#39;John&#39;},
+                    &#39;body&#39;: &#39;Lorem ipsum dolor sit amet&#39;
+                },
+            ]
+    return render_template(&#39;index.html&#39;, title=&#39;&#39;, user=user, posts=posts)
+
+@app.route(&#39;/login&#39;, methods=[&#39;GET&#39;, &#39;POST&#39;])
+def login():
+    form = LoginForm()
+    if form.validate_on_submit():
+        return redirect(&#39;/index&#39;)
+    return render_template(&#39;login.html&#39;, title=&#39;Sign In&#39;, form=form)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now try running the web server then going to &lt;code&gt;localhost:5000/login&lt;/code&gt;. Notice that if we enter a username or password that is less than 6 characters or more than 32 characters long, the form outputs an error. Else, it redirects to index, which means the output was valid.&lt;/p&gt;
+
+&lt;h1 id=&#34;references:d69f702fbb99284690529847e709cd13&#34;&gt;References&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;General Idea from Miguel Grinberg&amp;rsquo;s &lt;a href=&#34;http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world&#34;&gt;Mega-Tutorial Site&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>MVC</title>
+      <link>/trackpost/15a-web5/</link>
+      <pubDate>Tue, 03 Nov 2015 11:22:00 +0800</pubDate>
+      
+      <guid>/trackpost/15a-web5/</guid>
+      <description>
+
+&lt;h1 id=&#34;mvc:8e3508e56efa81a39292041a2796a89d&#34;&gt;MVC&lt;/h1&gt;
+
+&lt;p&gt;On our last file &lt;code&gt;crs3.py&lt;/code&gt;, we&amp;rsquo;ve mingled our logic with our html page. While this may seem fine at the start, this is going to be very hard to maintain later. Let&amp;rsquo;s do a little better in design by using mvc.&lt;/p&gt;
+
+&lt;p&gt;Open up &lt;code&gt;lectures/simple/index.py&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;/media/tracks/web/simple.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s a very simple webpage, that looks like the first version of the updevcampwebsite! We can visit the different tracks and resources via hyperlinks.&lt;/p&gt;
+
+&lt;p&gt;Try clicking a few links and playing around with it. It&amp;rsquo;s just a very simple website that links to different pages.&lt;/p&gt;
+
+&lt;p&gt;If you take a look at how it&amp;rsquo;s implemented, you&amp;rsquo;ll see that the different pages have different files for each of them. Let&amp;rsquo;s take a look at &lt;code&gt;index.py&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;#!/usr/local/bin/python3
+import cgi
+print(&amp;quot;Content-type: text/html&amp;quot;)
+
+print(&#39;&#39;&#39;
+&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html&amp;gt;
+&amp;lt;head&amp;gt;
+    &amp;lt;title&amp;gt;UP DevCamp&amp;lt;/title&amp;gt;
+&amp;lt;/head&amp;gt;
+    &amp;lt;body&amp;gt;
+        &amp;lt;h1&amp;gt;UP DevCamp&amp;lt;/h1&amp;gt;
+        &amp;lt;ul&amp;gt;&amp;lt;a href=&amp;quot;tracks.py&amp;quot;&amp;gt;Tracks&amp;lt;/ul&amp;gt;
+        &amp;lt;ul&amp;gt;&amp;lt;a href=&amp;quot;resources.py&amp;quot;&amp;gt;Resources&amp;lt;/ul&amp;gt;
+    &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&#39;&#39;&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Inside, it looks like we&amp;rsquo;re just printing the index HTML page.&lt;/p&gt;
+
+&lt;p&gt;If we take a look at &lt;code&gt;tracks.py&lt;/code&gt; you&amp;rsquo;ll notice that it&amp;rsquo;s just printing the HTML page as well:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;#!/usr/local/bin/python3
+import cgi
+print(&amp;quot;Content-type: text/html&amp;quot;)
+
+print(&#39;&#39;&#39;
+&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html&amp;gt;
+&amp;lt;head&amp;gt;
+    &amp;lt;title&amp;gt;Tracks&amp;lt;/title&amp;gt;
+&amp;lt;/head&amp;gt;
+    &amp;lt;body&amp;gt;
+        &amp;lt;h1&amp;gt;Tracks&amp;lt;/h1&amp;gt;
+        &amp;lt;ul&amp;gt;&amp;lt;a href=&amp;quot;web.py&amp;quot;&amp;gt;Web&amp;lt;/ul&amp;gt;
+    &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&#39;&#39;&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you take a look at the other files, you&amp;rsquo;ll note that it follows the same pattern. Note how the only thing that&amp;rsquo;s changing is the &lt;code&gt;ul&lt;/code&gt; links in the pages - lines 6-11, and 15-16 are just the same - opening HTML/body tags, the head and closing HTML/body tags. While this lines are not hcanging, we have to manually type these for every single page, typing the same thing over and over again.&lt;/p&gt;
+
+&lt;p&gt;According to Larry Wall, the first of the &lt;a href=&#34;http://threevirtues.com/&#34;&gt;three great virtues&lt;/a&gt; of a programmer is &lt;strong&gt;Laziness&lt;/strong&gt;. Since we&amp;rsquo;re lazy, there should be a much better way to do this so that we can reduce the repetitive lines and extract the tags that is similar on all pages.&lt;/p&gt;
+
+&lt;p&gt;Now let&amp;rsquo;s take a look at &lt;code&gt;/mvc/index.py&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;#!/usr/local/bin/python3
+import cgi
+print(&amp;quot;Content-type: text/html&amp;quot;)
+
+import header
+
+print(&#39;&#39;&#39;
+    &amp;lt;h1&amp;gt;UP DevCamp&amp;lt;/h1&amp;gt;
+    &amp;lt;ul&amp;gt;&amp;lt;a href=&amp;quot;tracks.py&amp;quot;&amp;gt;Tracks&amp;lt;/ul&amp;gt;
+    &amp;lt;ul&amp;gt;&amp;lt;a href=&amp;quot;resources.py&amp;quot;&amp;gt;Resources&amp;lt;/ul&amp;gt;
+&#39;&#39;&#39;)
+
+import footer
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It&amp;rsquo;s not as straightforward as before, in that we don&amp;rsquo;t just print one big html page, but note that all that&amp;rsquo;s different is that we&amp;rsquo;ve replace the repeated lines with &lt;code&gt;import header&lt;/code&gt; and &lt;code&gt;import footer&lt;/code&gt;. We know that &lt;code&gt;require&lt;/code&gt; is like &lt;code&gt;include&lt;/code&gt; in C, which &amp;lsquo;copy-pastes&amp;rsquo; the file in that location. If we take a look at header.py, we&amp;rsquo;ll notice that it indeed contains the header of the page:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(&#39;&#39;&#39;
+&amp;lt;html&amp;gt;
+    &amp;lt;head&amp;gt;
+      &amp;lt;title&amp;gt;CSI CGI&amp;lt;/title&amp;gt;
+    &amp;lt;/head&amp;gt;
+    &amp;lt;body&amp;gt;
+&#39;&#39;&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And the footer, contains the footer/bottom of the page:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(&#39;&#39;&#39;
+    &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&#39;&#39;&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We have now isolated the parts that are changing, by extracting the common lines out. Note that this makes our code more maintainable. If say, we wanted to add a copyright notice at our footer, we would only need to edit one file (footer.py). Imagine if we did not extract it like so - we would have to edit every single HTML page we had with the new copyright notice!&lt;/p&gt;
+
+&lt;h2 id=&#34;mvc-2:8e3508e56efa81a39292041a2796a89d&#34;&gt;MVC-2&lt;/h2&gt;
+
+&lt;p&gt;We can do even better than this. Open up &lt;code&gt;mvc-2/&lt;/code&gt;, and you&amp;rsquo;ll notice a new file, &lt;code&gt;helpers.py&lt;/code&gt;. Before taking a look at it, let&amp;rsquo;s look at &lt;code&gt;index.py&lt;/code&gt; first:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;#!/usr/local/bin/python3
+import cgi
+print(&amp;quot;Content-type: text/html&amp;quot;)
+
+import helpers
+
+print(helpers.renderHeader({&#39;title&#39;: &amp;quot;UP DevCamp&amp;quot;}))
+
+print(&#39;&#39;&#39;
+    &amp;lt;ul&amp;gt;&amp;lt;a href=&amp;quot;tracks.py&amp;quot;&amp;gt;Tracks&amp;lt;/ul&amp;gt;
+    &amp;lt;ul&amp;gt;&amp;lt;a href=&amp;quot;resources.py&amp;quot;&amp;gt;Resources&amp;lt;/ul&amp;gt;
+&#39;&#39;&#39;)
+
+print(helpers.renderFooter())
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now we&amp;rsquo;re not requiring &lt;code&gt;header&lt;/code&gt; and &lt;code&gt;footer&lt;/code&gt;, but we required a new file &lt;code&gt;helpers&lt;/code&gt;. It seems that we&amp;rsquo;re printing the return value of the function from helpers - &lt;code&gt;helpers.renderHeader&lt;/code&gt;, while also passing, inside its parenthesis, curly braces that represent a dictionary. In python, we can pass values by key value-pairs wrapped in curly braces. In this case, &lt;code&gt;title&lt;/code&gt; is our key and &lt;code&gt;UP DevCamp&lt;/code&gt; is our value.&lt;/p&gt;
+
+&lt;p&gt;Notice also that our middle print function doesn&amp;rsquo;t print the &lt;code&gt;&amp;lt;h1&amp;gt;UP DevCamp&amp;lt;/h1&amp;gt;&lt;/code&gt; title anymore, like we did in the previous example.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s take a look at &lt;code&gt;helpers.py&lt;/code&gt; to understand how the function works:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import header
+import footer
+
+def renderHeader(data):
+    return header.render(data)
+
+def renderFooter():
+    return footer.render()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;So it looks like our render function just calls render of our specific files (header, footer), while in header, we are also passing &lt;code&gt;data&lt;/code&gt;. Let&amp;rsquo;s take a look at &lt;code&gt;header.py&lt;/code&gt; to see how it gets handled:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def render(data):
+    return &#39;&#39;&#39;
+            &amp;lt;html&amp;gt;
+                &amp;lt;head&amp;gt;
+                  &amp;lt;title&amp;gt;&#39;&#39;&#39; + data.get(&#39;title&#39;) + &#39;&#39;&#39;&amp;lt;/title&amp;gt;
+                &amp;lt;/head&amp;gt;
+                &amp;lt;body&amp;gt;
+                    &amp;lt;h1&amp;gt;&#39;&#39;&#39; + data.get(&#39;title&#39;) + &#39;&#39;&#39;&amp;lt;/h1&amp;gt;
+            &#39;&#39;&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;So it looks like it&amp;rsquo;s the same header file, but instead of harcoding the title, it&amp;rsquo;s now actively using the data variable. Indeed, it seems that we&amp;rsquo;re using &lt;code&gt;get&lt;/code&gt; to use the value from our key-value pair that we passed a while ago. This simplifies our code much more heavily, as it allows us to use variables on our page.&lt;/p&gt;
+
+&lt;h2 id=&#34;mvc-3:8e3508e56efa81a39292041a2796a89d&#34;&gt;MVC-3&lt;/h2&gt;
+
+&lt;p&gt;Let&amp;rsquo;s open &lt;code&gt;mvc-3/index.py&lt;/code&gt; which has an even more simplified &lt;code&gt;render&lt;/code&gt; function.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;#!/usr/local/bin/python3
+import cgi
+print(&amp;quot;Content-type: text/html&amp;quot;)
+
+import helpers
+
+print(helpers.render(&#39;header&#39;, {&#39;title&#39;: &amp;quot;UP DevCamp&amp;quot;}))
+
+print(&#39;&#39;&#39;
+    &amp;lt;ul&amp;gt;&amp;lt;a href=&amp;quot;tracks.py&amp;quot;&amp;gt;Tracks&amp;lt;/ul&amp;gt;
+    &amp;lt;ul&amp;gt;&amp;lt;a href=&amp;quot;resources.py&amp;quot;&amp;gt;Resources&amp;lt;/ul&amp;gt;
+&#39;&#39;&#39;)
+
+print(helpers.render(&#39;footer&#39;))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;renderHeader&lt;/code&gt; and &lt;code&gt;renderFooter&lt;/code&gt; were almost identical functions, and it would be better to just combine them. Note that instead of calling &lt;code&gt;renderHeader&lt;/code&gt; and &lt;code&gt;renderFooter&lt;/code&gt; explicitly, we are now just passing the template name in &lt;code&gt;render&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;helpers.py&lt;/code&gt; looks like this now:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import imp
+import os
+
+def render(template, data=None):
+    filePath = os.path.join(os.path.dirname(__file__), template + &#39;.py&#39;)
+    l = imp.load_source(template, filePath)
+    return l.render(data)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It looks rather complex, but it actually works the same way. Note how we&amp;rsquo;re calling &lt;code&gt;l.render(data)&lt;/code&gt; at the end, which seem to imply &lt;code&gt;l&lt;/code&gt; is just our template file (like &lt;code&gt;header&lt;/code&gt; or &lt;code&gt;footer&lt;/code&gt;). Indeed, the first two lines of our render function just gets the file that we are asking for.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;On our function definition, we use two parameters, &lt;code&gt;(template, data=None)&lt;/code&gt;. Note that we&amp;rsquo;ve set a None value to our second parameter data. Turns out python supports &lt;code&gt;optional&lt;/code&gt; arguments, allowing us to set a default value if no parameter is sent. Since not all templates would need a data variable (like our footer), we set the render helper function with  &lt;code&gt;data=None&lt;/code&gt; as default.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;filePath&lt;/code&gt; is the path of our file, obtained by joining &lt;code&gt;os.path.join&lt;/code&gt; our current directory &lt;code&gt;os.path.dirname(__file__)&lt;/code&gt; and the template name &lt;code&gt;template&lt;/code&gt; with a &lt;code&gt;.py&lt;/code&gt; extension&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;l&lt;/code&gt; is the library we import using &lt;code&gt;imp.load_source&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;mvc-4:8e3508e56efa81a39292041a2796a89d&#34;&gt;MVC-4&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;mvc-4/index.py&lt;/code&gt; is even much fancier, with the helpers and templates in their own directories.&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;/media/tracks/web/mvc-4.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;#!/usr/local/bin/python3
+import cgi
+print(&amp;quot;Content-type: text/html&amp;quot;)
+
+from lib import helpers
+
+print(helpers.render(&#39;header&#39;, {&#39;title&#39;: &amp;quot;UP DevCamp&amp;quot;}))
+
+print(helpers.render(&#39;home&#39;))
+
+print(helpers.render(&#39;footer&#39;))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Indeed, notice how we are now importing helpers &lt;code&gt;from lib&lt;/code&gt; since our helpers is now in its own &lt;code&gt;lib&lt;/code&gt; folder.&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;ve moved &lt;code&gt;header&lt;/code&gt; and &lt;code&gt;footer&lt;/code&gt; in it&amp;rsquo;s own &lt;code&gt;templates&lt;/code&gt; folder, which is a much better design. We are now factoring our code as much as we can.&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;/media/tracks/web/mvc-4-templates.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;h2 id=&#34;mvc-5:8e3508e56efa81a39292041a2796a89d&#34;&gt;MVC 5&lt;/h2&gt;
+
+&lt;p&gt;In &lt;code&gt;mvc-5/&lt;/code&gt; we take this to its conclusion by moving the actual pages to its own &lt;code&gt;public&lt;/code&gt; folder.&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;/media/tracks/web/mvc-5.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;ve structured the site like this to organize it better. We now instantly know where our templates are, as well as the pages (public), and the helper utility functions.&lt;/p&gt;
+
+&lt;p&gt;Indeed, you&amp;rsquo;ll note that this file pattern is incredibly common in web development.&lt;/p&gt;
+
+&lt;h1 id=&#34;mvc-1:8e3508e56efa81a39292041a2796a89d&#34;&gt;MVC&lt;/h1&gt;
+
+&lt;p&gt;Let&amp;rsquo;s end this section by introducing MVC:&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;/media/tracks/web/mvc.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;ll put our programming logic, into files we call &lt;strong&gt;&amp;lsquo;controllers&amp;rsquo;&lt;/strong&gt;. Then we&amp;rsquo;ll have views, like templates, that takes data and presents it to the user. Finally, we have &lt;strong&gt;model&lt;/strong&gt;, our database where we can store and retrieve data from.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Python/CGI</title>
+      <link>/trackpost/15a-web4/</link>
+      <pubDate>Tue, 03 Nov 2015 11:21:00 +0800</pubDate>
+      
+      <guid>/trackpost/15a-web4/</guid>
+      <description>
+
+&lt;h1 id=&#34;python-basics:47707461bb957bc18ae050959e2ee003&#34;&gt;Python Basics&lt;/h1&gt;
+
+&lt;p&gt;We went off last time learning a new language, HTML, a markup language used to make webpages. Using Cascading Style Sheets (CSS), we designed webpages to create your very own &lt;a href=&#34;15a-project1.md&#34;&gt;landing page&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;One thing to note about the languages we learned last time is that neither of them are programming languages - neither of them have logical constructs that we are comfortable with (&lt;code&gt;if&lt;/code&gt;, &lt;code&gt;for&lt;/code&gt;, etc). This time, we&amp;rsquo;ll learn an actual programming language, Python.&lt;/p&gt;
+
+&lt;p&gt;The difference between &lt;em&gt;static&lt;/em&gt; webpages (like your landing page) and a &lt;em&gt;dynamic&lt;/em&gt; webpage (like, say twitter) is that the latter changes - indeed, twitter&amp;rsquo;s homepage would change depending on the new tweets. How would we create something like twitter using HTML? Would we simply create a &lt;strong&gt;new&lt;/strong&gt; HTML page for every single update we have?&lt;/p&gt;
+
+&lt;p&gt;Well, we could do that, but we could do a little bit smarter. Instead of typing our HTML page for every twitter user&amp;rsquo;s page, we can use a programming language (such as Python) to &lt;em&gt;dynamically&lt;/em&gt; create webpages for us. Since we know that an HTML page is just a big bunch of text (which in turn, is just a string) we can actually use the very simple function &lt;code&gt;print&lt;/code&gt; to generate webpages in python!&lt;/p&gt;
+
+&lt;p&gt;Python is an interpreted language, meaning our source code is run as-is by our interpreter without compilation.&lt;/p&gt;
+
+&lt;p&gt;Go ahead and try creating a new python file. Open a terminal, and type in &lt;code&gt;atom hello.py&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(&amp;quot;hello, world&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We can then now do &lt;code&gt;python3 hello.py&lt;/code&gt; (or just &lt;code&gt;python hello.py&lt;/code&gt;) to run it. If you see &amp;ldquo;hello, world&amp;rdquo; then congrats, you&amp;rsquo;ve successfully created a python program!&lt;/p&gt;
+
+&lt;p&gt;Of course, let&amp;rsquo;s do something more interesting now than just printing hello world. Turns out we can forgo without typing &lt;code&gt;python&lt;/code&gt; explicitly by using what&amp;rsquo;s called a &lt;code&gt;shebang&lt;/code&gt; line. Create a new file, and instead of naming it &lt;code&gt;hello.py&lt;/code&gt;, just name it as &lt;code&gt;hello&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;#!/usr/bin/python
+print(&amp;quot;hello, world&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The 1st line &lt;code&gt;#!/usr/bin/python&lt;/code&gt; is what&amp;rsquo;s called a shebang line. It tells our operating system what interpreter to use to run our program. Note that it just details the path to our interpreter, so on Windows, a shebang line might look something like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Windows&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;#!C:\Python34\python.exe
+print(&amp;quot;hello, world&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Save this file (again, just as &lt;code&gt;hello&lt;/code&gt; without a file extension). Then, run it in our terminal window:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;~: ./hello
+permission denied: ./hello
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You&amp;rsquo;re most likely going to see a &amp;ldquo;Permission denied&amp;rdquo; error if you try to run your program like so. Turns out operating systems don&amp;rsquo;t run executables willy-nilly (for good reason, it ensures only trusted files can run) and we need to set our file as executable.&lt;/p&gt;
+
+&lt;p&gt;We can fix this by using &lt;code&gt;chmod&lt;/code&gt;, which &lt;em&gt;Changes the mode&lt;/em&gt; of our file. Let&amp;rsquo;s allow everyone to be able to execute the file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;~: chmod a+x hello
+~: ./hello
+hello, world
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Our program now runs as expected.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Windows&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;On windows, we use the &lt;code&gt;icalcs&lt;/code&gt; utility to achieve the same effect:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;~: icacls hello /g everyone:F
+~: ./hello
+hello, world
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To understand python more, feel free to peruse this &lt;a href=&#34;/resources/python&#34;&gt;tutorial&lt;/a&gt; by Dominic.&lt;/p&gt;
+
+&lt;h1 id=&#34;a-programming-language-for-the-web:47707461bb957bc18ae050959e2ee003&#34;&gt;A Programming Language for the Web&lt;/h1&gt;
+
+&lt;p&gt;Now that you have a good understanding of python, let&amp;rsquo;s try using it to generate web content.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;notice notice-&#34;&gt; &lt;h3 id=&#34;notice-you-can-grab-this-week-s-distribution-code-here-https-github-com-secretmapper-updevcamp-session-2-dist:47707461bb957bc18ae050959e2ee003&#34;&gt;Notice: You can grab this week&amp;rsquo;s distribution code here: &lt;a href=&#34;https://github.com/Secretmapper/updevcamp-session-2-dist&#34;&gt;https://github.com/Secretmapper/updevcamp-session-2-dist&lt;/a&gt;&lt;/h3&gt;
+
+&lt;h3 id=&#34;you-can-click-the-download-zip-button-to-download-the-files:47707461bb957bc18ae050959e2ee003&#34;&gt;You can click the &amp;ldquo;Download ZIP&amp;rdquo; button to download the files.&lt;/h3&gt;
+&lt;/div&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;forms-and-cgi:47707461bb957bc18ae050959e2ee003&#34;&gt;Forms and CGI&lt;/h2&gt;
+
+&lt;p&gt;For years, UP Diliman has been using it&amp;rsquo;s homegrown registration system &lt;a href=&#34;https://crs.upd.edu.ph&#34;&gt;(CRS)&lt;/a&gt; for registering classes. Students need not to fill out paper forms anymore, and slots for classes are assigned automatically in what&amp;rsquo;s known as batch runs. In 2013, (or some year around that) UP decided to change the fully functional CRS to the abhorrent looking &lt;a href=&#34;https://sais.up.edu.ph/&#34;&gt;UP SAIS&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;/media/tracks/web/sais.png&#34; alt=&#34;Bask in the site&amp;#39;s design!&#34; /&gt;
+    
+    
+    &lt;figcaption&gt;
+        &lt;p&gt;
+        Bask in the site&amp;#39;s design!
+        
+            
+        
+        &lt;/p&gt; 
+    &lt;/figcaption&gt;
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Your landing page designs probably look better.&lt;/p&gt;
+
+&lt;p&gt;Anyway, here we&amp;rsquo;ve recreated a simple Class Registration website to mimic a simple &amp;lsquo;registration system&amp;rsquo;. Let&amp;rsquo;s take a look at &lt;code&gt;crs.py&lt;/code&gt;:&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;/media/tracks/web/crs-reg.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Notice that it has a simple form that allows us to take input. Let&amp;rsquo;s try filling out the form and see what happens.&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;/media/tracks/web/crs-reg2.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;First thing to note is the URL has changed - from &lt;code&gt;crs.py&lt;/code&gt;, it went to &lt;code&gt;register.py&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;The page seems to have known our input and showed it on the page.&lt;/li&gt;
+&lt;li&gt;Also notice that our URL doesn&amp;rsquo;t include queries as strings (like &lt;code&gt;?q=bunny&lt;/code&gt; in our last session&amp;rsquo;s example)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So let&amp;rsquo;s go ahead and take a look at the source code for &lt;code&gt;crs-reg.py&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;#!/usr/local/bin/python3
+import cgi
+
+print(&amp;quot;Content-type: text/html&amp;quot;)
+
+print(&#39;&#39;&#39;
+&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;
+&amp;lt;head&amp;gt;
+  &amp;lt;title&amp;gt;&amp;lt;/title&amp;gt;
+  &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;/pure.css&amp;quot;&amp;gt;
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;
+  &amp;lt;h1&amp;gt;Class Registration&amp;lt;/h1&amp;gt;
+  &amp;lt;form action=&amp;quot;register.py&amp;quot; method=&amp;quot;POST&amp;quot; class=&amp;quot;pure-form pure-form-stacked&amp;quot;&amp;gt;
+    &amp;lt;label&amp;gt;Name&amp;lt;/label&amp;gt;
+    &amp;lt;input type=&amp;quot;text&amp;quot; name=&amp;quot;name&amp;quot;/&amp;gt;
+    &amp;lt;label&amp;gt;Class&amp;lt;/label&amp;gt;
+    &amp;lt;select name=&amp;quot;class&amp;quot;&amp;gt;
+      &amp;lt;option value=&amp;quot;&amp;quot;&amp;gt;&amp;lt;/option&amp;gt;
+      &amp;lt;option value=&amp;quot;CS 11&amp;quot;&amp;gt;CS 11&amp;lt;/option&amp;gt;
+      &amp;lt;option value=&amp;quot;CS 21&amp;quot;&amp;gt;CS 21&amp;lt;/option&amp;gt;
+      &amp;lt;option value=&amp;quot;CS 32&amp;quot;&amp;gt;CS 32&amp;lt;/option&amp;gt;
+    &amp;lt;/select&amp;gt;
+    &amp;lt;input type=&amp;quot;submit&amp;quot; value=&amp;quot;Go&amp;quot; class=&amp;quot;pure-button pure-button-primary&amp;quot;/&amp;gt;
+  &amp;lt;/form&amp;gt;
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&#39;&#39;&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Welp! Apart from the first three lines, it&amp;rsquo;s actually just one BIG print statement that just prints our html page. Let&amp;rsquo;s take it in line by line:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;#!/usr/local/bin/python3
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This is a shebang line that we&amp;rsquo;ve introduced a while ago.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import cgi
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This is new. &lt;code&gt;import&lt;/code&gt; is like C&amp;rsquo;s &lt;code&gt;require&lt;/code&gt; in that it allows us to &amp;lsquo;copy-paste&amp;rsquo; previously written code to our current file.&lt;/p&gt;
+
+&lt;p&gt;It turns out that &lt;code&gt;cgi&lt;/code&gt; (Common Gateway Interface) is an environment for web servers to interface with executable programs installed on a server. In simple terms, while an &lt;code&gt;HTTP&lt;/code&gt; server handles HTTP requests (by say returning an HTML file), &lt;code&gt;CGI&lt;/code&gt; allows our http server to run executable programs (in this case, python) to dynamically create our HTTP response.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(&amp;quot;Content-type: text/html&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The third line just prints our header, telling the browser that, &amp;ldquo;Browser, get ready, I&amp;rsquo;m about to send you an HTML file&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;And indeed, the big remaining print statement just prints our HTML file.&lt;/p&gt;
+
+&lt;p&gt;You can try running &lt;code&gt;crs.py&lt;/code&gt; on your computer. Go ahead and navigate to the distribution code in your terminal. &lt;code&gt;cd&lt;/code&gt; into the form folder, and you should see a &lt;code&gt;cgi-bin&lt;/code&gt; folder inside of it, as well as a &lt;code&gt;pure.css&lt;/code&gt; file.&lt;/p&gt;
+
+&lt;p&gt;As we&amp;rsquo;ve used last time to spawn an &lt;code&gt;http&lt;/code&gt; server, we can use python to spawn a &lt;code&gt;cgi&lt;/code&gt; server. Go ahead and run the following in your terminal (make sure you are in the &lt;code&gt;form&lt;/code&gt; folder!)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;~: python -m http.server --cgi
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;em&gt;(Remember that python could be python3 in your machine)&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;This will spawn a CGI capable server on your machine.&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;/media/tracks/web/cgi.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Go head to &lt;code&gt;localhost:8000&lt;/code&gt; on chrome, and you should see the following page:&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;/media/tracks/web/dir-list.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;So it just shows us a directory listing of our folder, showing the files where we ran our http server. Navigate to &lt;code&gt;cgi-bin&lt;/code&gt; by clicking the link. You should now see an ugly page that details &amp;ldquo;Error response&amp;rdquo; 403.&lt;/p&gt;
+
+&lt;p&gt;Turns out a cgi server is a bit dumb in that it can&amp;rsquo;t automatically route pages itself, and that we need to explicitly type the page we&amp;rsquo;re interested in. Since we know from our file that the page we&amp;rsquo;re looking for is named &lt;code&gt;crs.py&lt;/code&gt;, we can go to that page by typing in the URL:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;localhost:8000/cgi-bin/crs.py&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Once there, you should see another Permission Denied 403 error. Don&amp;rsquo;t lose heart, we&amp;rsquo;re in the home stretch! We&amp;rsquo;ve already faced a &amp;ldquo;permission denied&amp;rdquo; error before, and we can fix it via the same way. Open your terminal (create a new tab so that you don&amp;rsquo;t have to renavigate to the directory), and run &lt;code&gt;chmod&lt;/code&gt; or &lt;code&gt;icacls&lt;/code&gt; again. Consult how we did it earlier.&lt;/p&gt;
+
+&lt;p&gt;Since we will want to run all the files in the distribution code, it might be better to give permission to all the files in the folder. We can to that by typing:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;chmod -R a+x *
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We add the &lt;code&gt;-R&lt;/code&gt; flag (recursive) to recursively &lt;code&gt;chmod&lt;/code&gt; all files within the directory.&lt;/p&gt;
+
+&lt;p&gt;On windows, we can achieve the same thing with:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;icalcs &#39;cgi-bin\*&#39; /t /g everyone:F
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Once you&amp;rsquo;ve run this command, navigate to &lt;code&gt;localhost:8000/cgi-bin/crs.py&lt;/code&gt; again, and you should see the same registration page that we had earlier. Try sending a form request yourself, and play around with the page.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s investigate the html file that&amp;rsquo;s being printed by our python file.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;print(&#39;&#39;&#39;
+&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;
+&amp;lt;head&amp;gt;
+  &amp;lt;title&amp;gt;&amp;lt;/title&amp;gt;
+  &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;/pure.css&amp;quot;&amp;gt;
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;
+  &amp;lt;h1&amp;gt;Class Registration&amp;lt;/h1&amp;gt;
+  &amp;lt;form action=&amp;quot;register.py&amp;quot; method=&amp;quot;POST&amp;quot; class=&amp;quot;pure-form pure-form-stacked&amp;quot;&amp;gt;
+    &amp;lt;label&amp;gt;Name&amp;lt;/label&amp;gt;
+    &amp;lt;input type=&amp;quot;text&amp;quot; name=&amp;quot;name&amp;quot;/&amp;gt;
+    &amp;lt;label&amp;gt;Class&amp;lt;/label&amp;gt;
+    &amp;lt;select name=&amp;quot;class&amp;quot;&amp;gt;
+      &amp;lt;option value=&amp;quot;&amp;quot;&amp;gt;&amp;lt;/option&amp;gt;
+      &amp;lt;option value=&amp;quot;CS 11&amp;quot;&amp;gt;CS 11&amp;lt;/option&amp;gt;
+      &amp;lt;option value=&amp;quot;CS 21&amp;quot;&amp;gt;CS 21&amp;lt;/option&amp;gt;
+      &amp;lt;option value=&amp;quot;CS 32&amp;quot;&amp;gt;CS 32&amp;lt;/option&amp;gt;
+    &amp;lt;/select&amp;gt;
+    &amp;lt;input type=&amp;quot;submit&amp;quot; value=&amp;quot;Go&amp;quot; class=&amp;quot;pure-button pure-button-primary&amp;quot;/&amp;gt;
+  &amp;lt;/form&amp;gt;
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&#39;&#39;&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This is our generic HTML page, but what&amp;rsquo;s interesting is line 10, which is a form action that sends the information to &amp;ldquo;register.py&amp;rdquo; with a &lt;code&gt;post&lt;/code&gt; method. &lt;code&gt;get&lt;/code&gt; puts our parameters in the URL, &lt;code&gt;post&lt;/code&gt; sends it without adding it in the URL.&lt;/p&gt;
+
+&lt;p&gt;Since we now know that &lt;code&gt;register.py&lt;/code&gt; is where our information is send, let&amp;rsquo;s look at that next:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;#!/usr/local/bin/python3
+import cgi
+print(&amp;quot;Content-type: text/html&amp;quot;)
+
+form = cgi.FieldStorage()
+
+print(&#39;&#39;&#39;
+&amp;lt;html&amp;gt;
+    &amp;lt;head&amp;gt;
+      &amp;lt;title&amp;gt;CSI CGI&amp;lt;/title&amp;gt;
+    &amp;lt;/head&amp;gt;
+    &amp;lt;body&amp;gt;
+&#39;&#39;&#39;)
+
+print(&amp;quot;&amp;lt;p&amp;gt;Form&amp;lt;/p&amp;gt;&amp;quot;)
+print(&amp;quot;&amp;lt;pre&amp;gt;&amp;quot;)
+for key in form.keys():
+    value = form.getvalue(str(key))
+    print(key)
+    print(value)
+    print(&amp;quot;\n&amp;quot;)
+print(&amp;quot;&amp;lt;/pre&amp;gt;&amp;quot;)
+
+print(&#39;&#39;&#39;
+    &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&#39;&#39;&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Again, our first three lines is our &lt;code&gt;shebang&lt;/code&gt;, &lt;code&gt;import&lt;/code&gt;, and &lt;code&gt;content type&lt;/code&gt; statements, just like in our &lt;code&gt;crs.py&lt;/code&gt;. Turns out that we need them to generate cgi capable scripts.&lt;/p&gt;
+
+&lt;p&gt;Line 9 has something interesting.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;form = cgi.FieldStorage()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;So we seem to be calling a method &amp;lsquo;FieldStorage()&amp;rsquo; from &lt;code&gt;cgi&lt;/code&gt;. &lt;code&gt;FieldStorage()&lt;/code&gt; is a &lt;a href=&#34;http://www.tutorialspoint.com/python/python_dictionary.htm&#34;&gt;dictionary&lt;/a&gt; (something akin to a hash table) that contains the data that has been sent through &lt;code&gt;POST&lt;/code&gt;/&lt;code&gt;GET&lt;/code&gt; requests.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(&#39;&#39;&#39;
+&amp;lt;html&amp;gt;
+    &amp;lt;head&amp;gt;
+      &amp;lt;title&amp;gt;CSI CGI&amp;lt;/title&amp;gt;
+    &amp;lt;/head&amp;gt;
+    &amp;lt;body&amp;gt;
+&#39;&#39;&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Here we seem to be printing a cut off HTML page! Indeed, we are only printing the head elements, as well as the opening body tag. Turns out we&amp;rsquo;ll be printing the content &lt;em&gt;dynamically&lt;/em&gt; next:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(&amp;quot;&amp;lt;p&amp;gt;Form&amp;lt;/p&amp;gt;&amp;quot;)
+print(&amp;quot;&amp;lt;pre&amp;gt;&amp;quot;)
+for key in form.keys():
+    value = form.getvalue(str(key))
+    print(key)
+    print(value)
+    print(&amp;quot;\n&amp;quot;)
+print(&amp;quot;&amp;lt;/pre&amp;gt;&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We&amp;rsquo;re printing a few HTML tags, but notice that we&amp;rsquo;re also using a &lt;code&gt;for loop&lt;/code&gt; to loop over our &lt;code&gt;form.keys()&lt;/code&gt;. Notice how we now effectively introduced programming constructs in HTML (or more accurately, use a programming language to generate our html page)&lt;/p&gt;
+
+&lt;p&gt;So indeed, &lt;code&gt;form.keys()&lt;/code&gt; just returns an array containing the keys of our form. We iterate over it (with &lt;code&gt;for key in form.keys()&lt;/code&gt;) and get the value with &lt;code&gt;form.getvalue(str(key))&lt;/code&gt;, and then print the key, value pair. This image should show the correspondence between our code and the output:&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;/media/tracks/web/crs-reg3.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;One thing you should notice (as you&amp;rsquo;ve seen the source code) is that &lt;code&gt;register.py&lt;/code&gt; just acceps the form input and prints it out, without validating anything. Try &amp;lsquo;registering&amp;rsquo; without a name, and you&amp;rsquo;ll see the page without a name!&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;ve created a smarter version of the page with &lt;code&gt;crs2.py&lt;/code&gt;. Navigate there through:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;http://localhost:8000/cgi-bin/crs2.py&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s the same page, and if you try to register, it will do the same thing. However try &amp;lsquo;registering&amp;rsquo; with one empty input, and you&amp;rsquo;ll get &lt;em&gt;invalid input&lt;/em&gt; as the message back!&lt;/p&gt;
+
+&lt;p&gt;If you open up &lt;code&gt;crs2.py&lt;/code&gt;, you&amp;rsquo;ll see that it&amp;rsquo;s largely the same as &lt;code&gt;crs.py&lt;/code&gt;, but with the form action sent to &lt;code&gt;register2.py&lt;/code&gt;. So let&amp;rsquo;s open up that file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;#!/usr/local/bin/python3
+import cgi
+print(&amp;quot;Content-type: text/html&amp;quot;)
+
+form = cgi.FieldStorage()
+
+print(&#39;&#39;&#39;
+&amp;lt;html&amp;gt;
+    &amp;lt;head&amp;gt;
+      &amp;lt;title&amp;gt;CSI CGI&amp;lt;/title&amp;gt;
+    &amp;lt;/head&amp;gt;
+    &amp;lt;body&amp;gt;
+&#39;&#39;&#39;)
+
+
+if(&#39;name&#39; in form and &#39;class&#39; in form):
+    print(&amp;quot;&amp;lt;p&amp;gt;Right Form&amp;lt;/p&amp;gt;&amp;quot;)
+    print(&amp;quot;&amp;lt;pre&amp;gt;&amp;quot;)
+    for key in form.keys():
+        value = form.getvalue(str(key))
+        print(key)
+        print(value)
+        print(&amp;quot;\n&amp;quot;)
+    print(&amp;quot;&amp;lt;/pre&amp;gt;&amp;quot;)
+else:
+    print(&#39;invalid input!&#39;)
+
+print(&#39;&#39;&#39;
+    &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&#39;&#39;&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It&amp;rsquo;s largely the same page, but note that we&amp;rsquo;ve introduced an if statement. Indeed, we are now checking if both the name and the class is in the form on line 16, and only then do we print the form! Else, we print &lt;em&gt;invalid input&lt;/em&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Note that checking if something is in an array in python is terribly easy: we use the &lt;code&gt;in&lt;/code&gt; operator. So in this case, we do, &lt;code&gt;&#39;name&#39; in form&lt;/code&gt; to check if the key exists in our form.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Let&amp;rsquo;s now go to &lt;code&gt;crs3.py&lt;/code&gt; which is our last example for this. Try registering, and you&amp;rsquo;ll note that somehow, the result look of the page has changed:&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;/media/tracks/web/crs-reg4.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Indeed, more interestingly, the url of our page still says &lt;code&gt;crs3.py&lt;/code&gt; - it seems that we have not redirected to any other page! If we now try to submit an invalid input, we see a much better looking page:&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;/media/tracks/web/crs-reg5.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;So it seems that our page is doing some pretty nifty stuff now! Let&amp;rsquo;s take a look at how it works and open crs3.py:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;#!/usr/local/bin/python3
+import cgi
+import os
+
+form = cgi.FieldStorage()
+
+print(&amp;quot;Content-type: text/html&amp;quot;)
+
+# print out our head
+print(&#39;&#39;&#39;
+&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;
+&amp;lt;head&amp;gt;
+  &amp;lt;title&amp;gt;&amp;lt;/title&amp;gt;
+  &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;/pure.css&amp;quot;&amp;gt;
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;&#39;&#39;&#39;)
+
+# if we have the name and class in our parameters,
+# then we know it&#39;s a successful form
+if(&#39;name&#39; in form and &#39;class&#39; in form):
+    print(&amp;quot;&amp;lt;p&amp;gt;Right Form&amp;lt;/p&amp;gt;&amp;quot;)
+    print(&amp;quot;&amp;lt;pre&amp;gt;&amp;quot;)
+    for key in form.keys():
+        value = form.getvalue(str(key))
+        print(key)
+        print(value)
+        print(&amp;quot;\n&amp;quot;)
+    print(&amp;quot;&amp;lt;/pre&amp;gt;&amp;quot;)
+else: #else
+    warning = &#39;&#39;
+    if os.environ[&#39;REQUEST_METHOD&#39;] == &#39;POST&#39;:
+        # let&#39;s set a warning if we have a post request
+        # and have no form input
+        warning = &#39;&amp;lt;div class=&amp;quot;warning&amp;quot;&amp;gt;Your form is invalid!&amp;lt;/div&amp;gt;&#39;
+    print(&#39;&#39;&#39;
+      &amp;lt;h1&amp;gt;Class Registration&amp;lt;/h1&amp;gt;
+      &amp;lt;div&amp;gt;&#39;&#39;&#39;, warning, &#39;&#39;&#39;
+      &amp;lt;form action=&amp;quot;crs3.py&amp;quot; method=&amp;quot;POST&amp;quot; class=&amp;quot;pure-form pure-form-stacked&amp;quot;&amp;gt;
+        &amp;lt;label&amp;gt;Name&amp;lt;/label&amp;gt;
+        &amp;lt;input type=&amp;quot;text&amp;quot; name=&amp;quot;name&amp;quot;/&amp;gt;
+        &amp;lt;label&amp;gt;Class&amp;lt;/label&amp;gt;
+        &amp;lt;select name=&amp;quot;class&amp;quot;&amp;gt;
+          &amp;lt;option value=&amp;quot;&amp;quot;&amp;gt;&amp;lt;/option&amp;gt;
+          &amp;lt;option value=&amp;quot;CS 11&amp;quot;&amp;gt;CS 11&amp;lt;/option&amp;gt;
+          &amp;lt;option value=&amp;quot;CS 21&amp;quot;&amp;gt;CS 21&amp;lt;/option&amp;gt;
+          &amp;lt;option value=&amp;quot;CS 32&amp;quot;&amp;gt;CS 32&amp;lt;/option&amp;gt;
+        &amp;lt;/select&amp;gt;
+        &amp;lt;input type=&amp;quot;submit&amp;quot; value=&amp;quot;Go&amp;quot; class=&amp;quot;pure-button pure-button-primary&amp;quot;/&amp;gt;
+      &amp;lt;/form&amp;gt;
+    &#39;&#39;&#39;)
+
+#print our our &#39;footer&#39;
+print(&#39;&#39;&#39;
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&#39;&#39;&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Ok, this is a lot to take in! Let&amp;rsquo;s take it chunk by chunk again&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;#!/usr/local/bin/python3
+import cgi
+import os
+
+form = cgi.FieldStorage()
+
+print(&amp;quot;Content-type: text/html&amp;quot;)
+
+# print out our head
+print(&#39;&#39;&#39;
+&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;
+&amp;lt;head&amp;gt;
+  &amp;lt;title&amp;gt;&amp;lt;/title&amp;gt;
+  &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;/pure.css&amp;quot;&amp;gt;
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;&#39;&#39;&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It seems that our first lines just &amp;lsquo;opens&amp;rsquo; our html page like before.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# if we have the name and class in our parameters,
+# then we know it&#39;s a successful form
+if(&#39;name&#39; in form and &#39;class&#39; in form):
+    print(&amp;quot;&amp;lt;p&amp;gt;Right Form&amp;lt;/p&amp;gt;&amp;quot;)
+    print(&amp;quot;&amp;lt;pre&amp;gt;&amp;quot;)
+    for key in form.keys():
+        value = form.getvalue(str(key))
+        print(key)
+        print(value)
+        print(&amp;quot;\n&amp;quot;)
+    print(&amp;quot;&amp;lt;/pre&amp;gt;&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now we have something that looks rather new. We&amp;rsquo;ve actually embedded our if statement on the page itself (notice that previously, they have been at &lt;code&gt;register.py&lt;/code&gt; files. This allows us to actually print the data on the same page (hence why it doesn&amp;rsquo;t change from &lt;code&gt;crs3.py&lt;/code&gt;, the handler of the form is the same page!&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;else: #else
+    warning = &#39;&#39;
+    if os.environ[&#39;REQUEST_METHOD&#39;] == &#39;POST&#39;:
+        # let&#39;s set a warning if we have a post request
+        # and have no form input
+        warning = &#39;&amp;lt;div class=&amp;quot;warning&amp;quot;&amp;gt;Your form is invalid!&amp;lt;/div&amp;gt;&#39;
+    print(&#39;&#39;&#39;
+      &amp;lt;h1&amp;gt;Class Registration&amp;lt;/h1&amp;gt;
+      &amp;lt;div&amp;gt;&#39;&#39;&#39;, warning, &#39;&#39;&#39;
+      &amp;lt;form action=&amp;quot;crs3.py&amp;quot; method=&amp;quot;POST&amp;quot; class=&amp;quot;pure-form pure-form-stacked&amp;quot;&amp;gt;
+        &amp;lt;label&amp;gt;Name&amp;lt;/label&amp;gt;
+        &amp;lt;input type=&amp;quot;text&amp;quot; name=&amp;quot;name&amp;quot;/&amp;gt;
+        &amp;lt;label&amp;gt;Class&amp;lt;/label&amp;gt;
+        &amp;lt;select name=&amp;quot;class&amp;quot;&amp;gt;
+          &amp;lt;option value=&amp;quot;&amp;quot;&amp;gt;&amp;lt;/option&amp;gt;
+          &amp;lt;option value=&amp;quot;CS 11&amp;quot;&amp;gt;CS 11&amp;lt;/option&amp;gt;
+          &amp;lt;option value=&amp;quot;CS 21&amp;quot;&amp;gt;CS 21&amp;lt;/option&amp;gt;
+          &amp;lt;option value=&amp;quot;CS 32&amp;quot;&amp;gt;CS 32&amp;lt;/option&amp;gt;
+        &amp;lt;/select&amp;gt;
+        &amp;lt;input type=&amp;quot;submit&amp;quot; value=&amp;quot;Go&amp;quot; class=&amp;quot;pure-button pure-button-primary&amp;quot;/&amp;gt;
+      &amp;lt;/form&amp;gt;
+    &#39;&#39;&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Our else statement is the content of our html page, with an added &lt;code&gt;warning&lt;/code&gt; variable. Line 3 suggests that we&amp;rsquo;re checking the &amp;lsquo;REQUEST_METHOD&amp;rsquo;, and if it is post, we are setting the warning variable to our error message. Indeed, it will only be set if our form is invalid, producing the effect we see on the page.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The Landing Page</title>
+      <link>/trackpost/15a-project1/</link>
+      <pubDate>Thu, 22 Oct 2015 11:21:08 +0800</pubDate>
+      
+      <guid>/trackpost/15a-project1/</guid>
+      <description>
+
+&lt;p&gt;&lt;strong&gt;Disclaimer:&lt;/strong&gt; One of the main goals of this DevCamp track (apart from making you awesome at web dev) is to allow you to teach yourself new languages and general software engineering so that you can stand on your own after the track&amp;rsquo;s end. Everyone here will be guiding you through and through, but if you find yourself consulting Google and asking questions, don&amp;rsquo;t worry: that means you&amp;rsquo;re doing it right!&lt;/p&gt;
+
+&lt;h1 id=&#34;getting-started:dc63c52864eedd1e3be494a5654006c8&#34;&gt;Getting Started&lt;/h1&gt;
+
+&lt;p&gt;First of all, register at &lt;a href=&#34;http://submit.updevcamp.com&#34;&gt;http://submit.udpevcamp.com&lt;/a&gt;, then come back here.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s start the project by setting up our project folder. Create a new folder (on say, your desktop) and name it as set0.&lt;/p&gt;
+
+&lt;p&gt;Now that you have a new folder, open a terminal, and navigate to your project folder by &lt;em&gt;cd&lt;/em&gt;-ing to your project. The command should look something like this (depending on where you put your folder)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cd ~/Desktop/set0/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;on Unix machines (OS X, Linux), or something like this on windows:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cd C:/Users/&amp;lt;username&amp;gt;/Desktop/set0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: You can decompose this command to simulate &amp;lsquo;traversing&amp;rsquo; through your directory, by taking it step by step, i.e. &lt;code&gt;cd Users&lt;/code&gt;, then &lt;code&gt;cd &amp;lt;username&amp;gt;&lt;/code&gt; etc. etc. This might be helpful if you find yourself unable to directly find the path of your folder.&lt;/p&gt;
+
+&lt;p&gt;Once inside your project folder, type in &lt;code&gt;git init&lt;/code&gt; to initialize your &lt;code&gt;git&lt;/code&gt; repository. Then do:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;atom .
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The command &lt;code&gt;atom .&lt;/code&gt; opens the text editor atom on the current directory (by passing &lt;code&gt;.&lt;/code&gt;). This means that you can see the files in this folder on the sidebar on the left. (Same thing if you are using sublime, which you can run using &lt;code&gt;subl .&lt;/code&gt;).&lt;/p&gt;
+
+&lt;p&gt;Create a new file in your editor, and save it as &lt;code&gt;index.html&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Now initialize your repository by typing (on the terminal):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;git init
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Add it to git by typing (on the terminal):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;git add index.html
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This adds the index.html to your git repository. Let&amp;rsquo;s now &lt;code&gt;commit&lt;/code&gt; this change by using the following command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;git commit -m &amp;quot;Initialize Repository&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;what-to-do:dc63c52864eedd1e3be494a5654006c8&#34;&gt;What to Do&lt;/h1&gt;
+
+&lt;p&gt;Now it&amp;rsquo;s time to create your very own web page! Your mission is, quite simply, to have fun with HTML and CSS and implement your very own landing page - that&amp;rsquo;s about &lt;em&gt;you&lt;/em&gt;! - a webpage that describes you, your interests, and other tidbits about you. To put simply, create a webpage that puts &lt;code&gt;you&lt;/code&gt; in a single page, leaving the viewer with a good idea of who you are after visiting the page. Think of it as your own portfolio, or a business card, or a modern résumé.&lt;/p&gt;
+
+&lt;p&gt;The landing page will only be subject to the following requirements:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Your landing page must have at least two images, one being a portrait/head shot of your own, the other being anything else (if Arian might recommend: a picture of a cute cat). Feel free to add more than two images!&lt;/li&gt;
+&lt;li&gt;Your landing page must have a working link.&lt;/li&gt;
+&lt;li&gt;Your landing page must work at least on these modern browsers (IE 10+, Edge 12+, Firefox 40+, Safari 9+, Chrome 45+). Consult &lt;a href=&#34;http://caniuse.com/&#34;&gt;caniuse&lt;/a&gt; to see if a browser supports a specific feature (most do).&lt;/li&gt;
+&lt;li&gt;Your landing page must be considerably styled with css.&lt;/li&gt;
+&lt;li&gt;Your landing page must have three &amp;lsquo;screens&amp;rsquo; worth of content (we can scroll down three screen height of content)&lt;/li&gt;
+&lt;li&gt;Your landing page must be responsive (and dare we say look good on mobile).&lt;/li&gt;
+&lt;li&gt;You must commit between versions on your projects. Your project should have at &lt;em&gt;least&lt;/em&gt; 4 commits by the end.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;It is also acceptable to create a landing page that is not about you - a page that is say, for a &amp;lsquo;mock product&amp;rsquo;/startup landing page, or one that serves as a mockup for an &amp;lsquo;app&amp;rsquo; (i.e., create a &amp;lsquo;twitter&amp;rsquo;/&amp;lsquo;facebook&amp;rsquo; &lt;em&gt;look&lt;/em&gt; clone), or say, a redesign of a landing page for a site you know (your high school&amp;rsquo;s website, or a webpage you frequent, or maybe say, a tribute website for your org). If you do choose to make a clone though, note that it should not terribly look the same, and please contact us to make sure that it&amp;rsquo;s acceptable.&lt;/p&gt;
+
+&lt;p&gt;Feel free to peruse the samples provided for inspiration, but your own page should not be directly similar to any of them. Try to think of a design of your own (grab a pen and paper and get those creative juices flowing!), and then set out to implement it.&lt;/p&gt;
+
+&lt;p&gt;If you don&amp;rsquo;t know how to implement a specific design, realize that using Developer Tools (right click inspect element) will allow you to view the css/style used to style a particular section.&lt;/p&gt;
+
+&lt;p&gt;The DevCamp staff is also available to help you out if you have questions. Message us on Slack if you&amp;rsquo;re having any trouble, and we&amp;rsquo;ll assign people to help you through the project.&lt;/p&gt;
+
+&lt;h4 id=&#34;landing-page-examples:dc63c52864eedd1e3be494a5654006c8&#34;&gt;Landing Page Examples&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://andypatrickdesign.com&#34;&gt;http://andypatrickdesign.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://christhurman.com&#34;&gt;http://christhurman.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://brandonkylenewman.github.io/index.html&#34;&gt;http://brandonkylenewman.github.io/index.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.joeyabi.com/projects.html&#34;&gt;http://www.joeyabi.com/projects.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://hoangnm.com&#34;&gt;http://hoangnm.com&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;marketing-page-examples:dc63c52864eedd1e3be494a5654006c8&#34;&gt;Marketing Page Examples&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://set0b.surge.sh&#34;&gt;http://set0b.surge.sh&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://set0c.surge.sh&#34;&gt;http://set0c.surge.sh&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;animation-example:dc63c52864eedd1e3be494a5654006c8&#34;&gt;Animation Example&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://set0d.surge.sh&#34;&gt;http://set0d.surge.sh&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;That&amp;rsquo;s it! Make us (and yourself) proud :)&lt;/p&gt;
+
+&lt;h1 id=&#34;how-to-submit:dc63c52864eedd1e3be494a5654006c8&#34;&gt;How to Submit&lt;/h1&gt;
+
+&lt;p&gt;Once you have the webpage done, let&amp;rsquo;s get it online so that you can share it with everyone!&lt;/p&gt;
+
+&lt;p&gt;Go to &lt;a href=&#34;http://github.com&#34;&gt;http://github.com&lt;/a&gt; and create an account if you don&amp;rsquo;t have one already. Github is a &lt;code&gt;git&lt;/code&gt; repository hosting service, allowing us to save our repositories online.&lt;/p&gt;
+
+&lt;p&gt;Once you&amp;rsquo;re logged in, create a new repository by clicking on the (+) button on the upper right hand corner and clicking &amp;ldquo;New repository&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;/media/tracks/web/project-github.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;You should then be redirected to a screen that asks for a &amp;ldquo;Repository Name&amp;rdquo;. Name it whatever you want (we recommend, updevcamp-2015a-set0). Add a description if you like, and then click &amp;ldquo;Create Repository&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;Great, you&amp;rsquo;ve just created a public git repo! You should now see instructions on &lt;strong&gt;how to push an existing repository&lt;/strong&gt;. Go ahead and follow those commands on your own terminal, then refresh the github page you are in.&lt;/p&gt;
+
+&lt;p&gt;You should now see your &lt;code&gt;index.html&lt;/code&gt; and &lt;code&gt;index.css&lt;/code&gt; files online! Your project is now public, great!&lt;/p&gt;
+
+&lt;p&gt;We aren&amp;rsquo;t able to quite see your webpage yet though! Luckily, github has &lt;code&gt;gh-pages&lt;/code&gt; allowing us to &lt;em&gt;host&lt;/em&gt; our webpage online for free. We do this by pushing our webpage to a &lt;code&gt;gh-pages&lt;/code&gt; branch, so let&amp;rsquo;s do just that.&lt;/p&gt;
+
+&lt;p&gt;Make sure you&amp;rsquo;re in your project directory, then, do the following commands:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;git branch gh-pages
+git checkout gh-pages
+git push origin gh-pages
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The first two commands above creates a &amp;lsquo;gh-pages&amp;rsquo; branch, and checks it out so that we are working on it on our current directory. The third pushes it to the gh-pages branch on our remote origin (github in this case).&lt;/p&gt;
+
+&lt;p&gt;Wooh, that was a handful! You can sit back and relax now though, you can now access your webpage online through &lt;a href=&#34;#&#34;&gt;http://&amp;lt;username&amp;gt;.github.io/&amp;lt;repo-name&amp;gt;`&lt;/a&gt;!&lt;/p&gt;
+
+&lt;p&gt;Finally, to close this project, visit and register at &lt;a href=&#34;http://submit.updevcamp.com&#34;&gt;http://submit.udpevcamp.com&lt;/a&gt;, the submissions bin of DevCamp created by &lt;a href=&#34;/authors/stephen&#34;&gt;Stephen&lt;/a&gt;. There, you&amp;rsquo;ll find a few questions. Make sure to submit the proper repo url, otherwise we might not be able to view your project! We collect quite a bit of data, but do note that this is used for research purposes anonymously.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Git</title>
+      <link>/trackpost/15a-web3/</link>
+      <pubDate>Thu, 22 Oct 2015 11:21:00 +0800</pubDate>
+      
+      <guid>/trackpost/15a-web3/</guid>
+      <description>
+
+&lt;h1 id=&#34;background:7ef598e006c8ffee918550380950232f&#34;&gt;Background&lt;/h1&gt;
+
+&lt;h2 id=&#34;what-is-git:7ef598e006c8ffee918550380950232f&#34;&gt;What is Git&lt;/h2&gt;
+
+&lt;p&gt;For a quick background on what is git (and why it&amp;rsquo;s relevant to you), &lt;a href=&#34;http://www.gamedev.net/page/resources/_/technical/game-programming/how-to-reverse-time-introduction-to-git-cloud-computing-and-version-control-r3434&#34;&gt;read this short &lt;strong&gt;article&lt;/strong&gt;&lt;/a&gt; written a while back. Read only until the SVN section.&lt;/p&gt;
+
+&lt;p&gt;Git was originally developed by Linus Torvalds for development of the Linux kernel. It is a distributed version control system, allowing you to save &lt;em&gt;versions&lt;/em&gt; (called &lt;code&gt;commit&lt;/code&gt;s) of your code to your local repository, as well as &lt;code&gt;push&lt;/code&gt;ing it to a remote repository. This allows you to track changes and synchronize with fellow developers easily in a peer-to-peer fashion.&lt;/p&gt;
+
+&lt;h2 id=&#34;what-is-github-com-http-github-com:7ef598e006c8ffee918550380950232f&#34;&gt;What is &lt;a href=&#34;http://github.com&#34;&gt;github.com&lt;/a&gt;?&lt;/h2&gt;
+
+&lt;p&gt;GitHub is an online git repository, where you can upload your git repository online. This allows you to make a &amp;lsquo;remote&amp;rsquo; version of your repository, so that losing your local repository does not hinder your progress (since you have it available online).&lt;/p&gt;
+
+&lt;h1 id=&#34;using-git:7ef598e006c8ffee918550380950232f&#34;&gt;Using Git&lt;/h1&gt;
+
+&lt;p&gt;&lt;code&gt;git add &amp;lt;path&amp;gt;&lt;/code&gt; adds a file or directory to your local repository.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;git commit -m &amp;quot;YOUR MESSAGE&amp;quot;&lt;/code&gt; commits all of the changes you have made to files in your local repository. Take the habit in &lt;strong&gt;commit&lt;/strong&gt;-ing often to save your progress&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;git push&lt;/code&gt; pushes your local commits to the remote repository.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;git pull&lt;/code&gt; pulls changes from the remote repository, to &lt;em&gt;your&lt;/em&gt; local repository.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;git diff&lt;/code&gt; can be used to view the changes you have made since your last commit.&lt;/p&gt;
+
+&lt;p&gt;To get started with Git, feel free to follow this interactive tutorial &lt;a href=&#34;https://try.github.io/levels/1/challenges/&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;You can also follow this much more hands-on &lt;a href=&#34;https://gitlab.com/braincraft/GitTutorial&#34;&gt;tutorial&lt;/a&gt; developed by &lt;a href=&#34;/authors/gian&#34;&gt;Gian&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;good-vcs-practices:7ef598e006c8ffee918550380950232f&#34;&gt;Good VCS practices&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Keep your commit messages short, and make them imperative - describing the action you have just done. For example, say &amp;ldquo;Add index.html file&amp;rdquo; instead of &amp;ldquo;Added index.html file&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;Always, always use good commit messages. Tell everyone what you did with your commit, so they can track your changes. There&amp;rsquo;s nothing more scary than &amp;lsquo;fix bug&amp;rsquo; or &amp;lsquo;updated game&amp;rsquo; so you have no idea what was changed.&lt;/li&gt;
+&lt;li&gt;Note the side effects of your changes. If you edited the GUI, which in turn changed how the levels work, make sure to note it.&lt;/li&gt;
+&lt;li&gt;Branch your code when necessary.&lt;/li&gt;
+&lt;li&gt;Test your code before you commit on the main branch.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>HTML</title>
+      <link>/trackpost/15a-web1/</link>
+      <pubDate>Mon, 31 Aug 2015 11:21:08 +0800</pubDate>
+      
+      <guid>/trackpost/15a-web1/</guid>
+      <description>
+
+&lt;h1 id=&#34;hello-world:16fe1a30e3219ded885bd9a94725ff66&#34;&gt;Hello World&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;This webtrack is designed to get you creating websites.&lt;/li&gt;
+&lt;li&gt;If you&amp;rsquo;re nervous because you have no web dev experience, you&amp;rsquo;re in good company: over 90% of students who signed up for Devcamp listed &amp;lsquo;none&amp;rsquo; as their experience.
+
+&lt;ul&gt;
+&lt;li&gt;If you do have web dev experience, don&amp;rsquo;t get complacent - we&amp;rsquo;ll make sure to challenge you.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Devcamp tracks are relatively practical - don&amp;rsquo;t get too caught up memorizing terms and definitions.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;prerequisites:16fe1a30e3219ded885bd9a94725ff66&#34;&gt;Prerequisites&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Some basic programming experience with any language (or willingness to learn)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;expectations-house-rules:16fe1a30e3219ded885bd9a94725ff66&#34;&gt;Expectations/House Rules&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Attend sessions&lt;/li&gt;
+&lt;li&gt;You will need to implement four projects by the end of the track&lt;/li&gt;
+&lt;li&gt;You are encouraged to bring your own device&lt;/li&gt;
+&lt;li&gt;If you&amp;rsquo;re having any trouble, just contact any of the staff&lt;/li&gt;
+&lt;li&gt;If you think the track is too easy for you, just contact any of the staff&lt;/li&gt;
+&lt;li&gt;Have fun!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;html:16fe1a30e3219ded885bd9a94725ff66&#34;&gt;HTML&lt;/h1&gt;
+
+&lt;p&gt;Here&amp;rsquo;s a very basic HTML snippet:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    &amp;lt;title&amp;gt;Hello World&amp;lt;/title&amp;gt;
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    Hello World
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It&amp;rsquo;s a basic webpage that does nothing but display &lt;code&gt;Hello World&lt;/code&gt;. The first line declares this piece of code as HTML, followed by &lt;code&gt;tags&lt;/code&gt;, beginning with &lt;code&gt;&amp;lt;&lt;/code&gt; and &lt;code&gt;&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;It is easy to create an html page yourself. Go in your text editor of choice and create a new file, saving it as &lt;code&gt;index.html&lt;/code&gt;. Put it anywhere easy to find, such as your desktop. Then type this in:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html&amp;gt;
+
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This boilerplate code basically says that our file Document Type is html (&lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/code&gt;). We then have the &lt;code&gt;html&lt;/code&gt; tag, which currently contains nothing. Every HTML page needs a section called a &lt;code&gt;head&lt;/code&gt;, so let&amp;rsquo;s go ahead and add that and a &lt;code&gt;&amp;lt;title&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    &amp;lt;title&amp;gt;Devcamp Week 1&amp;lt;/title&amp;gt;
+  &amp;lt;/head&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Another section every html page needs is a &lt;code&gt;&amp;lt;body&amp;gt;&lt;/code&gt;. Adding it follows the same structure we&amp;rsquo;ve seen so far:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    &amp;lt;title&amp;gt;Devcamp Week 1&amp;lt;/title&amp;gt;
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    Hello World
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Save it. We can then open our webpage by going to a browser (say Chrome) and pressing &lt;code&gt;Ctrl+O&lt;/code&gt;/&lt;code&gt;Cmd+O&lt;/code&gt; and then navigating to our &lt;code&gt;index.html&lt;/code&gt; file (alternatively, double click/drag to your browser your saved html file)&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;/media/tracks/web/chrome-index.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Notice how the tab says &amp;ldquo;Devcamp Week 1&amp;rdquo; - our title tag contents is used as the title for the tab. Meanwhile, the contents of our body tag is what&amp;rsquo;s seen in the actual browser window.&lt;/p&gt;
+
+&lt;p&gt;Those words covered in angle brackets are called &lt;code&gt;tags&lt;/code&gt;. For example, &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; is a tag, as well as &lt;code&gt;&amp;lt;body&amp;gt;&lt;/code&gt;. You might notice the tag with &lt;code&gt;/&lt;/code&gt;s in it, such as &lt;code&gt;&amp;lt;/head&amp;gt;&lt;/code&gt;. In html, there are  &lt;strong&gt;open&lt;/strong&gt; and &lt;strong&gt;close&lt;/strong&gt; tags (or start and end tags) of html &lt;strong&gt;elements&lt;/strong&gt;. For example, the html &lt;em&gt;element&lt;/em&gt; &lt;code&gt;head&lt;/code&gt; has &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; and &lt;code&gt;&amp;lt;/head&amp;gt;&lt;/code&gt; as it&amp;rsquo;s &lt;em&gt;open&lt;/em&gt; and &lt;em&gt;close&lt;/em&gt; tags respectively.&lt;/p&gt;
+
+&lt;p&gt;Web browsers interpret HTMl from top to bottom. When it sees &lt;code&gt;&amp;lt;html&amp;gt;&lt;/code&gt;, that basically tells our browser &amp;ldquo;What&amp;rsquo;s going to come is our html page&amp;rdquo;. &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; says &amp;ldquo;This is the start of the head section&amp;rdquo;, and &lt;code&gt;&amp;lt;/head&amp;gt;&lt;/code&gt; says &amp;ldquo;This is the end of the head section.&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;Indentation and spaces doesn&amp;rsquo;t really matter in html (much like C), and you will notice that we indent and unindent when opening and closing tags, just like &lt;strong&gt;curly braces&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s go back to the html page we saved again:&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;/media/tracks/web/chrome-index.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;You will notice that the URL reads &lt;code&gt;file:///Users/Secretmapper/Desktop/index.html&lt;/code&gt;, (or wherever you saved the file). The &lt;code&gt;file&lt;/code&gt; protocol basically indicates that the browser opened the file on the local hard drive. Hence, no one else should be able to see it.&lt;/p&gt;
+
+&lt;h2 id=&#34;servers:16fe1a30e3219ded885bd9a94725ff66&#34;&gt;Servers&lt;/h2&gt;
+
+&lt;p&gt;What we can do is to use what&amp;rsquo;s known as a web server. Python comes with a simple HTTP server, so let&amp;rsquo;s use that.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;First, open your terminal, and navigate to your html file. Recall that you can navigate to directories using &lt;code&gt;cd&lt;/code&gt; (&lt;strong&gt;c&lt;/strong&gt;hange &lt;strong&gt;d&lt;/strong&gt;irectory) and the path you want. &lt;code&gt;ls&lt;/code&gt; lists the file/folders of the current directory you are in (or &lt;code&gt;dir&lt;/code&gt; in windows.)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ cd ~/Desktop
+$ ls
+index.html
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Once you&amp;rsquo;re in the directory that contains your &lt;code&gt;index.html&lt;/code&gt; file, run the command &lt;code&gt;python -m http.server 8000&lt;/code&gt; or &lt;code&gt;python3 -m http.server 8000&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;You should see the message &lt;code&gt;Serving HTTP on 0.0.0.0 port 8000 ...&lt;/code&gt;. This means that we have an HTTP server running on port 8000! We can now open a new tab and enter &lt;code&gt;localhost:8000/index.html&lt;/code&gt;, meaning we are accessing our own computer and requesting for the &lt;code&gt;index.html&lt;/code&gt; file we wrote.&lt;/p&gt;
+
+&lt;p&gt;The page looks the same, but the difference now is that HTTP is being used to serve the page (notice that the URL doesn&amp;rsquo;t have the &lt;code&gt;file:///&lt;/code&gt; protocol anymore)&lt;/p&gt;
+
+&lt;h2 id=&#34;tags:16fe1a30e3219ded885bd9a94725ff66&#34;&gt;Tags&lt;/h2&gt;
+
+&lt;h3 id=&#34;links:16fe1a30e3219ded885bd9a94725ff66&#34;&gt;Links&lt;/h3&gt;
+
+&lt;p&gt;Let&amp;rsquo;s try some new things now. Let&amp;rsquo;s say we want to create a link. We would need to write something like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    &amp;lt;title&amp;gt;Devcamp Week 1&amp;lt;/title&amp;gt;
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;a href=&amp;quot;http://www.updevcamp.com/&amp;quot;&amp;gt;UP Dev Camp&amp;lt;/a&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;lt;a&amp;gt;&lt;/code&gt; is our open tag, short for &amp;ldquo;anchor&amp;rdquo;, &lt;code&gt;UP Dev Camp&lt;/code&gt;, is what&amp;rsquo;s shown by the browser, and &lt;code&gt;&amp;lt;/a&amp;gt;&lt;/code&gt; is the close tag for the anchor element. But what is &lt;code&gt;href&lt;/code&gt;, and why is it in the middle of the &lt;code&gt;&amp;lt;a&amp;gt;&lt;/code&gt; tag? &lt;code&gt;href&lt;/code&gt; is what&amp;rsquo;s called an &lt;strong&gt;attribute&lt;/strong&gt;, something that modifies a tag. &lt;code&gt;href&lt;/code&gt; in this case modifies the anchor tag to link to the address that it should redirect to when it&amp;rsquo;s clicked.&lt;/p&gt;
+
+&lt;p&gt;Try previewing it on your browser:&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;/media/tracks/web/alink.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Note how the href link can be different from what&amp;rsquo;s shown to the user. As an example, we can be malicious and do something like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    &amp;lt;title&amp;gt;Devcamp Week 1&amp;lt;/title&amp;gt;
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;a href=&amp;quot;http://virus.com&amp;quot;&amp;gt;http://google.com&amp;lt;/a&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Notice that our &lt;code&gt;href&lt;/code&gt; attribute points to &lt;code&gt;http://virus.com&lt;/code&gt;, but the text inside says &lt;code&gt;http://google.com&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;/media/tracks/web/badlink.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;The link in the image seems like an innocent link to google, but actually redirects to &lt;code&gt;virus.com&lt;/code&gt;!&lt;/p&gt;
+
+&lt;h3 id=&#34;lists:16fe1a30e3219ded885bd9a94725ff66&#34;&gt;Lists&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    &amp;lt;title&amp;gt;Devcamp Week 1&amp;lt;/title&amp;gt;
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;ul&amp;gt;
+      &amp;lt;li&amp;gt;CS 11&amp;lt;/li&amp;gt;
+      &amp;lt;li&amp;gt;CS 12&amp;lt;/li&amp;gt;
+      &amp;lt;li&amp;gt;CS 21&amp;lt;/li&amp;gt;
+    &amp;lt;/ul&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you render the html above, it will look something like this:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;CS 11&lt;/li&gt;
+&lt;li&gt;CS 12&lt;/li&gt;
+&lt;li&gt;CS 21&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The &lt;code&gt;&amp;lt;ul&amp;gt;&lt;/code&gt; tag stands for &lt;strong&gt;unordered list&lt;/strong&gt;, and &lt;code&gt;&amp;lt;li&amp;gt;&lt;/code&gt; as &lt;strong&gt;list item&lt;/strong&gt;, hence it produces a list. We can change the &lt;code&gt;&amp;lt;ul&amp;gt;&lt;/code&gt; to an &lt;code&gt;&amp;lt;ol&amp;gt;&lt;/code&gt; tag for an &lt;strong&gt;ordered list&lt;/strong&gt;, which will look like this:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;CS 11&lt;/li&gt;
+&lt;li&gt;CS 12&lt;/li&gt;
+&lt;li&gt;CS 21&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;paragraphs:16fe1a30e3219ded885bd9a94725ff66&#34;&gt;Paragraphs&lt;/h3&gt;
+
+&lt;p&gt;We use the &lt;code&gt;&amp;lt;p&amp;gt;&lt;/code&gt; tag for &lt;strong&gt;paragraphs&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    &amp;lt;title&amp;gt;Devcamp Week 1&amp;lt;/title&amp;gt;
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p&amp;gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sit amet quam varius, ornare neque eget, porttitor lorem. Vivamus rutrum, dui nec varius porta, sem neque tristique dolor, in condimentum dui tortor convallis erat. Quisque non ligula et lorem consectetur ultrices. Praesent eu massa lectus. Duis nec erat vel ante hendrerit scelerisque. Vivamus eu tincidunt libero. Nam feugiat a augue id hendrerit. Sed convallis magna placerat feugiat finibus.&amp;lt;/p&amp;gt;
+    &amp;lt;p&amp;gt;Nunc hendrerit porttitor vehicula. Curabitur rutrum orci vel accumsan blandit. Praesent vel semper dolor. Maecenas ac vestibulum ligula. Cras tincidunt velit elit, dignissim pharetra quam suscipit quis. Curabitur et sagittis elit. Nullam ante odio, viverra vel sollicitudin vel, elementum et odio. Aenean varius magna quis turpis dapibus, at mollis dui laoreet. Curabitur ac tristique tortor. Sed viverra tortor metus, in hendrerit lacus sodales sed. Etiam finibus tortor at metus mollis, nec hendrerit mi tempus. Nam consectetur id eros in tristique. Nulla in faucibus elit, sed laoreet nulla. Vestibulum condimentum nibh vel nulla molestie, ut gravida quam maximus.&amp;lt;/p&amp;gt;
+    &amp;lt;p&amp;gt;Nulla vehicula ullamcorper tellus vitae semper. Etiam condimentum eros a felis laoreet, vitae fringilla nisl molestie. Etiam fringilla suscipit enim, et commodo nisi suscipit eget. Mauris ac risus a quam sollicitudin tempor. Curabitur vel diam tincidunt mauris euismod efficitur. Vivamus cursus laoreet lacus. Curabitur gravida condimentum leo, tincidunt rhoncus enim.&amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;/media/tracks/web/paragraphs.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;HTML has lots and lots of tags, but as long as you know the concept, and how it can be structured, it&amp;rsquo;s easy to pick it up as you go.&lt;/p&gt;
+
+&lt;h1 id=&#34;further-reading:16fe1a30e3219ded885bd9a94725ff66&#34;&gt;Further Reading&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;More HTML elements/attributes:
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/HTML/Element&#34;&gt;MDN HTML elements reference&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes&#34;&gt;MDN HTML attributes reference&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Setup</title>
+      <link>/trackpost/15a-web0/</link>
+      <pubDate>Mon, 31 Aug 2015 11:20:08 +0800</pubDate>
+      
+      <guid>/trackpost/15a-web0/</guid>
+      <description>
+
+&lt;p&gt;To prepare your journey as a web developer, we&amp;rsquo;ve collected a bunch of common dependencies and software packages that you will find useful, as well as packages we will use for DevCamp. The number of dependencies to install might be a bit intimidating, but we tried to ensure to keep the installation procedures as straight forward as possible while supporting most major platforms.&lt;/p&gt;
+
+&lt;p&gt;Still, we understand that installing dependencies can cause a few things to go wrong. If so, please contact any of the staff during our DevCamp Sessions or through our &lt;a href=&#34;http://upcsi-dev.slack.com&#34;&gt;Slack&lt;/a&gt; Channel.&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;re also &lt;a href=&#34;http://csibox.updevcamp.com&#34;&gt;actively solving&lt;/a&gt; the problem of &amp;lsquo;setting machines up&amp;rsquo;.&lt;/p&gt;
+
+&lt;h1 id=&#34;package-managers:4557a7650a5b8772fe9027768eee8ffb&#34;&gt;Package Managers&lt;/h1&gt;
+
+&lt;p&gt;A package manager is a management system that automates installing, upgrading, and configuring software packages. Put simply, it makes &lt;em&gt;installing stuff easy&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Windows&lt;/strong&gt;: Install &lt;a href=&#34;https://chocolatey.org&#34;&gt;Chocolatey&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;OS X&lt;/strong&gt;: Install &lt;a href=&#34;http://brew.sh&#34;&gt;Brew&lt;/a&gt;. Then type this in your terminal: &lt;code&gt;brew install caskroom/cask/brew-cask&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Linux&lt;/strong&gt; If you are using Linux, then you&amp;rsquo;re distribution most likely comes with a package manager. (i.e., &lt;em&gt;yum&lt;/em&gt;, &lt;em&gt;apt-get&lt;/em&gt;)&lt;/p&gt;
+
+&lt;h1 id=&#34;atom:4557a7650a5b8772fe9027768eee8ffb&#34;&gt;Atom&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://atom.io&#34;&gt;Atom&lt;/a&gt; is a free and open source programming text-editor developed by Github. While you are welcome to use any text-editor (I use vim myself), most of the examples listed in this site and in presentations will use atom as the editor.&lt;/p&gt;
+
+&lt;p&gt;Follow these &lt;a href=&#34;https://atom.io/docs/latest/getting-started-installing-atom&#34;&gt;instructions&lt;/a&gt; to install Atom.&lt;/p&gt;
+
+&lt;h1 id=&#34;git:4557a7650a5b8772fe9027768eee8ffb&#34;&gt;Git&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://git-scm.com&#34;&gt;Git&lt;/a&gt; is a free and open source version control system. Think of it as &lt;em&gt;saving++&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;// Windows
+C:\&amp;gt; choco install git
+// OS X
+~ brew install git
+// Ubuntu Linux
+sudo apt-get install git
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;heroku:4557a7650a5b8772fe9027768eee8ffb&#34;&gt;Heroku&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://heroku.com&#34;&gt;Heroku&lt;/a&gt; is a cloud Platform as a Service (PaaS). Note that this is where &lt;a href=&#34;http://rupp.herokuapp.com&#34;&gt;RUPP - (rupp.herokuapp.com)&lt;/a&gt; is hosted.&lt;/p&gt;
+
+&lt;p&gt;Register for the service &lt;a href=&#34;http://heroku.com&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Once registered, install the &lt;a href=&#34;https://toolbelt.heroku.com&#34;&gt;heroku toolbelt&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1 id=&#34;python:4557a7650a5b8772fe9027768eee8ffb&#34;&gt;Python&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.python.org&#34;&gt;Python&lt;/a&gt; is a general-purpose, high-level programming language that emphasizes code readability. We will be using &lt;em&gt;Python 3&lt;/em&gt; in this track.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Windows:&lt;/strong&gt;, read this &lt;a href=&#34;/resources/python&#34;&gt;tutorial&lt;/a&gt; by &lt;a href=&#34;/authors/dominic&#34;&gt;Dominic&lt;/a&gt; on how to install Python&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;OS X:&lt;/strong&gt; While OS X should already have python3 by default, run &lt;code&gt;brew install python3&lt;/code&gt; to create a local version of &lt;code&gt;python3&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Linux:&lt;/strong&gt; Ubuntu 14.04 has &lt;code&gt;python3&lt;/code&gt; by default.&lt;/p&gt;
+
+&lt;h2 id=&#34;pip:4557a7650a5b8772fe9027768eee8ffb&#34;&gt;PIP&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;PIP&lt;/em&gt; (acronym for Python Installs Packages) is a tool for installing and managing Python packages.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Windows&lt;/strong&gt;: &lt;code&gt;choco install pip&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;OS X:&lt;/strong&gt; Running the command above (&lt;code&gt;brew install python3&lt;/code&gt;) installs pip automatically&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Linux:&lt;/strong&gt; &lt;code&gt;sudo apt-get install python3-pip&lt;/code&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;postgresql:4557a7650a5b8772fe9027768eee8ffb&#34;&gt;PostgreSQL&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://postgresql.org&#34;&gt;PostgreSQL&lt;/a&gt; is an open source (we&amp;rsquo;re getting a pattern here!) database. Put simply, it allows us to save data.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Windows:&lt;/strong&gt; &lt;code&gt;choco install postgresql&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;OS X:&lt;/strong&gt; &lt;code&gt;brew install postgresql&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Linux:&lt;/strong&gt; &lt;code&gt;apt-get install postgresql-9.4&lt;/code&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;slack:4557a7650a5b8772fe9027768eee8ffb&#34;&gt;Slack&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://upcsi-dev.slack.com&#34;&gt;Slack&lt;/a&gt; is a chat app/website.&lt;/p&gt;
+
+&lt;p&gt;It has an iOS and Android App for mobile, as well as OS X and Windows Clients for Desktop (sorry linux users!). You can also visit the website at &lt;a href=&#34;http://upcsi-dev.slack.com&#34;&gt;http://upcsi-dev.slack.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;CSI Apps:&lt;/strong&gt; We will be inviting you.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Non CSI Apps:&lt;/strong&gt; Please drop &lt;a href=&#34;info@updevcamp.com&#34;&gt;us&lt;/a&gt; an email with your name/email (we&amp;rsquo;ll automate this soon enough)&lt;/p&gt;
+
+&lt;h1 id=&#34;github:4557a7650a5b8772fe9027768eee8ffb&#34;&gt;GitHub&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://github.com&#34;&gt;GitHub&lt;/a&gt; is a web based git repository hosting service. It allows us to save online repositories made with &lt;em&gt;git&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Register for the service &lt;a href=&#34;http://github.com&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;addendum:4557a7650a5b8772fe9027768eee8ffb&#34;&gt;Addendum&lt;/h1&gt;
+
+&lt;p&gt;Wooh, that was quite a lot! If you&amp;rsquo;ve made it here and did not face any problems, then to you I say, nicely done!&lt;/p&gt;
+
+&lt;p&gt;If you did see a few errors along the way, then don&amp;rsquo;t fret! Simply google the error you faced, and try to work from there. If you are still unable to solve the problem, just drop by our &lt;a href=&#34;http://upcsi-dev.slack.com&#34;&gt;Slack&lt;/a&gt; Channel.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/trackpost/15a-web2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/trackpost/15a-web2/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

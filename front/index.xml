@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Fronts on UP CSI Devcamp</title>
+    <link>/front/</link>
+    <description>Recent content in Fronts on UP CSI Devcamp</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 30 Aug 2015 02:09:02 +0800</lastBuildDate>
+    <atom:link href="/front/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Can I join even if I can&#39;t code?</title>
+      <link>/front/cant-code/</link>
+      <pubDate>Sun, 30 Aug 2015 02:09:02 +0800</pubDate>
+      
+      <guid>/front/cant-code/</guid>
+      <description>&lt;p&gt;Of course! So long as you have the passion about technology, and it&amp;rsquo;s role in shaping the future, you&amp;rsquo;ll fit right in. Devcamp offers constant trainings for our members, ensuring that you can go from noob to dev in a couple of weeks.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>What We Do</title>
+      <link>/front/what/</link>
+      <pubDate>Sun, 30 Aug 2015 02:01:49 +0800</pubDate>
+      
+      <guid>/front/what/</guid>
+      <description>&lt;p&gt;Devcamp is a collaborative coding bootcamp ran every semester by UP CSI. Incoming hackers are taught technical development skills over the course of the semester, and we offer those who finish (or already have experience) real-world projects sponsored by our clients.&lt;/p&gt;
+
+&lt;p&gt;On occasion, we hold DevTalks, where students (and sometimes invited industry level speakers) share particular advances or &amp;lsquo;tricks&amp;rsquo; in software development.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Devcamp</title>
+      <link>/front/intro/</link>
+      <pubDate>Sun, 30 Aug 2015 02:01:45 +0800</pubDate>
+      
+      <guid>/front/intro/</guid>
+      <description>&lt;p&gt;There&amp;rsquo;s a gap between the students who build products, join hackatons, get exciting internships, and the students who don&amp;rsquo;t even know where to begin. Our goal is to close that gap, by providing a safe space where students can learn and collaborate with each other and get the opportunity to do awesome things.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

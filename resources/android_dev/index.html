@@ -1,0 +1,125 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us"><head><link href="http://gmpg.org/xfn/11" rel="profile"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1"><title>Android Development Environment</title><link rel="stylesheet" href="/css/main.css"> <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png"><link href="/favicon.png" rel="icon"><link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'><link href="http://fonts.googleapis.com/css?family=Roboto+Slab:300" rel="stylesheet" type="text/css"><link href="" rel="alternate" type="application/rss+xml" title="UP CSI Devcamp &middot; "/><meta name="description" content="CSI Devcamp provides a space and network for motivated students to learn and create awesome stuff"><meta name="keywords" content="Devcamp, UP, CSI, Computer, Science, UP CSI Devcamp, Bootcamp, Mentorship, Mentor, Mentee"> </head><body> <header><h1><a href="/"><span class="color-csi">UP CSI</span> Devcamp</a></h1><nav><ul><li> <a href="/resources">Resources</a></li><li> <a href="/tracks">Tracks</a></li></ul></nav></header><div class="main-wrapper">  <div class="content container">  <a href="/resources">&lt; Resources</a><article class="resource-post"><h1 class="post-title">Android Development Environment</h1> <span class="post-by"> by: <span class="author-name"><a class="label" href="/authors/neil">Neil Calabroso</a></span> </span> 
+
+<p>Set-up your android development environment</p>
+
+<h2 id="linux:9f5df4195855c3793cf9110b129c124e">Linux</h2>
+
+<p><strong>Supported Distributions</strong>
+1. Ubuntu (Precise Pangolin)
+2. ElementaryOS (Luna)
+3. Linux Mint (Cinnamon)</p>
+
+<h3 id="android-studio:9f5df4195855c3793cf9110b129c124e">Android Studio</h3>
+
+<p>First, add a new PPA in order for us to install Oracle&rsquo;s official SDK.</p>
+
+<pre><code class="language-bash">sudo apt-get install python-software-properties
+sudo add-apt-repository ppa:webupd8team/java
+sudo apt-get update &amp;&amp; sudo apt-get upgrade
+sudo apt-get install oracle-java7-installer
+</code></pre>
+
+<p>Second, download <a href="http://developer.android.com/sdk/installing/studio.html">Android Studio</a>.</p>
+
+<p>Then, unpack the downloaded file and move it to your desired directory. In our case, we will put it in the <code>/opt/</code> directory.</p>
+
+<pre><code class="language-bash">sudo mv android-studio /opt/
+</code></pre>
+
+<p>Open your <code>.bashrc</code> and add the line below so we can run Android Studio from any directory:</p>
+
+<pre><code class="language-bash">nano ~/.bashrc #open .bashrc
+</code></pre>
+
+<pre><code class="language-bash"># Android Studio
+## Add this line at the end of .bashrc
+export PATH=&quot;/opt/android-studio/bin:$PATH&quot;
+</code></pre>
+
+<p>Save the changed file.</p>
+
+<p>Restart your terminal.</p>
+
+<p>You can now run Android Studio via this command:</p>
+
+<pre><code class="language-bash">studio.sh
+</code></pre>
+
+<p>Click the <code>check for updates</code> link from the window. Congratulations, you have finished installing Android Studio!</p>
+
+<h3 id="proxy-settings:9f5df4195855c3793cf9110b129c124e">Proxy Settings</h3>
+
+<p>If you are experiencing some connection issue and you are behind a proxy, do the following:</p>
+
+<p>Open <strong>Android Studio</strong>.</p>
+
+<p>Go to <em>Configure &gt; Settings</em>.</p>
+
+<p>Search for <strong>Gradle</strong>.</p>
+
+<p>Enter the following as <em>Gradle VM Options</em>:</p>
+
+<pre><code class="language-bash">-Dhttp.proxyHost=proxy.domain.com -Dhttp.proxyPort=8080 -Dhttps.proxyHost=proxy.domain.com -Dhttps.proxyPort=8080
+</code></pre>
+
+<p>If the proxy needs authentication, just add this line:</p>
+
+<pre><code class="language-bash">-Dhttp.proxyUser=&lt;username&gt; -Dhttp.proxyPassword=&lt;password&gt;
+</code></pre>
+
+<p>Note: Change the proxy host, port, user, and password according to your own proxy settings.</p>
+
+<p>Apply and save the changes.</p>
+
+<p>Next, Go to <em>Configure &gt; Plugins</em>.</p>
+
+<p>Click <em>Browse Repositories</em>.</p>
+
+<p>In the new window, click <em>Http Proxy Settings</em> and configure it.</p>
+
+<p>Finally, you should be able to update your <strong>Android Studio</strong>.</p>
+
+<h3 id="genymotion:9f5df4195855c3793cf9110b129c124e">Genymotion</h3>
+
+<p>Install <strong>Oracle&rsquo;s Virtualbox</strong>.</p>
+
+<pre><code class="language-bash">sudo apt-get install virtualbox-qt
+</code></pre>
+
+<p>Next, go to <a href="http://www.genymotion.com">Genymotion</a> website.</p>
+
+<p>Then, sign up for an account.</p>
+
+<p>After that, download Genymotion <a href="https://cloud.genymotion.com/page/launchpad/download/">here</a>.</p>
+
+<p>Move the downloaded file to <code>/opt/</code>.</p>
+
+<pre><code class="language-bash">cd ~/Downloads/
+sudo mv genymotion-2.2.2_x64.bin /opt/ #version may vary from time to time
+</code></pre>
+
+<p>Go to <code>/opt/</code>.</p>
+
+<pre><code class="language-bash">cd /opt/
+</code></pre>
+
+<p>Make the file executable.</p>
+
+<pre><code>sudo chmod +x genymotion-2.2.2_x64.bin
+</code></pre>
+
+<p>Execute the installer.</p>
+
+<pre><code>sudo ./genymotion-2.2.2_x64.bin
+</code></pre>
+
+<p>At the same page, install the Genymotion plug-in into our Android Studio. Check the <strong>Download IntelliJ IDEA Plugin</strong> section.</p>
+ <div class="line-divider"></div> <section class="post-author-info"><div class="post-author-title">  About <a class="label" href="/authors/neil">Neil Calabroso</a> <div class="color-csi"> CSI Development Commitee Head 14-15</div> </div><div> <div class="post-author-bio"> Likes mireya</div>  </span> <a href="http://twitter.com/NMCalabroso">@NMCalabroso</a></span> </div></section> </article></div> </div><footer><p>Made with <span class="color-pink">Love</span> &copy; UP CSI</p></footer> <script src="/js/vendor.bundle.js"></script><script src="/js/main.bundle.js"></script> <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', "UA-69207349-1", 'auto');
+  ga('send', 'pageview');
+</script> </body></html>

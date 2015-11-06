@@ -1,0 +1,601 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us"><head><link href="http://gmpg.org/xfn/11" rel="profile"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1"><title>Flask</title><link rel="stylesheet" href="/css/main.css"> <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png"><link href="/favicon.png" rel="icon"><link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'><link href="http://fonts.googleapis.com/css?family=Roboto+Slab:300" rel="stylesheet" type="text/css"><link href="" rel="alternate" type="application/rss+xml" title="UP CSI Devcamp &middot; "/><meta name="description" content="CSI Devcamp provides a space and network for motivated students to learn and create awesome stuff"><meta name="keywords" content="Devcamp, UP, CSI, Computer, Science, UP CSI Devcamp, Bootcamp, Mentorship, Mentor, Mentee"> </head><body> <header><h1><a href="/"><span class="color-csi">UP CSI</span> Devcamp</a></h1><nav><ul><li> <a href="/resources">Resources</a></li><li> <a href="/tracks">Tracks</a></li></ul></nav></header><div class="main-wrapper">   <div class="content container"><article class="post"> <h1 class="post-title"> <a href="/tracks/web">Web</a> Track: Flask</h1> <span class="post-by"></span> <h1>Table of Contents</h1><div class="toc"> <nav id="TableOfContents">
+<ul>
+<li><a href="#getting-started-with-flask:d69f702fbb99284690529847e709cd13">Getting Started with Flask</a>
+<ul>
+<li><a href="#foreword-why-flask:d69f702fbb99284690529847e709cd13">Foreword: Why Flask?</a></li>
+</ul></li>
+<li><a href="#i-installing-flask:d69f702fbb99284690529847e709cd13">I. Installing Flask</a>
+<ul>
+<li><a href="#for-unix-based-operating-systems:d69f702fbb99284690529847e709cd13">For Unix-based Operating Systems</a></li>
+<li><a href="#for-windows:d69f702fbb99284690529847e709cd13">For Windows</a></li>
+</ul></li>
+<li><a href="#ii-hello-world-in-flask:d69f702fbb99284690529847e709cd13">II. &ldquo;Hello World&rdquo; in Flask!</a></li>
+<li><a href="#iii-templates:d69f702fbb99284690529847e709cd13">III. Templates</a>
+<ul>
+<li><a href="#control-statements-in-templates:d69f702fbb99284690529847e709cd13">Control Statements in Templates</a></li>
+<li><a href="#loops-in-templates:d69f702fbb99284690529847e709cd13">Loops in Templates</a></li>
+<li><a href="#template-inheritance:d69f702fbb99284690529847e709cd13">Template Inheritance</a></li>
+</ul></li>
+<li><a href="#web-forms:d69f702fbb99284690529847e709cd13">Web Forms</a>
+<ul>
+<li><a href="#user-login-form:d69f702fbb99284690529847e709cd13">User Login Form</a></li>
+<li><a href="#form-template:d69f702fbb99284690529847e709cd13">Form template</a>
+<ul>
+<li><a href="#form-views:d69f702fbb99284690529847e709cd13">Form Views</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#references:d69f702fbb99284690529847e709cd13">References</a></li>
+</ul>
+</nav></div>  
+
+<h1 id="getting-started-with-flask:d69f702fbb99284690529847e709cd13">Getting Started with Flask</h1>
+
+<p>In this guide, we’ll cover installing Flask and using it for the first time. Flask is a back-end framework that we will be using alongside HTML and CSS. Contrary to to the front end, which is basically what the client sees, the back end consists of the internal mechanisms of a website, which handles stuff like input from the client.</p>
+
+<p>After completing this tutorial, you will be able to:
+* Set-up Flask in your machines
+* Create a backend for your web app
+* Implement CRUD operations in Flask</p>
+
+<p>This guide is based directly from the awesome and concise guides provided by <a href="http://flask.pocoo.org/docs/0.10/">Flask Documentation</a> and <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world">Miguel Grinberg</a>. These guides have been merged and modified for UP CSI Devcamp 2015.</p>
+
+<h2 id="foreword-why-flask:d69f702fbb99284690529847e709cd13">Foreword: Why Flask?</h2>
+
+<p>Why flask? Why study a microframework if I could just study real <code>frameworks</code> such as Django? Why should I waste my time learning Flask?</p>
+
+<p>A short, simple answer is that many developers use frameworks such as RoR and Django to develop sites whose functionalities doesn&rsquo;t really need to use such sophisticated, complicated frameworks. Why not simplify things o&rsquo;rayt? Also, the learning curve for complete frameworks are way-way steeper than microframeworks. Surely, Flask is a suitable stepping stone for first-time non-framework developers.</p>
+
+<p>Please read this 2-minute article before starting with Flask. <a href="http://flask.pocoo.org/docs/0.10/foreword/#what-does-micro-mean">Check out this link.</a>:</p>
+
+<h1 id="i-installing-flask:d69f702fbb99284690529847e709cd13">I. Installing Flask</h1>
+
+<p>To install Flask, we would be needing to 3 things:
+1. Python 3 - a widely used general-purpose, high-level programming language.</p>
+
+<ol>
+<li><p>pip - a tool that&rsquo;s used to manage packages written in Python</p></li>
+
+<li><p>Virtual Environment (Virtualenv)- allows us to create Python environments that are isolated from one another. We will now create our own virtual environment for a simple web app and install Flask in it.</p></li>
+</ol>
+
+<p>To learn more about one of the best programming language, check out <a href="https://www.python.org/">Python&rsquo;s Website</a>.</p>
+
+<p>For a  thorough beginner-level explanation for pip and Virtualenv, you could check out this awesome <a href="http://www.dabapps.com/blog/introduction-to-pip-and-virtualenv-python/">article</a>.</p>
+
+<h2 id="for-unix-based-operating-systems:d69f702fbb99284690529847e709cd13">For Unix-based Operating Systems</h2>
+
+<p>On Ubuntu, Linux Mint, or other distributions that have <code>apt-get</code>, run the command:</p>
+
+<pre><code class="language-bash">sudo apt-get install python3.4-venv
+</code></pre>
+
+<p>This will allow us to create Python environments that are isolated from one another.</p>
+
+<p>Type these on the command line in order to make the virtual environment:</p>
+
+<pre><code class="language-bash">mkdir microblog
+cd microblog
+python3 -m venv flask
+</code></pre>
+
+<p>(note: the name microblog can be substituted with anything)</p>
+
+<p>To install Flask and other stuff, copy this to the command line:</p>
+
+<pre><code class="language-bash">flask/bin/pip install flask
+</code></pre>
+
+<p><strong>THE FOLLOWING IS JUST OPTIONAL IN THE CURRENT SCOPE OF THIS TUTORIAL</strong></p>
+
+<pre><code class="language-bash">flask/bin/pip install flask-login
+flask/bin/pip install flask-openid
+flask/bin/pip install flask-mail
+flask/bin/pip install flask-sqlalchemy
+flask/bin/pip install sqlalchemy-migrate
+flask/bin/pip install flask-whooshalchemy
+flask/bin/pip install flask-wtf
+flask/bin/pip install flask-babel
+flask/bin/pip install guess_language
+flask/bin/pip install flipflop
+flask/bin/pip install coverage
+</code></pre>
+
+<p>And we&rsquo;re done! Let&rsquo;s proceed to our First Web App in Flask!</p>
+
+<h2 id="for-windows:d69f702fbb99284690529847e709cd13">For Windows</h2>
+
+<p>One main difference between Windows from Unix-based OS is that you need to edit your system environment variables in order to run python in the command prompt.</p>
+
+<p>Luckily, both the (1) system environment variables can already be updated and (2) pip can already be installed during the Python 3.4 installation. In order to accomplish that, you can do the following:</p>
+
+<p>A. Quick-Guide: Python 3.4 Installation</p>
+
+<p>1.1. Download python 3.4 <a href="https://www.python.org/downloads/">here</a>.</p>
+
+<p>1.2. Run (as administator) the downloaded exe file.</p>
+
+<p>1.3. Select <code>Customize Installation</code></p>
+
+<p>1.4. In Optional Feature, tick the checkbox <code>pip</code>. Click <code>next</code>.</p>
+
+<p>1.5. In Advanced Options, tick the checkbox <code>Add Python to environment variables</code>. Click <code>Install</code></p>
+
+<p>B. Pip Installation</p>
+
+<p>2.1 If you did Step 1, then you don&rsquo;t need to do this.</p>
+
+<p>2.2 Else if you have installed Python before but didn&rsquo;t decide to install pip, then do the following:</p>
+
+<p>2.3 Enter the following in our command line:</p>
+
+<pre><code class="language-bash">python -m easy_install pip
+</code></pre>
+
+<p>The command above makes use of easy_install, a primitive package manager (same as pip) that is installed automatically when you install python.</p>
+
+<p><strong>Note: If you renamed &lsquo;python&rsquo; to &lsquo;python3&rsquo; in your &lsquo;Python3&rsquo; folder in order to accommodate to versions of Python, then you must rename all the commands with the keyword &lsquo;python&rsquo; to &lsquo;python3&rsquo;. Example: <code>python3 -m easy install pip</code></strong></p>
+
+<p>3.) Installing Virtualenv</p>
+
+<p>In your command line, enter:</p>
+
+<pre><code class="language-bash">python -m pip install virtualenv
+</code></pre>
+
+<p>4.) Setup application folder</p>
+
+<p>Type these on the command line in order to make the virtual environment:</p>
+
+<pre><code class="language-bash">mkdir microblog
+cd microblog
+virtualenv venv
+</code></pre>
+
+<p>(note: the name microblog can be substituted with anything)</p>
+
+<p>Now, whenever you want to work on a project, you only have to activate the corresponding environment.</p>
+
+<pre><code class="language-bash">$ venv\scripts\activate
+</code></pre>
+
+<p>Either way, you should now be using your virtualenv (notice how the prompt of your shell has changed to show the active environment).
+  Now you can just enter the following command to get Flask activated in your virtualenv:</p>
+
+<pre><code class="language-bash">(venv) C:\Users\Cheverloo\my_app&gt; pip install Flask
+</code></pre>
+
+<p><strong>THE FOLLOWING IS JUST OPTIONAL IN THE CURRENT SCOPE OF THIS TUTORIAL</strong></p>
+
+<p>Next, do this&hellip;</p>
+
+<pre><code class="language-bash">(venv) C:\Users\Cheverloo\my_app&gt; pip install flask-login
+(venv) C:\Users\Cheverloo\my_app&gt; $ venv\Scripts\pip install flask-openid
+(venv) C:\Users\Cheverloo\my_app&gt; $ venv\Scripts\pip install flask-mail
+(venv) C:\Users\Cheverloo\my_app&gt; $ venv\Scripts\pip install flask-sqlalchemy
+(venv) C:\Users\Cheverloo\my_app&gt; $ venv\Scripts\pip install sqlalchemy-migrate
+(venv) C:\Users\Cheverloo\my_app&gt; $ venv\Scripts\pip install flask-whooshalchemy
+(venv) C:\Users\Cheverloo\my_app&gt; $ venv\Scripts\pip install flask-wtf
+(venv) C:\Users\Cheverloo\my_app&gt; $ venv\Scripts\pip install flask-babel
+(venv) C:\Users\Cheverloo\my_app&gt; $ venv\Scripts\pip install guess_language
+(venv) C:\Users\Cheverloo\my_app&gt; $ venv\Scripts\pip install flipflop
+(venv) C:\Users\Cheverloo\my_app&gt; $ venv\Scripts\pip install coverage
+</code></pre>
+
+<p>If you are having error message <code>Fatal error in launcher: Unable to create process using '&quot;'</code>, try this:</p>
+
+<pre><code class="language-bash">(venv) C:\Users\Cheverloo\my_app&gt; python -m pip install Flask
+</code></pre>
+
+<p>Next, do this&hellip;</p>
+
+<pre><code class="language-bash">(venv) C:\Users\Cheverloo\my_app&gt; python -m pip install flask-login
+(venv) C:\Users\Cheverloo\my_app&gt; python -m pip install flask-openid
+(venv) C:\Users\Cheverloo\my_app&gt; python -m pip install flask-mail
+(venv) C:\Users\Cheverloo\my_app&gt; python -m pip install flask-sqlalchemy
+(venv) C:\Users\Cheverloo\my_app&gt; python -m pip install sqlalchemy-migrate
+(venv) C:\Users\Cheverloo\my_app&gt; python -m pip install flask-whooshalchemy
+(venv) C:\Users\Cheverloo\my_app&gt; python -m pip install flask-wtf
+(venv) C:\Users\Cheverloo\my_app&gt; python -m pip install flask-babel
+(venv) C:\Users\Cheverloo\my_app&gt; python -m pip install guess_language
+(venv) C:\Users\Cheverloo\my_app&gt; python -m pip install flipflop
+(venv) C:\Users\Cheverloo\my_app&gt; python -m pip install coverage
+</code></pre>
+
+<p>These commands will download and install all the packages that we will use for our application.</p>
+
+<p>And we&rsquo;re done! Let&rsquo;s proceed to our First Web App in Flask!</p>
+
+<h1 id="ii-hello-world-in-flask:d69f702fbb99284690529847e709cd13">II. &ldquo;Hello World&rdquo; in Flask!</h1>
+
+<p>We now have a venv sub-folder inside your microblog folder that is populated with a Python interpreter and the Flask framework and extensions that we will use for this application.</p>
+
+<p><code>cd</code> to the <code>microblog</code> folder. We will create the basic folder structure for our application:</p>
+
+<pre><code class="language-bash">$ mkdir app
+$ mkdir app/static
+$ mkdir app/templates
+$ mkdir tmp
+</code></pre>
+
+<p><strong>WHAT ARE THESE FOLDERS</strong></p>
+
+<p>The <code>app</code> folder will be where we will put our application package.
+The <code>static</code> sub-folder is where we will store static files like images, javascripts, and cascading style sheets.
+The <code>templates</code> sub-folder is obviously where our templates will go.</p>
+
+<p>Let&rsquo;s start by creating a simple init script for our <code>app</code> package (<code>file app/__init__.py</code>):</p>
+
+<pre><code class="language-python">from flask import Flask
+
+app = Flask(__name__)
+from app import views
+</code></pre>
+
+<p>The script above simply creates the application object (of class Flask) and then imports the <code>views</code> module, which we haven&rsquo;t written yet. Do not confuse <code>app</code> the variable (which gets assigned the <code>Flask</code> instance) with <code>app</code> the package (from which we import the <code>views</code> module).</p>
+
+<p>If you are wondering why the import statement is at the end and not at the beginning of the script as it is always done, the reason is to avoid circular references, because you are going to see that the views module needs to import the app variable defined in this script. Putting the import at the end avoids the circular import error.</p>
+
+<p><strong>WHAT ARE VIEWS?</strong></p>
+
+<p>The views are the handlers that respond to requests from web browsers or other clients. In Flask handlers are written as Python functions. Each view function is mapped to one or more request URLs.</p>
+
+<p>Now let&rsquo;s write our first view function (file <code>app/views.py</code>):</p>
+
+<pre><code class="language-python">from app import app
+
+@app.route('/')
+@app.route('/index')
+def index():
+    return &quot;Hello, World!&quot;
+</code></pre>
+
+<p>This <code>view</code> is actually pretty simple, it just returns a string, to be displayed on the client&rsquo;s web browser. The two <code>route</code> decorators above the function create the mappings from URLs <code>/</code> and <code>/index</code> to this function.</p>
+
+<p>You might want to check out this <a href="https://realpython.com/blog/python/primer-on-python-decorators/">site to learn more about Python Decorators</a></p>
+
+<p>The final step to have a fully working web application is to create a script that starts up the development web server with our application. Let&rsquo;s call this script <code>run.py</code>, and put it in the root folder:</p>
+
+<pre><code class="language-python">#!flask/bin/python
+from app import app
+app.run(debug=True)
+</code></pre>
+
+<p>The script simply imports the app variable from our app package and invokes its run method to start the server. Remember that the app variable holds the Flask instance that we created it above.</p>
+
+<p>Before we start the app, let&rsquo;s verify if our directory is correct. It must look like this (except instead of my_app it would be microblog):</p>
+
+<p><img src="https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-xlf1/v/t34.0-12/12177706_1213462125337486_431659876_n.jpg?oh=b28483a4a964e826dd2043a24ae9ccec&amp;oe=562F6F82&amp;__gda__=1446031431_1b570c98a7ae22341ffe082c80def9c0" alt="Directory Image" />
+</p>
+
+<p><strong>Mistake in the picture: That must be <code>templates</code> not template :)</strong></p>
+
+<p><strong>Starting the App</strong></p>
+
+<p>To start the app you just run this script. On OS X, Linux and Cygwin you have to indicate that this is an executable file before you can run it:</p>
+
+<pre><code class="language-bash">$ chmod a+x run.py
+</code></pre>
+
+<p>Then the script can simply be executed as follows:</p>
+
+<pre><code class="language-bash">./run.py
+</code></pre>
+
+<p>On Windows the process is a bit different. There is no need to indicate the file is executable. Instead you have to run the script as an argument to the Python interpreter from the virtual environment:</p>
+
+<pre><code class="language-bash">$ venv\Scripts\python run.py
+</code></pre>
+
+<p>After the server initializes it will listen on port 5000 waiting for connections. Now open up your web browser and enter the following URL in the address field:</p>
+
+<pre><code class="language-bash">http://localhost:5000
+</code></pre>
+
+<p>Alternatively you can use the following URL:</p>
+
+<pre><code class="language-bash">http://localhost:5000/index
+</code></pre>
+
+<p>Do you see the route mappings in action? The first URL maps to /, while the second maps to /index. Both routes are associated with our view function, so they produce the same result. If you enter any other URL you will get an error, since only these two have been defined.</p>
+
+<p>When you are done playing with the server you can just hit Ctrl-C to stop it.</p>
+
+<h1 id="iii-templates:d69f702fbb99284690529847e709cd13">III. Templates</h1>
+
+<p>We have made our webApp running. Now let&rsquo;s try to expand it!</p>
+
+<p>Let&rsquo;s try to combine what we&rsquo;ve learned in our previous DevCamp session/s: HTML and Python.</p>
+
+<p>Copy the following in your <code>views.py</code> file:</p>
+
+<pre><code class="language-python">from app import app
+
+@app.route('/')
+@app.route('/index')
+def index():
+    user = {'nickname': 'Toph'}
+    return '''
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Home Page&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;Hello, ''' + user['nickname'] + '''! Why you so pogi?&lt;h1&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>So what&rsquo;s happening?</p>
+
+<p>First, look at the line <code>user = {'nickname': 'Toph'}</code>. Here we are creating a variable <code>user</code> which is a data structure in Python called a dictionary. Using the key <code>nickname</code>, we can access the value <code>Toph</code>. We can clearly see that in this line:</p>
+
+<pre><code class="language-html">`&lt;h1&gt;Hello, ''' + user['nickname'] + '''! Why you so pogi?&lt;h1&gt;`
+</code></pre>
+
+<p>So what are the <code>'''</code>s for? Well, it&rsquo;s an opening and closing tag for our string (this is in Python). So what&rsquo;s happening is that we are returning an html code represented in the concatenation of the three strings.</p>
+
+<p>You should see something like this:</p>
+
+<p><img src="https://scontent-hkg3-1.xx.fbcdn.net/hphotos-xpa1/v/t34.0-12/12179844_1214551965228502_1186999711_n.jpg?oh=1a8ea1c91c74a332edd886450dce86da&amp;oe=56331D34" alt="SomethinLikeThis" />
+</p>
+
+<p>But. But. But. This is HIDEOUS! It works but this is just fugly. Imagine if you have a more complex HTML code. Just&hellip; NO!</p>
+
+<p>Consider how complex the code will become if you have to return a large and complex HTML page with lots of dynamic content. And what if you need to change the layout of your web site in a large app that has dozens of views, each returning HTML directly? This is clearly not a scalable option. - Grinberg</p>
+
+<p><strong>TEMPLATES TO THE RESCUE SWOOOOOOSH</strong></p>
+
+<p>To solve this, let&rsquo;s try to separate the logic of our application from its layout. This separation is actually common among frameworks. (If you have time, you might want to read about the design pattern <a href="http://c2.com/cgi/wiki?ModelViewController">Model-View-Controller</a>. This is widely implemented in the industry) Templates help implement this separation.</p>
+
+<p>Let&rsquo;s create our first template (file: app/templates/index.html):</p>
+
+<pre><code class="language-python">&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;{{ title }} - microblog&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+      &lt;h1&gt;Hello, {{ user.nickname }}!&lt;/h1&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>As you see above, we just wrote a mostly standard HTML page, with the only difference that there are some placeholders for the dynamic content enclosed in {{ &hellip; }} sections.</p>
+
+<p>Now let&rsquo;s see how we use this template from our view function (file app/views.py):</p>
+
+<pre><code class="language-python">from flask import render_template
+from app import app
+
+@app.route('/')
+@app.route('/index')
+def index():
+    user = {'nickname': 'Toph'}  # Awesome Guy
+    return render_template('index.html',
+                           title='Home',
+                           user=user)
+</code></pre>
+
+<p>Try the application at this point to see how the template works. Once you have the rendered page in your browser you may want to view the source HTML and compare it against the original template.</p>
+
+<p>To render the template we had to import a new function from the Flask framework called <code>render_template</code>. This function takes a template filename and a variable list of template arguments and returns the rendered template, with all the arguments replaced.</p>
+
+<p>Under the covers, the <code>render_template</code> function invokes the Jinja2 templating engine that is part of the Flask framework. Jinja2 substitutes <code>{{...}}</code> blocks with the corresponding values provided as template arguments.</p>
+
+<p>You might want to check out <a href="http://jinja.pocoo.org/">Jinja</a>, a full featured template engine for Python.</p>
+
+<h2 id="control-statements-in-templates:d69f702fbb99284690529847e709cd13">Control Statements in Templates</h2>
+
+<p>Remember control structures? Let&rsquo;s try to apply those <code>if</code>s and <code>else</code>s!
+The Jinja2 templates support control statements, given inside {%&hellip;%} blocks. Let&rsquo;s add an if statement to our template (file app/templates/index.html):</p>
+
+<pre><code class="language-python">&lt;html&gt;
+  &lt;head&gt;
+    {% if title %}
+    &lt;title&gt;{{ title }} - microblog&lt;/title&gt;
+    {% else %}
+    &lt;title&gt;Welcome to microblog&lt;/title&gt;
+    {% endif %}
+  &lt;/head&gt;
+  &lt;body&gt;
+      &lt;h1&gt;Hello, {{ user.nickname }}!&lt;/h1&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>Here our template is a little smarter. If the variable title has been defined (there&rsquo;s an assigned value), then we print it. If not, we just display <code>Welcome to microblog</code>. Try to remove the title argument in the render_template call of our view function to see how the conditional statement works.</p>
+
+<h2 id="loops-in-templates:d69f702fbb99284690529847e709cd13">Loops in Templates</h2>
+
+<p>We can also have loops in our template. Let&rsquo;s make an array of &ldquo;messages&rdquo; in <code>views.py</code> and then using a for loop in our template to show them one by one.</p>
+
+<p>(file app/views.py)</p>
+
+<pre><code class="language-python">from flask import render_template
+from app import app
+
+@app.route('/')
+@app.route('/index')
+def index():
+    user = {'nickname': 'Carl'}
+    posts = [
+                {
+                    'author': {'nickname': 'John'},
+                    'body': 'Lorem ipsum dolor sit amet'
+                },
+                {
+                    'author': {'nickname': 'Carl'},
+                    'body': 'insert random message here'
+                },
+                {
+                    'author': {'nickname': 'Person1'},
+                    'body': 'I like turtles'
+                },
+                {
+                    'author': {'nickname': 'John'},
+                    'body': 'lksadjflknldkjetojeaisldklfbsbnllaksj'
+                }
+            ]
+    return render_template('index.html', title='', user=user, posts=posts)
+</code></pre>
+
+<p>(file app/templates/index.html)</p>
+
+<pre><code class="language-python">&lt;html&gt;
+  &lt;head&gt;
+    {% if title %}
+      &lt;title&gt;{{ title }} - microblog&lt;/title&gt;
+    {% else %}
+      &lt;title&gt;Welcome to microblog&lt;/title&gt;
+    {% endif %}
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello, {{ user.nickname }}&lt;/h1&gt;
+
+    {% for post in posts %}
+    &lt;div&gt;
+      &lt;p&gt;{{ post.author.nickname }} says: &lt;b&gt;{{ post.body }}&lt;/b&gt;&lt;/p&gt;
+    &lt;/div&gt;
+    {% endfor %}
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>This is pretty similar to for loops in python, but keep in mind the <code>{% endfor %}</code>.</p>
+
+<h2 id="template-inheritance:d69f702fbb99284690529847e709cd13">Template Inheritance</h2>
+
+<p>As we add more and more templates to our web app, there will be some parts of the page layout that are common to all files. Instead of copy-pasting them to every html file, let&rsquo;s use Jinja2&rsquo;s template inheritance feature to make a base template that will be added to all our html files. (file app/templates/base.html)</p>
+
+<pre><code class="language-python">&lt;html&gt;
+  &lt;head&gt;
+    {% if title %}
+    &lt;title&gt;{{ title }} - microblog&lt;/title&gt;
+    {% else %}
+    &lt;title&gt;Welcome to microblog&lt;/title&gt;
+    {% endif %}
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div&gt;Microblog: &lt;a href=&quot;/index&quot;&gt;Home&lt;/a&gt;&lt;/div&gt;
+    &lt;hr&gt;
+    {% block content %}{% endblock %}
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>Note the new syntax. We will change <code>index.html</code> so that it will &ldquo;inherit&rdquo; the html code from <code>base.html</code>. (file app/templates/index.html)</p>
+
+<pre><code class="language-python">{% extends &quot;base.html&quot; %}
+{% block content %}
+    &lt;h1&gt;Hi, {{ user.nickname }}!&lt;/h1&gt;
+    {% for post in posts %}
+    &lt;div&gt;&lt;p&gt;{{ post.author.nickname }} says: &lt;b&gt;{{ post.body }}&lt;/b&gt;&lt;/p&gt;&lt;/div&gt;
+    {% endfor %}
+{% endblock %}
+</code></pre>
+
+<p>So far, we&rsquo;ve learned templates and how they interact with Flask. Also, we can now use variables, control statements and loops in html files. Next, we will make a form so users can login to our web app.</p>
+
+<h1 id="web-forms:d69f702fbb99284690529847e709cd13">Web Forms</h1>
+
+<p>We will be using the extension Flask-WTF to handle web forms. Before we can use it, we&rsquo;ll have to make a configuration file in the root folder (file config.py):</p>
+
+<pre><code class="language-python">WTF_CSRF_ENABLED = True
+SECRET_KEY = 'you-will-never-guess'
+</code></pre>
+
+<p>Now we need the app to read and use the config file, by adding one line within app/<strong>init</strong>.py:</p>
+
+<pre><code class="language-python">from flask import Flask
+
+app = Flask(__name__)
+app.config.from_object('config')
+
+from app import views
+</code></pre>
+
+<h2 id="user-login-form:d69f702fbb99284690529847e709cd13">User Login Form</h2>
+
+<p>To create a form, we will make a class LoginForm which will contain the input fields (username and password). Here is the code for the form (file app/forms.py):</p>
+
+<pre><code class="language-python">from flask.ext.wtf import Form
+from wtforms import StringField, PasswordField, validators
+
+class LoginForm(Form):
+    username = StringField(u'Username', [validators.required(), validators.length(max=32, min=6)])
+    password = PasswordField(u'Password', [validators.required(), validators.length(max=32, min=6)])
+</code></pre>
+
+<p>Notice that <code>username</code> is a <code>StringField</code> but <code>password</code> is a <code>PasswordField</code> since we want the password to be displayed as black circles while it&rsquo;s being typed.</p>
+
+<h2 id="form-template:d69f702fbb99284690529847e709cd13">Form template</h2>
+
+<p>We will now create a standard-looking template which will have a username, password, and submit field. (file app/templates/login.html)</p>
+
+<pre><code class="language-python">{% extends &quot;base.html&quot; %}
+{% block content %}
+    &lt;h1&gt;Sign In&lt;/h1&gt;
+    &lt;form action=&quot;&quot; method=&quot;post&quot; name=&quot;login&quot;&gt;
+        {{ form.hidden_tag() }}
+        &lt;p&gt;
+            Username&lt;br&gt;
+            {{ form.username(size=32) }}&lt;br&gt;
+            {% for error in form.username.errors %}
+                &lt;span style=&quot;color: red;&quot;&gt;[{{ error }}]&lt;/span&gt;
+            {% endfor %}&lt;br&gt;
+        &lt;/p&gt;
+        &lt;p&gt;
+            Password&lt;br&gt;
+            {{ form.password(size=32) }}&lt;br&gt;
+            {% for error in form.password.errors %}
+                &lt;span style=&quot;color: red;&quot;&gt;[{{ error }}]&lt;/span&gt;
+            {% endfor %}&lt;br&gt;
+        &lt;/p&gt;
+        &lt;p&gt;&lt;input type=&quot;submit&quot; value=&quot;Sign In&quot;&gt;&lt;/p&gt;
+    &lt;/form&gt;
+{% endblock %}
+</code></pre>
+
+<p>Note that we can also catch and print input errors using a for loop.</p>
+
+<h3 id="form-views:d69f702fbb99284690529847e709cd13">Form Views</h3>
+
+<pre><code class="language-python">from flask import render_template, flash, redirect
+from app import app
+from .forms import LoginForm
+
+@app.route('/')
+@app.route('/index')
+def index():
+    user = {'nickname': 'Juan Dela Cruz'}
+    posts = [
+                {
+                    'author': {'nickname': 'John'},
+                    'body': 'Lorem ipsum dolor sit amet'
+                },
+            ]
+    return render_template('index.html', title='', user=user, posts=posts)
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    form = LoginForm()
+    if form.validate_on_submit():
+        return redirect('/index')
+    return render_template('login.html', title='Sign In', form=form)
+</code></pre>
+
+<p>Now try running the web server then going to <code>localhost:5000/login</code>. Notice that if we enter a username or password that is less than 6 characters or more than 32 characters long, the form outputs an error. Else, it redirects to index, which means the output was valid.</p>
+
+<h1 id="references:d69f702fbb99284690529847e709cd13">References</h1>
+
+<ul>
+<li>General Idea from Miguel Grinberg&rsquo;s <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world">Mega-Tutorial Site</a>.</li>
+</ul>
+</article></div> </div><footer><p>Made with <span class="color-pink">Love</span> &copy; UP CSI</p></footer> <script src="/js/vendor.bundle.js"></script><script src="/js/main.bundle.js"></script> <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', "UA-69207349-1", 'auto');
+  ga('send', 'pageview');
+</script> </body></html>

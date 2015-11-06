@@ -1,0 +1,547 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us"><head><link href="http://gmpg.org/xfn/11" rel="profile"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1"><title>Python/CGI</title><link rel="stylesheet" href="/css/main.css"> <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png"><link href="/favicon.png" rel="icon"><link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'><link href="http://fonts.googleapis.com/css?family=Roboto+Slab:300" rel="stylesheet" type="text/css"><link href="" rel="alternate" type="application/rss+xml" title="UP CSI Devcamp &middot; "/><meta name="description" content="CSI Devcamp provides a space and network for motivated students to learn and create awesome stuff"><meta name="keywords" content="Devcamp, UP, CSI, Computer, Science, UP CSI Devcamp, Bootcamp, Mentorship, Mentor, Mentee"> </head><body> <header><h1><a href="/"><span class="color-csi">UP CSI</span> Devcamp</a></h1><nav><ul><li> <a href="/resources">Resources</a></li><li> <a href="/tracks">Tracks</a></li></ul></nav></header><div class="main-wrapper">   <div class="content container"><article class="post"> <h1 class="post-title"> <a href="/tracks/web">Web</a> Track: Python/CGI</h1> <span class="post-by"> by: <span class="author-name"><a class="label" href="/authors/arian">Arian Allenson M. Valdez</a></span> </span> <h1>Table of Contents</h1><div class="toc"> <nav id="TableOfContents">
+<ul>
+<li><a href="#python-basics:47707461bb957bc18ae050959e2ee003">Python Basics</a></li>
+<li><a href="#a-programming-language-for-the-web:47707461bb957bc18ae050959e2ee003">A Programming Language for the Web</a>
+<ul>
+<li><a href="#forms-and-cgi:47707461bb957bc18ae050959e2ee003">Forms and CGI</a></li>
+</ul></li>
+</ul>
+</nav></div>  
+
+<h1 id="python-basics:47707461bb957bc18ae050959e2ee003">Python Basics</h1>
+
+<p>We went off last time learning a new language, HTML, a markup language used to make webpages. Using Cascading Style Sheets (CSS), we designed webpages to create your very own <a href="15a-project1.md">landing page</a>.</p>
+
+<p>One thing to note about the languages we learned last time is that neither of them are programming languages - neither of them have logical constructs that we are comfortable with (<code>if</code>, <code>for</code>, etc). This time, we&rsquo;ll learn an actual programming language, Python.</p>
+
+<p>The difference between <em>static</em> webpages (like your landing page) and a <em>dynamic</em> webpage (like, say twitter) is that the latter changes - indeed, twitter&rsquo;s homepage would change depending on the new tweets. How would we create something like twitter using HTML? Would we simply create a <strong>new</strong> HTML page for every single update we have?</p>
+
+<p>Well, we could do that, but we could do a little bit smarter. Instead of typing our HTML page for every twitter user&rsquo;s page, we can use a programming language (such as Python) to <em>dynamically</em> create webpages for us. Since we know that an HTML page is just a big bunch of text (which in turn, is just a string) we can actually use the very simple function <code>print</code> to generate webpages in python!</p>
+
+<p>Python is an interpreted language, meaning our source code is run as-is by our interpreter without compilation.</p>
+
+<p>Go ahead and try creating a new python file. Open a terminal, and type in <code>atom hello.py</code>:</p>
+
+<pre><code class="language-python">print(&quot;hello, world&quot;)
+</code></pre>
+
+<p>We can then now do <code>python3 hello.py</code> (or just <code>python hello.py</code>) to run it. If you see &ldquo;hello, world&rdquo; then congrats, you&rsquo;ve successfully created a python program!</p>
+
+<p>Of course, let&rsquo;s do something more interesting now than just printing hello world. Turns out we can forgo without typing <code>python</code> explicitly by using what&rsquo;s called a <code>shebang</code> line. Create a new file, and instead of naming it <code>hello.py</code>, just name it as <code>hello</code>:</p>
+
+<pre><code class="language-python">#!/usr/bin/python
+print(&quot;hello, world&quot;)
+</code></pre>
+
+<p>The 1st line <code>#!/usr/bin/python</code> is what&rsquo;s called a shebang line. It tells our operating system what interpreter to use to run our program. Note that it just details the path to our interpreter, so on Windows, a shebang line might look something like this:</p>
+
+<p><em>Windows</em></p>
+
+<pre><code class="language-python">#!C:\Python34\python.exe
+print(&quot;hello, world&quot;)
+</code></pre>
+
+<p>Save this file (again, just as <code>hello</code> without a file extension). Then, run it in our terminal window:</p>
+
+<pre><code class="language-bash">~: ./hello
+permission denied: ./hello
+</code></pre>
+
+<p>You&rsquo;re most likely going to see a &ldquo;Permission denied&rdquo; error if you try to run your program like so. Turns out operating systems don&rsquo;t run executables willy-nilly (for good reason, it ensures only trusted files can run) and we need to set our file as executable.</p>
+
+<p>We can fix this by using <code>chmod</code>, which <em>Changes the mode</em> of our file. Let&rsquo;s allow everyone to be able to execute the file:</p>
+
+<pre><code class="language-bash">~: chmod a+x hello
+~: ./hello
+hello, world
+</code></pre>
+
+<p>Our program now runs as expected.</p>
+
+<p><em>Windows</em></p>
+
+<p>On windows, we use the <code>icalcs</code> utility to achieve the same effect:</p>
+
+<pre><code class="language-bash">~: icacls hello /g everyone:F
+~: ./hello
+hello, world
+</code></pre>
+
+<p>To understand python more, feel free to peruse this <a href="/resources/python">tutorial</a> by Dominic.</p>
+
+<h1 id="a-programming-language-for-the-web:47707461bb957bc18ae050959e2ee003">A Programming Language for the Web</h1>
+
+<p>Now that you have a good understanding of python, let&rsquo;s try using it to generate web content.</p>
+
+<p><div class="notice notice-"> <h3 id="notice-you-can-grab-this-week-s-distribution-code-here-https-github-com-secretmapper-updevcamp-session-2-dist:47707461bb957bc18ae050959e2ee003">Notice: You can grab this week&rsquo;s distribution code here: <a href="https://github.com/Secretmapper/updevcamp-session-2-dist">https://github.com/Secretmapper/updevcamp-session-2-dist</a></h3>
+
+<h3 id="you-can-click-the-download-zip-button-to-download-the-files:47707461bb957bc18ae050959e2ee003">You can click the &ldquo;Download ZIP&rdquo; button to download the files.</h3>
+</div></p>
+
+<h2 id="forms-and-cgi:47707461bb957bc18ae050959e2ee003">Forms and CGI</h2>
+
+<p>For years, UP Diliman has been using it&rsquo;s homegrown registration system <a href="https://crs.upd.edu.ph">(CRS)</a> for registering classes. Students need not to fill out paper forms anymore, and slots for classes are assigned automatically in what&rsquo;s known as batch runs. In 2013, (or some year around that) UP decided to change the fully functional CRS to the abhorrent looking <a href="https://sais.up.edu.ph/">UP SAIS</a>.</p>
+
+<p>
+<figure >
+    
+        <img src="/media/tracks/web/sais.png" alt="Bask in the site&#39;s design!" />
+    
+    
+    <figcaption>
+        <p>
+        Bask in the site&#39;s design!
+        
+            
+        
+        </p> 
+    </figcaption>
+    
+</figure>
+</p>
+
+<p>Your landing page designs probably look better.</p>
+
+<p>Anyway, here we&rsquo;ve recreated a simple Class Registration website to mimic a simple &lsquo;registration system&rsquo;. Let&rsquo;s take a look at <code>crs.py</code>:</p>
+
+<p>
+<figure >
+    
+        <img src="/media/tracks/web/crs-reg.png" />
+    
+    
+</figure>
+</p>
+
+<p>Notice that it has a simple form that allows us to take input. Let&rsquo;s try filling out the form and see what happens.</p>
+
+<p>
+<figure >
+    
+        <img src="/media/tracks/web/crs-reg2.png" />
+    
+    
+</figure>
+</p>
+
+<ul>
+<li>First thing to note is the URL has changed - from <code>crs.py</code>, it went to <code>register.py</code>.</li>
+<li>The page seems to have known our input and showed it on the page.</li>
+<li>Also notice that our URL doesn&rsquo;t include queries as strings (like <code>?q=bunny</code> in our last session&rsquo;s example)</li>
+</ul>
+
+<p>So let&rsquo;s go ahead and take a look at the source code for <code>crs-reg.py</code>:</p>
+
+<pre><code class="language-python">#!/usr/local/bin/python3
+import cgi
+
+print(&quot;Content-type: text/html&quot;)
+
+print('''
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;title&gt;&lt;/title&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;/pure.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Class Registration&lt;/h1&gt;
+  &lt;form action=&quot;register.py&quot; method=&quot;POST&quot; class=&quot;pure-form pure-form-stacked&quot;&gt;
+    &lt;label&gt;Name&lt;/label&gt;
+    &lt;input type=&quot;text&quot; name=&quot;name&quot;/&gt;
+    &lt;label&gt;Class&lt;/label&gt;
+    &lt;select name=&quot;class&quot;&gt;
+      &lt;option value=&quot;&quot;&gt;&lt;/option&gt;
+      &lt;option value=&quot;CS 11&quot;&gt;CS 11&lt;/option&gt;
+      &lt;option value=&quot;CS 21&quot;&gt;CS 21&lt;/option&gt;
+      &lt;option value=&quot;CS 32&quot;&gt;CS 32&lt;/option&gt;
+    &lt;/select&gt;
+    &lt;input type=&quot;submit&quot; value=&quot;Go&quot; class=&quot;pure-button pure-button-primary&quot;/&gt;
+  &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+''')
+</code></pre>
+
+<p>Welp! Apart from the first three lines, it&rsquo;s actually just one BIG print statement that just prints our html page. Let&rsquo;s take it in line by line:</p>
+
+<pre><code class="language-python">#!/usr/local/bin/python3
+</code></pre>
+
+<p>This is a shebang line that we&rsquo;ve introduced a while ago.</p>
+
+<pre><code class="language-python">import cgi
+</code></pre>
+
+<p>This is new. <code>import</code> is like C&rsquo;s <code>require</code> in that it allows us to &lsquo;copy-paste&rsquo; previously written code to our current file.</p>
+
+<p>It turns out that <code>cgi</code> (Common Gateway Interface) is an environment for web servers to interface with executable programs installed on a server. In simple terms, while an <code>HTTP</code> server handles HTTP requests (by say returning an HTML file), <code>CGI</code> allows our http server to run executable programs (in this case, python) to dynamically create our HTTP response.</p>
+
+<pre><code class="language-python">print(&quot;Content-type: text/html&quot;)
+</code></pre>
+
+<p>The third line just prints our header, telling the browser that, &ldquo;Browser, get ready, I&rsquo;m about to send you an HTML file&rdquo;</p>
+
+<p>And indeed, the big remaining print statement just prints our HTML file.</p>
+
+<p>You can try running <code>crs.py</code> on your computer. Go ahead and navigate to the distribution code in your terminal. <code>cd</code> into the form folder, and you should see a <code>cgi-bin</code> folder inside of it, as well as a <code>pure.css</code> file.</p>
+
+<p>As we&rsquo;ve used last time to spawn an <code>http</code> server, we can use python to spawn a <code>cgi</code> server. Go ahead and run the following in your terminal (make sure you are in the <code>form</code> folder!)</p>
+
+<pre><code class="language-bash">~: python -m http.server --cgi
+</code></pre>
+
+<p><em>(Remember that python could be python3 in your machine)</em></p>
+
+<p>This will spawn a CGI capable server on your machine.</p>
+
+<p>
+<figure >
+    
+        <img src="/media/tracks/web/cgi.png" />
+    
+    
+</figure>
+</p>
+
+<p>Go head to <code>localhost:8000</code> on chrome, and you should see the following page:</p>
+
+<p>
+<figure >
+    
+        <img src="/media/tracks/web/dir-list.png" />
+    
+    
+</figure>
+</p>
+
+<p>So it just shows us a directory listing of our folder, showing the files where we ran our http server. Navigate to <code>cgi-bin</code> by clicking the link. You should now see an ugly page that details &ldquo;Error response&rdquo; 403.</p>
+
+<p>Turns out a cgi server is a bit dumb in that it can&rsquo;t automatically route pages itself, and that we need to explicitly type the page we&rsquo;re interested in. Since we know from our file that the page we&rsquo;re looking for is named <code>crs.py</code>, we can go to that page by typing in the URL:</p>
+
+<p><code>localhost:8000/cgi-bin/crs.py</code></p>
+
+<p>Once there, you should see another Permission Denied 403 error. Don&rsquo;t lose heart, we&rsquo;re in the home stretch! We&rsquo;ve already faced a &ldquo;permission denied&rdquo; error before, and we can fix it via the same way. Open your terminal (create a new tab so that you don&rsquo;t have to renavigate to the directory), and run <code>chmod</code> or <code>icacls</code> again. Consult how we did it earlier.</p>
+
+<p>Since we will want to run all the files in the distribution code, it might be better to give permission to all the files in the folder. We can to that by typing:</p>
+
+<pre><code class="language-bash">chmod -R a+x *
+</code></pre>
+
+<p>We add the <code>-R</code> flag (recursive) to recursively <code>chmod</code> all files within the directory.</p>
+
+<p>On windows, we can achieve the same thing with:</p>
+
+<pre><code class="language-bash">icalcs 'cgi-bin\*' /t /g everyone:F
+</code></pre>
+
+<p>Once you&rsquo;ve run this command, navigate to <code>localhost:8000/cgi-bin/crs.py</code> again, and you should see the same registration page that we had earlier. Try sending a form request yourself, and play around with the page.</p>
+
+<p>Let&rsquo;s investigate the html file that&rsquo;s being printed by our python file.</p>
+
+<pre><code class="language-html">print('''
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;title&gt;&lt;/title&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;/pure.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Class Registration&lt;/h1&gt;
+  &lt;form action=&quot;register.py&quot; method=&quot;POST&quot; class=&quot;pure-form pure-form-stacked&quot;&gt;
+    &lt;label&gt;Name&lt;/label&gt;
+    &lt;input type=&quot;text&quot; name=&quot;name&quot;/&gt;
+    &lt;label&gt;Class&lt;/label&gt;
+    &lt;select name=&quot;class&quot;&gt;
+      &lt;option value=&quot;&quot;&gt;&lt;/option&gt;
+      &lt;option value=&quot;CS 11&quot;&gt;CS 11&lt;/option&gt;
+      &lt;option value=&quot;CS 21&quot;&gt;CS 21&lt;/option&gt;
+      &lt;option value=&quot;CS 32&quot;&gt;CS 32&lt;/option&gt;
+    &lt;/select&gt;
+    &lt;input type=&quot;submit&quot; value=&quot;Go&quot; class=&quot;pure-button pure-button-primary&quot;/&gt;
+  &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+''')
+</code></pre>
+
+<p>This is our generic HTML page, but what&rsquo;s interesting is line 10, which is a form action that sends the information to &ldquo;register.py&rdquo; with a <code>post</code> method. <code>get</code> puts our parameters in the URL, <code>post</code> sends it without adding it in the URL.</p>
+
+<p>Since we now know that <code>register.py</code> is where our information is send, let&rsquo;s look at that next:</p>
+
+<pre><code class="language-python">#!/usr/local/bin/python3
+import cgi
+print(&quot;Content-type: text/html&quot;)
+
+form = cgi.FieldStorage()
+
+print('''
+&lt;html&gt;
+    &lt;head&gt;
+      &lt;title&gt;CSI CGI&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+''')
+
+print(&quot;&lt;p&gt;Form&lt;/p&gt;&quot;)
+print(&quot;&lt;pre&gt;&quot;)
+for key in form.keys():
+    value = form.getvalue(str(key))
+    print(key)
+    print(value)
+    print(&quot;\n&quot;)
+print(&quot;&lt;/pre&gt;&quot;)
+
+print('''
+    &lt;/body&gt;
+&lt;/html&gt;
+''')
+</code></pre>
+
+<p>Again, our first three lines is our <code>shebang</code>, <code>import</code>, and <code>content type</code> statements, just like in our <code>crs.py</code>. Turns out that we need them to generate cgi capable scripts.</p>
+
+<p>Line 9 has something interesting.</p>
+
+<pre><code class="language-python">form = cgi.FieldStorage()
+</code></pre>
+
+<p>So we seem to be calling a method &lsquo;FieldStorage()&rsquo; from <code>cgi</code>. <code>FieldStorage()</code> is a <a href="http://www.tutorialspoint.com/python/python_dictionary.htm">dictionary</a> (something akin to a hash table) that contains the data that has been sent through <code>POST</code>/<code>GET</code> requests.</p>
+
+<pre><code class="language-python">print('''
+&lt;html&gt;
+    &lt;head&gt;
+      &lt;title&gt;CSI CGI&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+''')
+</code></pre>
+
+<p>Here we seem to be printing a cut off HTML page! Indeed, we are only printing the head elements, as well as the opening body tag. Turns out we&rsquo;ll be printing the content <em>dynamically</em> next:</p>
+
+<pre><code class="language-python">print(&quot;&lt;p&gt;Form&lt;/p&gt;&quot;)
+print(&quot;&lt;pre&gt;&quot;)
+for key in form.keys():
+    value = form.getvalue(str(key))
+    print(key)
+    print(value)
+    print(&quot;\n&quot;)
+print(&quot;&lt;/pre&gt;&quot;)
+</code></pre>
+
+<p>We&rsquo;re printing a few HTML tags, but notice that we&rsquo;re also using a <code>for loop</code> to loop over our <code>form.keys()</code>. Notice how we now effectively introduced programming constructs in HTML (or more accurately, use a programming language to generate our html page)</p>
+
+<p>So indeed, <code>form.keys()</code> just returns an array containing the keys of our form. We iterate over it (with <code>for key in form.keys()</code>) and get the value with <code>form.getvalue(str(key))</code>, and then print the key, value pair. This image should show the correspondence between our code and the output:</p>
+
+<p>
+<figure >
+    
+        <img src="/media/tracks/web/crs-reg3.png" />
+    
+    
+</figure>
+</p>
+
+<p>One thing you should notice (as you&rsquo;ve seen the source code) is that <code>register.py</code> just acceps the form input and prints it out, without validating anything. Try &lsquo;registering&rsquo; without a name, and you&rsquo;ll see the page without a name!</p>
+
+<p>We&rsquo;ve created a smarter version of the page with <code>crs2.py</code>. Navigate there through:</p>
+
+<p><code>http://localhost:8000/cgi-bin/crs2.py</code></p>
+
+<p>It&rsquo;s the same page, and if you try to register, it will do the same thing. However try &lsquo;registering&rsquo; with one empty input, and you&rsquo;ll get <em>invalid input</em> as the message back!</p>
+
+<p>If you open up <code>crs2.py</code>, you&rsquo;ll see that it&rsquo;s largely the same as <code>crs.py</code>, but with the form action sent to <code>register2.py</code>. So let&rsquo;s open up that file:</p>
+
+<pre><code class="language-python">#!/usr/local/bin/python3
+import cgi
+print(&quot;Content-type: text/html&quot;)
+
+form = cgi.FieldStorage()
+
+print('''
+&lt;html&gt;
+    &lt;head&gt;
+      &lt;title&gt;CSI CGI&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+''')
+
+
+if('name' in form and 'class' in form):
+    print(&quot;&lt;p&gt;Right Form&lt;/p&gt;&quot;)
+    print(&quot;&lt;pre&gt;&quot;)
+    for key in form.keys():
+        value = form.getvalue(str(key))
+        print(key)
+        print(value)
+        print(&quot;\n&quot;)
+    print(&quot;&lt;/pre&gt;&quot;)
+else:
+    print('invalid input!')
+
+print('''
+    &lt;/body&gt;
+&lt;/html&gt;
+''')
+</code></pre>
+
+<p>It&rsquo;s largely the same page, but note that we&rsquo;ve introduced an if statement. Indeed, we are now checking if both the name and the class is in the form on line 16, and only then do we print the form! Else, we print <em>invalid input</em></p>
+
+<ul>
+<li>Note that checking if something is in an array in python is terribly easy: we use the <code>in</code> operator. So in this case, we do, <code>'name' in form</code> to check if the key exists in our form.</li>
+</ul>
+
+<p>Let&rsquo;s now go to <code>crs3.py</code> which is our last example for this. Try registering, and you&rsquo;ll note that somehow, the result look of the page has changed:</p>
+
+<p>
+<figure >
+    
+        <img src="/media/tracks/web/crs-reg4.png" />
+    
+    
+</figure>
+</p>
+
+<p>Indeed, more interestingly, the url of our page still says <code>crs3.py</code> - it seems that we have not redirected to any other page! If we now try to submit an invalid input, we see a much better looking page:</p>
+
+<p>
+<figure >
+    
+        <img src="/media/tracks/web/crs-reg5.png" />
+    
+    
+</figure>
+</p>
+
+<p>So it seems that our page is doing some pretty nifty stuff now! Let&rsquo;s take a look at how it works and open crs3.py:</p>
+
+<pre><code class="language-python">#!/usr/local/bin/python3
+import cgi
+import os
+
+form = cgi.FieldStorage()
+
+print(&quot;Content-type: text/html&quot;)
+
+# print out our head
+print('''
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;title&gt;&lt;/title&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;/pure.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;''')
+
+# if we have the name and class in our parameters,
+# then we know it's a successful form
+if('name' in form and 'class' in form):
+    print(&quot;&lt;p&gt;Right Form&lt;/p&gt;&quot;)
+    print(&quot;&lt;pre&gt;&quot;)
+    for key in form.keys():
+        value = form.getvalue(str(key))
+        print(key)
+        print(value)
+        print(&quot;\n&quot;)
+    print(&quot;&lt;/pre&gt;&quot;)
+else: #else
+    warning = ''
+    if os.environ['REQUEST_METHOD'] == 'POST':
+        # let's set a warning if we have a post request
+        # and have no form input
+        warning = '&lt;div class=&quot;warning&quot;&gt;Your form is invalid!&lt;/div&gt;'
+    print('''
+      &lt;h1&gt;Class Registration&lt;/h1&gt;
+      &lt;div&gt;''', warning, '''
+      &lt;form action=&quot;crs3.py&quot; method=&quot;POST&quot; class=&quot;pure-form pure-form-stacked&quot;&gt;
+        &lt;label&gt;Name&lt;/label&gt;
+        &lt;input type=&quot;text&quot; name=&quot;name&quot;/&gt;
+        &lt;label&gt;Class&lt;/label&gt;
+        &lt;select name=&quot;class&quot;&gt;
+          &lt;option value=&quot;&quot;&gt;&lt;/option&gt;
+          &lt;option value=&quot;CS 11&quot;&gt;CS 11&lt;/option&gt;
+          &lt;option value=&quot;CS 21&quot;&gt;CS 21&lt;/option&gt;
+          &lt;option value=&quot;CS 32&quot;&gt;CS 32&lt;/option&gt;
+        &lt;/select&gt;
+        &lt;input type=&quot;submit&quot; value=&quot;Go&quot; class=&quot;pure-button pure-button-primary&quot;/&gt;
+      &lt;/form&gt;
+    ''')
+
+#print our our 'footer'
+print('''
+&lt;/body&gt;
+&lt;/html&gt;
+''')
+</code></pre>
+
+<p>Ok, this is a lot to take in! Let&rsquo;s take it chunk by chunk again</p>
+
+<pre><code class="language-python">#!/usr/local/bin/python3
+import cgi
+import os
+
+form = cgi.FieldStorage()
+
+print(&quot;Content-type: text/html&quot;)
+
+# print out our head
+print('''
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;title&gt;&lt;/title&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;/pure.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;''')
+</code></pre>
+
+<p>It seems that our first lines just &lsquo;opens&rsquo; our html page like before.</p>
+
+<pre><code class="language-python"># if we have the name and class in our parameters,
+# then we know it's a successful form
+if('name' in form and 'class' in form):
+    print(&quot;&lt;p&gt;Right Form&lt;/p&gt;&quot;)
+    print(&quot;&lt;pre&gt;&quot;)
+    for key in form.keys():
+        value = form.getvalue(str(key))
+        print(key)
+        print(value)
+        print(&quot;\n&quot;)
+    print(&quot;&lt;/pre&gt;&quot;)
+</code></pre>
+
+<p>Now we have something that looks rather new. We&rsquo;ve actually embedded our if statement on the page itself (notice that previously, they have been at <code>register.py</code> files. This allows us to actually print the data on the same page (hence why it doesn&rsquo;t change from <code>crs3.py</code>, the handler of the form is the same page!</p>
+
+<pre><code class="language-python">else: #else
+    warning = ''
+    if os.environ['REQUEST_METHOD'] == 'POST':
+        # let's set a warning if we have a post request
+        # and have no form input
+        warning = '&lt;div class=&quot;warning&quot;&gt;Your form is invalid!&lt;/div&gt;'
+    print('''
+      &lt;h1&gt;Class Registration&lt;/h1&gt;
+      &lt;div&gt;''', warning, '''
+      &lt;form action=&quot;crs3.py&quot; method=&quot;POST&quot; class=&quot;pure-form pure-form-stacked&quot;&gt;
+        &lt;label&gt;Name&lt;/label&gt;
+        &lt;input type=&quot;text&quot; name=&quot;name&quot;/&gt;
+        &lt;label&gt;Class&lt;/label&gt;
+        &lt;select name=&quot;class&quot;&gt;
+          &lt;option value=&quot;&quot;&gt;&lt;/option&gt;
+          &lt;option value=&quot;CS 11&quot;&gt;CS 11&lt;/option&gt;
+          &lt;option value=&quot;CS 21&quot;&gt;CS 21&lt;/option&gt;
+          &lt;option value=&quot;CS 32&quot;&gt;CS 32&lt;/option&gt;
+        &lt;/select&gt;
+        &lt;input type=&quot;submit&quot; value=&quot;Go&quot; class=&quot;pure-button pure-button-primary&quot;/&gt;
+      &lt;/form&gt;
+    ''')
+</code></pre>
+
+<p>Our else statement is the content of our html page, with an added <code>warning</code> variable. Line 3 suggests that we&rsquo;re checking the &lsquo;REQUEST_METHOD&rsquo;, and if it is post, we are setting the warning variable to our error message. Indeed, it will only be set if our form is invalid, producing the effect we see on the page.</p>
+</article></div> </div><footer><p>Made with <span class="color-pink">Love</span> &copy; UP CSI</p></footer> <script src="/js/vendor.bundle.js"></script><script src="/js/main.bundle.js"></script> <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', "UA-69207349-1", 'auto');
+  ga('send', 'pageview');
+</script> </body></html>
