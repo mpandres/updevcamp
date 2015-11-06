@@ -52,6 +52,12 @@ Let's go ahead and take a look at the code you've cloned.
 
 Navigate over to the distribution code. You'll note that there are a couple of top level files.
 
+{{% notice info %}}
+
+### You can see a live demo of the [site here](http://csitwit.herokuapp.com/). Go ahead and play around with it, so that you'll have an idea of what you're about to create!
+
+{{% /notice %}}
+
 ## \__init__.py
 
 Seems to be an empty file. An \__init__.py just defines a python folder as a package/module - you can ignore it for now.
@@ -288,6 +294,8 @@ While the syntax might seem a bit cryptic, note that the first three `create` bl
 
 # What to Do
 
+*Make sure to use git (just like last time) to save and commit your files*
+
 So it turns out that our schema is just that, a schema - and our actual database is still empty. Thankfully, we can apply the schema to our database through flask. Open up a terminal and run the following command:
 
 ~~~bash
@@ -501,6 +509,6 @@ To consider it done, check your app for a bit:
 
 # How to Submit
 
-Once you have the site done, let's get it online (again) so that you can share it with everyone! (Welp, todo :P)
+Once you have the site done, it's time to submit it! This time, push it to github (just like project 1) but without the need to create a `gh-pages` branch.
 
 Finally, head over again to [http://submit.updevcamp.com](http://submit.updevcamp.com) where a short form awaits. Once you've submitted the form and the source code, you are done!
