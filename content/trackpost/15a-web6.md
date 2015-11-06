@@ -1,10 +1,11 @@
-# flash-flask: get started with flask
-
-```
++++
 date = "2015-02-10T02:11:02+08:00"
 title = "Learn Flask"
 authors = ["toph", "carl"]
-```
+
++++
+
+# flash-flask: get started with flask
 
 In this guide, we’ll cover installing Flask and using it for the first time. Flask is a back-end framework that we will be using alongside HTML and CSS. Contrary to to the front end, which is basically what the client sees, the back end consists of the internal mechanisms of a website, which handles stuff like input from the client.
 
@@ -15,18 +16,6 @@ After completing this tutorial, you will be able to:
 
 This guide is based directly from the awesome and concise guides provided by [Flask Documentation](http://flask.pocoo.org/docs/0.10/) and [Miguel Grinberg](http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world). These guides have been merged and modified for UP CSI Devcamp 2015.
 
-```
-Guide Outline:
-Foreword
-I. Installing Flask
-  A. Linux Guide
-  B. Windows Guide  
-II. Hello World in Flask
-III. Templates
-  A. Control Statements in Templates
-  B. Loops in Templates
-  C. Template Inheritance
-```
 
 ## Foreword: Why Flask?
 Why flask? Why study a microframework if I could just study real `frameworks` such as Django? Why should I waste my time learning Flask?
